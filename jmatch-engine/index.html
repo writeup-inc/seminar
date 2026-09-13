@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="補助金・融資・税制優遇の情報を見逃さず、AIとの対話で次の一手を考える。JマッチエンジンのZoomオンラインミニセミナーです。">
+  <meta name="description" content="補助金・融資・税制優遇の情報を見逃さず、AIとの対話で次の一手を考える。Jマッチエンジンのオンラインセミナーアーカイブです。">
   <meta name="theme-color" content="#123d36">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="Jマッチエンジン">
   <meta property="og:title" content="補助金だけを待たない。経営力とAI力を育てる。｜Jマッチエンジン オンラインセミナー">
-  <meta property="og:description" content="補助金・融資・税制優遇の情報を受け取り、AIと考え、次の一手を習慣にする。Zoomで管理画面をお見せします。">
+  <meta property="og:description" content="補助金・融資・税制優遇の情報を受け取り、AIと考え、次の一手を習慣にする。アーカイブ動画で管理画面をご紹介します。">
   <meta property="og:url" content="https://writeup-inc.github.io/seminar/jmatch-engine/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://writeup-inc.github.io/seminar/jmatch-engine/">
@@ -35,14 +35,14 @@
       --sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
       --serif: "Noto Serif JP", "Hiragino Mincho ProN", serif;
       --wrap: 1200px;
-      --fixed-cta-h: 0px;
+      --floating-cta-h: 0px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; overflow-x: clip; }
     body {
       margin: 0;
-      padding-bottom: calc(var(--fixed-cta-h) + env(safe-area-inset-bottom));
+      padding-bottom: calc(var(--floating-cta-h) + env(safe-area-inset-bottom));
       color: var(--ink);
       background: var(--paper);
       font-family: var(--sans);
@@ -95,10 +95,10 @@
     .head-nav a { color: rgba(255,255,255,.76); font-size: 13px; font-weight: 700; text-decoration: none; }
     .head-nav a:last-child { padding: 7px 13px; border: 1px solid rgba(255,255,255,.45); color: #fff; }
 
-    .hero { position: relative; overflow: hidden; color: #fff; background: var(--green); }
+    .hero { position: relative; overflow: hidden; padding: 0; color: #fff; background: var(--green); }
     .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(18,61,54,.98) 0%, rgba(18,61,54,.89) 50%, rgba(18,61,54,.14) 100%); }
     .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center right; opacity: .88; }
-    .hero .wrap { position: relative; z-index: 1; min-height: 720px; padding-top: clamp(72px, 10vw, 142px); padding-bottom: 72px; }
+    .hero .wrap { position: relative; z-index: 1; min-height: 610px; padding-top: clamp(38px, 5vw, 66px); padding-bottom: 68px; }
     .hero .eyebrow { color: var(--yellow); }
     .hero h1 { max-width: 13em; margin: 20px 0 20px; font-family: var(--serif); font-size: clamp(40px, 6.5vw, 86px); font-weight: 700; letter-spacing: -.065em; line-height: 1.17; }
     .type-row { display: block; min-height: 1.45em; color: var(--yellow); font-family: var(--sans); font-size: .75em; font-weight: 900; letter-spacing: -.04em; }
@@ -218,11 +218,11 @@
     footer a { color: inherit; }
 
     @media (max-width: 820px) {
-      :root { --fixed-cta-h: 70px; }
+      :root { --floating-cta-h: 70px; }
       .wrap { width: min(var(--wrap), calc(100% - 40px)); }
       .head-nav a:first-child { display: none; }
       .hero::after { background: linear-gradient(90deg, rgba(18,61,54,.98) 0%, rgba(18,61,54,.88) 75%, rgba(18,61,54,.58) 100%); }
-      .hero .wrap { min-height: 640px; }
+      .hero .wrap { min-height: 560px; }
       .quick .wrap, .section-top, .story-head, .habit-layout, .demo-grid { grid-template-columns: 1fr; }
       .quick .wrap { border-top: 1px solid var(--line); }
       .quick-item, .quick-item:first-child { border-left: 0; border-bottom: 1px solid var(--line); }
@@ -234,7 +234,6 @@
       .story-panel:nth-child(3) img { object-position: center; }
       .power-grid { grid-template-columns: 1fr; }
       .demo-photo { order: 2; }
-      .fixed-cta { display: flex; }
     }
     @media (max-width: 540px) {
       .hero h1 { font-size: clamp(38px, 11vw, 52px); }
@@ -247,9 +246,46 @@
       .story-tab { flex: none; }
       .agenda li { grid-template-columns: 64px 1fr; gap: 10px; }
     }
-    .fixed-cta { display: none; position: fixed; z-index: 40; right: 0; bottom: 0; left: 0; min-height: var(--fixed-cta-h); padding: 10px 14px max(10px, env(safe-area-inset-bottom)); background: rgba(18,61,54,.97); }
-    .fixed-cta .button { width: 100%; min-height: 49px; border-color: var(--yellow); background: var(--yellow); color: var(--green); }
-    @media (max-width: 820px) { .fixed-cta { display: flex; } }
+    .archive-float {
+      --float-lift: 0px;
+      position: fixed;
+      z-index: 40;
+      right: clamp(18px, 3vw, 42px);
+      bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-height: 64px;
+      padding: 10px 18px 10px 13px;
+      border: 1px solid rgba(255,255,255,.72);
+      border-bottom: 5px solid #09231f;
+      border-radius: 4px;
+      background: linear-gradient(145deg, #f8db7f 0%, #f6c85f 62%, #e5a73b 100%);
+      box-shadow: 0 14px 0 rgba(9,35,31,.45), 0 24px 35px rgba(6,27,23,.24), inset 0 1px 0 rgba(255,255,255,.65);
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1.38;
+      letter-spacing: .01em;
+      text-decoration: none;
+      transform: translateY(calc(var(--float-lift) * -1));
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+    .archive-float:hover { filter: brightness(1.04) saturate(1.06); box-shadow: 0 17px 0 rgba(9,35,31,.46), 0 28px 38px rgba(6,27,23,.28), inset 0 1px 0 rgba(255,255,255,.72); }
+    .archive-float:active { border-bottom-width: 2px; transform: translateY(calc(var(--float-lift) * -1 + 5px)); box-shadow: 0 5px 0 rgba(9,35,31,.45), 0 10px 20px rgba(6,27,23,.2), inset 0 1px 0 rgba(255,255,255,.55); }
+    .archive-float-icon { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 50%; background: var(--green); color: var(--yellow); font-size: 13px; }
+    .archive-float small { display: block; color: rgba(18,61,54,.72); font-family: var(--mono); font-size: 9px; font-weight: 500; letter-spacing: .07em; }
+    .archive { color: #fff; background: #112d28; }
+    .archive-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(30px, 6vw, 84px); align-items: center; }
+    .archive .eyebrow { color: var(--yellow); }
+    .archive h2 { margin: 16px 0; font-family: var(--serif); font-size: clamp(32px, 4.4vw, 60px); font-weight: 700; letter-spacing: -.06em; line-height: 1.32; }
+    .archive p { max-width: 37em; margin: 0; color: rgba(255,255,255,.76); font-size: 16px; }
+    .archive-screen { position: relative; display: grid; min-height: 310px; place-items: center; overflow: hidden; border: 1px solid rgba(255,255,255,.24); background: linear-gradient(135deg, #1e5248, #0a201c); }
+    .archive-screen::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(246,200,95,.32); }
+    .archive-screen::after { content: "ARCHIVE / VIDEO"; position: absolute; right: 20px; bottom: 16px; color: rgba(255,255,255,.48); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
+    .play-mark { position: relative; z-index: 1; display: grid; width: 92px; height: 92px; place-items: center; border-radius: 50%; border: 1px solid var(--yellow); color: var(--yellow); font-size: 29px; }
+    .archive-status { margin-top: 22px !important; color: var(--yellow) !important; font-family: var(--mono); font-size: 12px !important; }
+    @media (max-width: 820px) { .archive-float { right: 12px; bottom: 10px; left: 12px; justify-content: center; min-height: 52px; padding: 8px 14px; } .archive-float-icon { width: 31px; height: 31px; font-size: 11px; } .archive-layout { grid-template-columns: 1fr; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
   </style>
 </head>
@@ -259,7 +295,7 @@
       <a class="brand" href="https://writeup-inc.github.io/saas/jmatch-engine/direct/">J MATCH ENGINE</a>
       <nav class="head-nav" aria-label="ページ内ナビゲーション">
         <a href="#seminar">セミナー内容</a>
-        <a href="https://www.writeup.jp/contact/">参加を相談する</a>
+        <a href="#archive">アーカイブを視聴する</a>
       </nav>
     </div>
   </header>
@@ -268,14 +304,14 @@
     <section class="hero" aria-labelledby="hero-title">
       <img class="hero-photo" src="./assets/hero-owner.jpg" alt="ノートPCでオンラインセミナーを見る中小企業の経営者（生成イメージ）">
       <div class="wrap">
-        <p class="eyebrow">ONLINE MINI SEMINAR / ZOOM / 10–15 MIN</p>
+        <p class="eyebrow">ONLINE SEMINAR ARCHIVE / 10–15 MIN</p>
         <h1 id="hero-title">補助金だけを<br>待たない。<span class="type-row" aria-hidden="true"><span id="type-line"></span><span class="type-cursor"></span></span><span class="sr-only">融資も税制優遇も、見落とさない。</span></h1>
-        <p class="hero-lead">年間を通じて届く補助金・融資・税制優遇の情報を、自社に合うものへ絞り込む。<br>AIと会話しながら、短い締切にも動ける会社をつくる。<br>Jマッチエンジンの管理画面を、Zoomで端的にご紹介します。</p>
+        <p class="hero-lead">年間を通じて届く補助金・融資・税制優遇の情報を、自社に合うものへ絞り込む。<br>AIと会話しながら、短い締切にも動ける会社をつくる。<br>Jマッチエンジンの管理画面を、アーカイブ動画で端的にご紹介します。</p>
         <div class="hero-actions">
-          <a class="button" href="https://www.writeup.jp/contact/">Zoomセミナーへの参加を相談する</a>
+          <a class="button" href="#archive">オンラインセミナーの<br>アーカイブ動画を視聴する</a>
           <a class="button ghost" href="#seminar">15分で分かることを見る</a>
         </div>
-        <div class="hero-meta"><span>オンライン開催</span><span>所要 約10–15分</span><span>管理画面デモあり</span></div>
+        <div class="hero-meta"><span>アーカイブ動画</span><span>所要 約10–15分</span><span>管理画面デモあり</span></div>
       </div>
     </section>
 
@@ -366,28 +402,41 @@
 
     <section class="demo" aria-labelledby="demo-title">
       <div class="wrap demo-grid">
-        <div class="demo-photo"><img src="./assets/team-decision.jpg" alt="ノートPCを囲んで話し合う小規模企業のチーム（生成イメージ）"><span class="photo-tag">ZOOM / MANAGEMENT SCREEN DEMO</span></div>
-        <div><p class="eyebrow">06 / WHAT YOU WILL SEE</p><h2 id="demo-title"><span class="phrase">Zoomで、</span><wbr><span class="phrase">実際の管理画面を</span><wbr><span class="phrase">お見せします。</span></h2><p>情報がどう届き、どう候補を確認し、AIとの対話でどのように次の準備へ進むのか。画面イメージを交えて、約10〜15分でご紹介します。</p><ol class="agenda"><li><time>0–2 MIN</time><span>補助金だけを探す経営から、選択肢を持つ経営へ</span></li><li><time>2–5 MIN</time><span>補助金・融資・税制優遇情報を、どう絞り込むか</span></li><li><time>5–9 MIN</time><span>管理画面デモ：届く情報と判断の流れ</span></li><li><time>9–12 MIN</time><span>6つのAIエージェントとの対話イメージ</span></li><li><time>12–15 MIN</time><span>利用開始までの流れ・質問案内</span></li></ol></div>
+        <div class="demo-photo"><img src="./assets/team-decision.jpg" alt="ノートPCを囲んで話し合う小規模企業のチーム（生成イメージ）"><span class="photo-tag">ARCHIVE / MANAGEMENT SCREEN DEMO</span></div>
+        <div><p class="eyebrow">06 / WHAT YOU WILL SEE</p><h2 id="demo-title"><span class="phrase">アーカイブで、</span><wbr><span class="phrase">実際の管理画面を</span><wbr><span class="phrase">ご覧いただけます。</span></h2><p>情報がどう届き、どう候補を確認し、AIとの対話でどのように次の準備へ進むのか。画面イメージを交えて、約10〜15分でご紹介します。</p><ol class="agenda"><li><time>0–2 MIN</time><span>補助金だけを探す経営から、選択肢を持つ経営へ</span></li><li><time>2–5 MIN</time><span>補助金・融資・税制優遇情報を、どう絞り込むか</span></li><li><time>5–9 MIN</time><span>管理画面デモ：届く情報と判断の流れ</span></li><li><time>9–12 MIN</time><span>6つのAIエージェントとの対話イメージ</span></li><li><time>12–15 MIN</time><span>利用開始までの流れ・質問案内</span></li></ol></div>
       </div>
     </section>
 
     <section class="faq" aria-labelledby="faq-title">
       <div class="wrap">
-        <div class="section-top"><p class="eyebrow">FAQ</p><div><h2 id="faq-title">まずは、画面を見て<br>判断してください。</h2><p class="intro">短いオンラインセミナーです。関心がまだぼんやりしている段階でも、管理画面を見てから次を考えられます。</p></div></div>
+        <div class="section-top"><p class="eyebrow">FAQ</p><div><h2 id="faq-title">まずは、画面を見て<br>判断してください。</h2><p class="intro">短いアーカイブ動画です。関心がまだぼんやりしている段階でも、管理画面を見てから次を考えられます。</p></div></div>
         <div class="faq-list">
           <details><summary>補助金を使う予定がまだなくても参加できますか？</summary><p>はい。補助金だけでなく、融資・税制優遇を含め、制度情報をどのように経営の選択肢として持つかをご紹介します。</p></details>
           <details><summary>事業計画書はAIだけで完成しますか？</summary><p>AIとの対話は、考えを整理し、下書きや準備を進めるための支援です。制度利用の可否、申請、専門的な判断や最終承認は、利用者および必要に応じた専門家が行います。</p></details>
-          <details><summary>Zoomの参加方法や開催日時を確認したいです。</summary><p>下の「参加を相談する」からお問い合わせください。開催日時・参加方法を個別にご案内します。</p></details>
+          <details><summary>アーカイブ動画の公開状況を確認したいです。</summary><p>視聴URLの公開時期やご案内については、お問い合わせください。</p></details>
         </div>
       </div>
     </section>
 
+    <section class="archive" id="archive" aria-labelledby="archive-title">
+      <div class="wrap archive-layout">
+        <div>
+          <p class="eyebrow">ONLINE SEMINAR ARCHIVE</p>
+          <h2 id="archive-title"><span class="phrase">アーカイブ動画で、</span><wbr><span class="phrase">管理画面と考え方を</span><wbr><span class="phrase">ご覧ください。</span></h2>
+          <p>約10〜15分で、届く情報の見方、管理画面での絞り込み、AIと考える事業計画づくりの入口をご紹介します。</p>
+          <p class="archive-status">視聴URLは準備中です。公開後、この枠からご覧いただけます。</p>
+        </div>
+        <!-- 視聴URL確定後、この枠を動画プレーヤーまたは動画URLへのリンクに接続します。 -->
+        <div class="archive-screen" role="img" aria-label="オンラインセミナーのアーカイブ動画。視聴URLの公開待ち"><span class="play-mark" aria-hidden="true">▶</span></div>
+      </div>
+    </section>
+
     <section class="closing" aria-labelledby="closing-title">
-      <div class="wrap"><p class="eyebrow">ONLINE MINI SEMINAR</p><h2 id="closing-title"><span class="phrase">情報が来た日に、</span><wbr><span class="phrase">動ける会社へ。</span></h2><p>まずはZoomで、Jマッチエンジンの管理画面と、AIと考える進め方をご覧ください。</p><a class="button" href="https://www.writeup.jp/contact/">Zoomセミナーへの参加を相談する</a><p class="disclaimer">本ページはサービスの利用イメージをお伝えするものです。補助金の採択、融資、税制上の効果、事業成果等を保証するものではありません。</p></div>
+      <div class="wrap"><p class="eyebrow">ONLINE SEMINAR ARCHIVE</p><h2 id="closing-title"><span class="phrase">情報が来た日に、</span><wbr><span class="phrase">動ける会社へ。</span></h2><p>まずはアーカイブ動画で、Jマッチエンジンの管理画面と、AIと考える進め方をご覧ください。</p><a class="button" href="#archive">アーカイブ動画を視聴する</a><p class="disclaimer">本ページはサービスの利用イメージをお伝えするものです。補助金の採択、融資、税制上の効果、事業成果等を保証するものではありません。</p></div>
     </section>
   </main>
 
-  <div class="fixed-cta"><a class="button" href="https://www.writeup.jp/contact/">Zoomセミナーへの参加を相談する</a></div>
+  <a class="archive-float" href="#archive" aria-label="オンラインセミナーのアーカイブ動画を視聴する"><span class="archive-float-icon" aria-hidden="true">▶</span><span><small>ONLINE SEMINAR</small>アーカイブ動画を<br>視聴する</span></a>
   <footer><div class="wrap"><span>© WRITEUP INC. / J MATCH ENGINE</span><a href="https://www.writeup.jp/privacy/">個人情報保護方針</a></div></footer>
 
   <script>
@@ -415,6 +464,20 @@
         tabs.forEach(item => item.setAttribute('aria-selected', String(item === tab)));
         panels.forEach(panel => { const active = panel.id === panelId; panel.classList.toggle('is-active', active); panel.hidden = !active; });
       }));
+
+      const archiveFloat = document.querySelector('.archive-float');
+      const setArchiveFloat = () => {
+        if (reduce.matches) { archiveFloat.style.setProperty('--float-lift', '0px'); return; }
+        const start = Math.max(1, document.querySelector('.hero').offsetHeight * .42);
+        const range = Math.max(1, document.documentElement.scrollHeight - window.innerHeight - start);
+        const progress = Math.min(1, Math.max(0, (window.scrollY - start) / range));
+        const maxLift = Math.min(220, window.innerHeight * .27);
+        archiveFloat.style.setProperty('--float-lift', `${Math.round(progress * maxLift)}px`);
+      };
+      setArchiveFloat();
+      window.addEventListener('scroll', setArchiveFloat, { passive: true });
+      window.addEventListener('resize', setArchiveFloat);
+      reduce.addEventListener('change', setArchiveFloat);
     })();
   </script>
 </body>
