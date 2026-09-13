@@ -165,6 +165,9 @@
     .story-chapter { display: inline-block; margin-bottom: 12px; padding: 4px 8px; background: var(--orange-soft); color: #9b4525; font-family: var(--mono); font-size: 11px; }
     .story-text h3 { margin: 0 0 20px; font-family: var(--serif); font-size: clamp(24px, 3vw, 36px); letter-spacing: -.04em; line-height: 1.45; }
     .story-text p { margin: 0 0 1.1em; color: #52443e; font-size: 15px; line-height: 2; }
+    .story-next { display: inline-flex; align-items: center; gap: 16px; margin-top: 16px; padding: 12px 15px 12px 18px; border: 1px solid #9b4525; background: transparent; color: #7b391f; cursor: pointer; font-size: 14px; font-weight: 800; letter-spacing: .02em; }
+    .story-next::after { content: "→"; display: grid; width: 27px; height: 27px; place-items: center; border-radius: 50%; background: #9b4525; color: #fff; font-size: 17px; line-height: 1; transition: transform .18s ease; }
+    .story-next:hover::after { transform: translateX(4px); }
     .story-caption { margin: 15px 0 0; color: #795a4b; font-size: 12px; }
 
     .agents { color: #fff; background: #152825; }
@@ -368,8 +371,8 @@
           <button class="story-tab" role="tab" aria-selected="false" aria-controls="chapter-after" id="tab-after">出会った後</button>
           <button class="story-tab" role="tab" aria-selected="false" aria-controls="chapter-year" id="tab-year">一年後</button>
         </div>
-        <article class="story-panel is-active" role="tabpanel" id="chapter-before" aria-labelledby="tab-before"><img src="./assets/team-decision.jpg" alt="小さなオフィスでノートPCを見ながら話す社員と経営者（生成イメージ）"><div class="story-text"><span class="story-chapter">CHAPTER 01</span><h3>「また締切か」<br>だった頃。</h3><p>うちの会社は社員10人。制度を見つけた時には締切が近く、社長がスマホを見ながら「もっと早く分かっていればな」と言う。資料を探しても、本当に自社に関係するのか分からないまま、普段の仕事に戻ることが多かった。</p><p>補助金の話は、いつも少し遅れてやって来た。</p></div></article>
-        <article class="story-panel" role="tabpanel" id="chapter-after" aria-labelledby="tab-after" hidden><img src="./assets/hero-owner.jpg" alt="ノートPCを見ながら考える経営者（生成イメージ）"><div class="story-text"><span class="story-chapter">CHAPTER 02</span><h3>情報が届く日に、<br>15分だけ考える。</h3><p>毎週、社長のもとに「補助金・融資・税制優遇情報」が届くようになった。金曜の朝、管理画面を見ながら「これは設備投資と重なるか」「半年後なら考えられるか」と話す時間ができた。</p><p>情報を読む時間ではない。会社の次の一手を、短くても自分たちで考える時間になった。</p></div></article>
+        <article class="story-panel is-active" role="tabpanel" id="chapter-before" aria-labelledby="tab-before"><img src="./assets/team-decision.jpg" alt="小さなオフィスでノートPCを見ながら話す社員と経営者（生成イメージ）"><div class="story-text"><span class="story-chapter">CHAPTER 01</span><h3>「また締切か」<br>だった頃。</h3><p>うちの会社は社員10人。制度を見つけた時には締切が近く、社長がスマホを見ながら「もっと早く分かっていればな」と言う。資料を探しても、本当に自社に関係するのか分からないまま、普段の仕事に戻ることが多かった。</p><p>補助金の話は、いつも少し遅れてやって来た。</p><button class="story-next" type="button" data-story-next="chapter-after">続きを読む</button></div></article>
+        <article class="story-panel" role="tabpanel" id="chapter-after" aria-labelledby="tab-after" hidden><img src="./assets/hero-owner.jpg" alt="ノートPCを見ながら考える経営者（生成イメージ）"><div class="story-text"><span class="story-chapter">CHAPTER 02</span><h3>情報が届く日に、<br>15分だけ考える。</h3><p>毎週、社長のもとに「補助金・融資・税制優遇情報」が届くようになった。金曜の朝、管理画面を見ながら「これは設備投資と重なるか」「半年後なら考えられるか」と話す時間ができた。</p><p>情報を読む時間ではない。会社の次の一手を、短くても自分たちで考える時間になった。</p><button class="story-next" type="button" data-story-next="chapter-year">一年後へ進む</button></div></article>
         <article class="story-panel" role="tabpanel" id="chapter-year" aria-labelledby="tab-year" hidden><img src="./assets/story-forward.jpg" alt="ノートPCで情報を共有する経営者と社員（生成イメージ）"><div class="story-text"><span class="story-chapter">CHAPTER 03</span><h3>社長が、少しだけ<br>AIに詳しくなった。</h3><p>一年後、社長は時々「それ、6人のAIにも聞いた？」と言うようになった。最初はみんな少し笑った。正直、AIの話は少し長い。</p><p>でも、社長が言いたいのはAIのすごさではない。考える選択肢を、一つ増やそうということだ。その週も社長は全社に情報を転送して、「やってみたいことと重なるなら、いつでも言えよ」と書いていた。</p></div></article>
         <p class="story-caption">※実在の導入事例ではなく、サービス活用後の変化を表現したイメージストーリーです。写真はAI生成のイメージです。</p>
       </div>
@@ -459,10 +462,14 @@
 
       const tabs = [...document.querySelectorAll('.story-tab')];
       const panels = [...document.querySelectorAll('.story-panel')];
-      tabs.forEach(tab => tab.addEventListener('click', () => {
-        const panelId = tab.getAttribute('aria-controls');
-        tabs.forEach(item => item.setAttribute('aria-selected', String(item === tab)));
+      const activateStoryPanel = panelId => {
+        tabs.forEach(item => item.setAttribute('aria-selected', String(item.getAttribute('aria-controls') === panelId)));
         panels.forEach(panel => { const active = panel.id === panelId; panel.classList.toggle('is-active', active); panel.hidden = !active; });
+      };
+      tabs.forEach(tab => tab.addEventListener('click', () => activateStoryPanel(tab.getAttribute('aria-controls'))));
+      document.querySelectorAll('[data-story-next]').forEach(button => button.addEventListener('click', () => {
+        activateStoryPanel(button.dataset.storyNext);
+        document.getElementById(button.dataset.storyNext).scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
       }));
 
       const archiveFloat = document.querySelector('.archive-float');
