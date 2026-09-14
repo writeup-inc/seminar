@@ -46,10 +46,10 @@
     .button:hover { background: var(--navy); transform: translateY(-1px); }
     .button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid rgba(26, 79, 160, .35); outline-offset: 3px; }
 
-    .hero { position: relative; min-height: 100svh; color: #fff; background: #171310; isolation: isolate; }
+    .hero { position: relative; min-height: 100svh; color: #fff; background: #dceefa; isolation: isolate; }
     .hero-media { position: absolute; inset: 0; z-index: -2; }
     .hero-media img { width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; }
-    .hero::after { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(11, 16, 26, .78) 0%, rgba(11, 16, 26, .55) 44%, rgba(11, 16, 26, .13) 80%); content: ""; }
+    .hero::after { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(12, 63, 123, .78) 0%, rgba(12, 63, 123, .52) 44%, rgba(12, 63, 123, .10) 80%); content: ""; }
     .hero-inner { display: flex; align-items: center; min-height: 100svh; padding: 112px 0 72px; }
     .hero-content { max-width: 740px; }
     .hero .eyebrow { color: #dbe7ff; }
@@ -122,7 +122,7 @@
     @media (max-width: 760px) {
       .container { width: min(100% - 32px, 1200px); }
       .hero-inner { padding: 88px 0 56px; align-items: flex-end; }
-      .hero::after { background: linear-gradient(90deg, rgba(11,16,26,.78), rgba(11,16,26,.35)), linear-gradient(0deg, rgba(11,16,26,.72), transparent 65%); }
+      .hero::after { background: linear-gradient(90deg, rgba(12,63,123,.78), rgba(12,63,123,.35)), linear-gradient(0deg, rgba(12,63,123,.70), transparent 65%); }
       .hero-media img { object-position: 62% center; }
       .split, .oem .split, .why-grid, .seminar-grid { grid-template-columns: 1fr; gap: 30px; }
       .oem-copy, .oem .photo { order: initial; }
@@ -144,7 +144,7 @@
 <body>
   <main>
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-media"><img src="images/hero.jpg" alt="夕方のオフィスで、背中を向けてパソコンに向かう人たち" width="1536" height="1024" loading="eager" fetchpriority="high"></div>
+      <div class="hero-media"><img src="images/hero-fresh-v2.png" alt="明るいオフィスで、業務の見える化を示す画面を一緒に見るビジネスパーソン" width="1536" height="1024" loading="eager" fetchpriority="high"></div>
       <div class="container hero-inner">
         <div class="hero-content">
           <p class="eyebrow">WORKLOG INSIGHT OEM SESSION</p>
@@ -158,7 +158,7 @@
 
     <section class="section service" aria-labelledby="service-title">
       <div class="container split">
-        <div class="photo"><img src="images/work-hands.jpg" alt="パソコンのキーボードとマウスで作業する手元" width="1536" height="1024" loading="lazy"></div>
+        <div class="photo"><img src="images/service-insights-v2.png" alt="業務のまとまりを見やすく整理したダッシュボードが映るノートパソコン" width="1536" height="1024" loading="lazy"></div>
         <div>
           <p class="eyebrow">WHAT IT DOES</p>
           <h2 id="service-title">こういうサービスです。</h2>
@@ -184,7 +184,7 @@
             <li><strong>改善までつなぐ提案</strong><span>AIツール、動画研修、システム開発、BPOまで。見える化の先を提案できます。</span></li>
           </ul>
         </div>
-        <div class="photo"><img src="images/oem-meeting.jpg" alt="資料とノートパソコン、コーヒーを囲んで打ち合わせをする人たちの後ろ姿" width="1536" height="1024" loading="lazy"></div>
+        <div class="photo"><img src="images/oem-partner-v2.png" alt="明るいオフィスで、サービスのダッシュボードを見ながら話すビジネスパーソン" width="1536" height="1024" loading="lazy"></div>
       </div>
     </section>
 
