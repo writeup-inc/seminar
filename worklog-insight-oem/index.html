@@ -15,8 +15,11 @@
   <link rel="canonical" href="https://writeup-inc.github.io/seminar/worklog-insight-oem/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
   <title>ワークログ・インサイト OEM説明会｜株式会社ライトアップ</title>
+  <script>
+    document.documentElement.dataset.design = new URLSearchParams(location.search).get('design') === 'v2' ? 'v2' : 'v1';
+  </script>
   <style>
     :root {
       --blue: #1a4fa0;
@@ -119,6 +122,168 @@
     footer p { margin: 0; font-size: 13px; }
     footer .company { margin-bottom: 5px; color: #fff; font-size: 14px; font-weight: 700; }
 
+    /* ── V2: Jマッチ・エンジンOEMと揃えた、紺を主役にしたデザイン ── */
+    html[data-design="v2"] {
+      --blue: #16325c;
+      --navy: #16325c;
+      --pale: #f5f6f8;
+      --paper: #ffffff;
+      --ink: #14181d;
+      --gray: #555c66;
+      --line: #e4e7ec;
+    }
+    html[data-design="v2"] body {
+      background: #fff;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    html[data-design="v2"] .container { width: min(100% - 48px, 1120px); }
+    html[data-design="v2"] .section { padding: clamp(72px, 9vw, 116px) 0; }
+    html[data-design="v2"] h1,
+    html[data-design="v2"] h2,
+    html[data-design="v2"] h3 {
+      font-family: var(--sans);
+      font-weight: 900;
+      letter-spacing: -.028em;
+    }
+    html[data-design="v2"] h2 {
+      font-size: clamp(31px, 4.2vw, 48px);
+      line-height: 1.32;
+    }
+    html[data-design="v2"] .eyebrow {
+      margin-bottom: 18px;
+      padding: 0;
+      border: 0;
+      color: var(--navy);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+    }
+    html[data-design="v2"] .eyebrow::before { display: none; }
+    html[data-design="v2"] .button {
+      min-height: 58px;
+      padding: 14px 34px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--navy);
+      font-size: 16px;
+      font-weight: 800;
+      transition: transform .18s ease, background .18s ease, color .18s ease;
+    }
+    html[data-design="v2"] .button:hover { background: #0d1f3a; transform: translateY(-2px); }
+    html[data-design="v2"] .hero {
+      min-height: 92svh;
+      background: #16325c;
+      overflow: hidden;
+    }
+    html[data-design="v2"] .hero-media { opacity: .25; filter: saturate(.8) contrast(1.08); }
+    html[data-design="v2"] .hero-media img { object-position: 66% center; }
+    html[data-design="v2"] .hero::after {
+      z-index: -1;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(255,255,255,.12), transparent 38%),
+        radial-gradient(circle at 86% 82%, rgba(255,213,74,.15), transparent 42%),
+        linear-gradient(90deg, rgba(13,31,58,.95), rgba(22,50,92,.76) 58%, rgba(13,31,58,.64));
+    }
+    html[data-design="v2"] .hero-inner { justify-content: center; padding: 96px 0 72px; }
+    html[data-design="v2"] .hero-content { max-width: 850px; text-align: center; }
+    html[data-design="v2"] .hero .eyebrow {
+      display: inline-flex;
+      margin: 0 0 34px;
+      padding: 9px 20px;
+      border: 1px solid rgba(255,255,255,.38);
+      border-radius: 999px;
+      color: rgba(255,255,255,.92);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    html[data-design="v2"] h1 {
+      margin-bottom: 27px;
+      font-size: clamp(40px, 5.8vw, 74px);
+      font-weight: 900;
+      line-height: 1.24;
+      letter-spacing: -.04em;
+      text-shadow: 0 2px 24px rgba(0,0,0,.2);
+    }
+    html[data-design="v2"] .hero-lead {
+      margin: 0 auto 38px;
+      max-width: 620px;
+      color: rgba(255,255,255,.86);
+      font-size: clamp(16px, 1.8vw, 19px);
+      line-height: 2;
+    }
+    html[data-design="v2"] .hero .button {
+      min-height: 62px;
+      padding: 17px 46px;
+      background: #fff;
+      color: var(--navy);
+      box-shadow: 0 14px 34px rgba(0,0,0,.22);
+    }
+    html[data-design="v2"] .hero .button:hover { background: #ffd54a; color: #0d1f3a; }
+    html[data-design="v2"] .hero-note { margin-top: 18px; color: rgba(255,255,255,.65); font-size: 13px; }
+
+    html[data-design="v2"] .service { background: #fff; }
+    html[data-design="v2"] .split { grid-template-columns: minmax(0, .95fr) minmax(330px, .82fr); gap: clamp(42px, 8vw, 112px); }
+    html[data-design="v2"] .photo { border-radius: 8px; background: var(--pale); }
+    html[data-design="v2"] .section-copy { max-width: 550px; color: var(--gray); }
+    html[data-design="v2"] .steps { margin-top: 36px; border-color: var(--line); }
+    html[data-design="v2"] .steps li { grid-template-columns: 52px 1fr; gap: 16px; padding: 19px 0; border-color: var(--line); }
+    html[data-design="v2"] .step-number { color: #8d95a1; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; font-weight: 700; }
+    html[data-design="v2"] .steps strong { margin-bottom: 4px; color: var(--ink); font-size: 17px; font-weight: 900; }
+    html[data-design="v2"] .steps span { color: var(--gray); font-size: 14.5px; }
+
+    html[data-design="v2"] .oem { background: #16325c; color: #fff; }
+    html[data-design="v2"] .oem .eyebrow { color: rgba(255,255,255,.68); }
+    html[data-design="v2"] .oem .section-copy { color: rgba(255,255,255,.8); }
+    html[data-design="v2"] .oem-list { margin-top: 36px; gap: 22px; }
+    html[data-design="v2"] .oem-list li { padding-left: 18px; border-left: 2px solid #ffd54a; }
+    html[data-design="v2"] .oem-list strong { color: #fff; font-size: 17px; font-weight: 900; }
+    html[data-design="v2"] .oem-list span { color: rgba(255,255,255,.72); font-size: 14.5px; }
+    html[data-design="v2"] .oem .photo { box-shadow: 16px 16px 0 rgba(255,255,255,.12); }
+
+    html[data-design="v2"] .why { background: #f5f6f8; color: var(--ink); }
+    html[data-design="v2"] .why .eyebrow { color: var(--navy); }
+    html[data-design="v2"] .why-copy { color: var(--gray); }
+    html[data-design="v2"] .afterline { color: var(--navy); font-family: var(--sans); font-size: clamp(21px, 2.5vw, 29px); font-weight: 900; line-height: 1.55; letter-spacing: -.025em; }
+    html[data-design="v2"] .why .photo { box-shadow: 16px 16px 0 rgba(22,50,92,.13); }
+
+    html[data-design="v2"] .seminar { background: #fff; }
+    html[data-design="v2"] .seminar .photo { box-shadow: 16px 16px 0 #f5f6f8; }
+    html[data-design="v2"] .facts { margin-top: 34px; border-color: var(--line); }
+    html[data-design="v2"] .facts div { padding: 16px 12px 16px 0; border-color: var(--line); }
+    html[data-design="v2"] .facts span { color: #6d7480; font-size: 12px; }
+    html[data-design="v2"] .facts strong { color: var(--ink); font-size: 18px; font-weight: 900; }
+    html[data-design="v2"] .agenda li { color: var(--gray); font-size: 14.5px; }
+    html[data-design="v2"] .agenda li::before { border-radius: 0; background: #ffd54a; }
+    html[data-design="v2"] .reassurance { color: var(--navy); font-size: 15px; font-weight: 900; }
+
+    html[data-design="v2"] .signup { background: #0d1f3a; }
+    html[data-design="v2"] .signup::before {
+      background:
+        radial-gradient(circle at 12% 10%, rgba(255,255,255,.1), transparent 34%),
+        radial-gradient(circle at 86% 88%, rgba(255,213,74,.13), transparent 42%),
+        #0d1f3a;
+    }
+    html[data-design="v2"] .signup .container { max-width: 760px; }
+    html[data-design="v2"] .signup .eyebrow,
+    html[data-design="v2"] .signup h2 { color: #fff; }
+    html[data-design="v2"] .signup-intro { color: rgba(255,255,255,.78); }
+    html[data-design="v2"] .form-shell { padding: clamp(28px, 4vw, 50px); border: 0; border-radius: 10px; background: #fff; box-shadow: 0 28px 64px rgba(0,0,0,.28); }
+    html[data-design="v2"] label { color: var(--ink); font-size: 13.5px; font-weight: 800; }
+    html[data-design="v2"] .required { color: var(--navy); }
+    html[data-design="v2"] input,
+    html[data-design="v2"] select,
+    html[data-design="v2"] textarea { border-radius: 8px; border-color: #cfd5de; }
+    html[data-design="v2"] .form-submit { margin-top: 28px; }
+    html[data-design="v2"] .form-submit .button { width: 100%; }
+    html[data-design="v2"] .thanks { font-family: var(--sans); font-weight: 900; }
+    html[data-design="v2"] footer { background: #0d1f3a; }
+    html[data-design="v2"] .button:focus-visible,
+    html[data-design="v2"] input:focus-visible,
+    html[data-design="v2"] select:focus-visible,
+    html[data-design="v2"] textarea:focus-visible { outline-color: rgba(255,213,74,.82); }
+
     @media (max-width: 760px) {
       .container { width: min(100% - 32px, 1200px); }
       .hero-inner { padding: 88px 0 56px; align-items: flex-end; }
@@ -133,6 +298,21 @@
       .field.full { grid-column: auto; }
       .form-submit { justify-content: stretch; }
       .form-submit .button { width: 100%; }
+      html[data-design="v2"] .container { width: min(100% - 32px, 1120px); }
+      html[data-design="v2"] .split,
+      html[data-design="v2"] .oem .split,
+      html[data-design="v2"] .why-grid,
+      html[data-design="v2"] .seminar-grid { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+      html[data-design="v2"] .hero-inner { padding: 86px 0 60px; align-items: center; }
+      html[data-design="v2"] .hero-media { opacity: .3; }
+      html[data-design="v2"] .hero-media img { object-position: 60% center; }
+      html[data-design="v2"] .hero::after { background: linear-gradient(180deg, rgba(13,31,58,.75), rgba(13,31,58,.94)), radial-gradient(circle at 80% 76%, rgba(255,213,74,.12), transparent 44%); }
+      html[data-design="v2"] .hero .eyebrow { margin-bottom: 28px; font-size: 11px; }
+      html[data-design="v2"] h1 { font-size: clamp(38px, 10.5vw, 54px); }
+      html[data-design="v2"] .hero-lead br { display: none; }
+      html[data-design="v2"] .hero .button { width: min(100%, 360px); padding-left: 20px; padding-right: 20px; }
+      html[data-design="v2"] .oem .photo { box-shadow: 11px 11px 0 rgba(255,255,255,.12); }
+      html[data-design="v2"] .why .photo { box-shadow: 11px 11px 0 rgba(22,50,92,.13); }
     }
     @media (max-width: 420px) {
       .facts { grid-template-columns: 1fr; }
