@@ -567,9 +567,21 @@
     .v3-voices .v3-container { position: relative; }
     .v3-voices h2 { margin-bottom: 14px; font-size: clamp(29px, 3.8vw, 46px); line-height: 1.32; }
     .v3-voices__lead { max-width: 600px; margin: 0 auto clamp(36px, 5vw, 52px); color: #555c66; font-size: 15px; }
-    .v3-voice-cloud { display: flex; max-width: 980px; margin: 0 auto; flex-wrap: wrap; align-items: center; justify-content: center; gap: 13px; }
-    .v3-voice { display: inline-flex; max-width: min(100%, 520px); align-items: center; justify-content: center; padding: 15px 23px; border: 1px solid #e1e5ea; border-radius: 999px; background: #fff; color: #14181d; font-size: clamp(14px, 1.8vw, 17px); font-weight: 800; line-height: 1.55; opacity: 0; transform: scale(.36); transition: opacity .46s ease, transform .64s cubic-bezier(.16,.84,.3,1.06), background .18s ease; }
-    .v3-voice-cloud.is-in .v3-voice { opacity: 1; transform: none; }
+    .v3-voice-cloud { display: flex; max-width: 1080px; margin: 0 auto; flex-wrap: wrap; align-items: center; justify-content: center; gap: 15px 24px; }
+    .v3-voice { --voice-x: 0px; --voice-y: 0px; --voice-rotate: 0deg; --voice-scale: 1; display: inline-flex; max-width: 100%; align-items: center; justify-content: center; padding: 14px 22px; border: 1px solid #e1e5ea; border-radius: 999px; background: #fff; color: #14181d; font-size: clamp(11px, 1.65vw, 17px); font-weight: 800; line-height: 1.25; white-space: nowrap; opacity: 0; transform: translate(var(--voice-x), var(--voice-y)) rotate(var(--voice-rotate)) scale(.36); transition: opacity .46s ease, transform .64s cubic-bezier(.16,.84,.3,1.06), background .18s ease; }
+    .v3-voice-cloud.is-in .v3-voice { opacity: 1; transform: translate(var(--voice-x), var(--voice-y)) rotate(var(--voice-rotate)) scale(var(--voice-scale)); }
+    .v3-voice:nth-child(1) { --voice-x: 14px; --voice-y: -4px; --voice-rotate: -.5deg; --voice-scale: 1.03; padding-right: 28px; }
+    .v3-voice:nth-child(2) { --voice-x: -8px; --voice-y: 8px; --voice-rotate: .7deg; --voice-scale: .96; padding-left: 18px; }
+    .v3-voice:nth-child(3) { --voice-x: 6px; --voice-y: -8px; --voice-rotate: -.3deg; --voice-scale: 1.01; }
+    .v3-voice:nth-child(4) { --voice-x: -15px; --voice-y: 5px; --voice-rotate: .4deg; --voice-scale: .98; padding-right: 29px; }
+    .v3-voice:nth-child(5) { --voice-x: 9px; --voice-y: 7px; --voice-rotate: -.6deg; --voice-scale: 1.04; }
+    .v3-voice:nth-child(6) { --voice-x: -3px; --voice-y: -6px; --voice-rotate: .35deg; --voice-scale: .97; padding-left: 27px; }
+    .v3-voice:nth-child(7) { --voice-x: 16px; --voice-y: -2px; --voice-rotate: -.45deg; --voice-scale: 1.02; }
+    .v3-voice:nth-child(8) { --voice-x: -12px; --voice-y: 8px; --voice-rotate: .5deg; --voice-scale: .94; padding-right: 25px; }
+    .v3-voice:nth-child(9) { --voice-x: 4px; --voice-y: -9px; --voice-rotate: -.25deg; --voice-scale: 1; }
+    .v3-voice:nth-child(10) { --voice-x: -14px; --voice-y: 3px; --voice-rotate: .6deg; --voice-scale: .98; }
+    .v3-voice:nth-child(11) { --voice-x: 11px; --voice-y: 8px; --voice-rotate: -.4deg; --voice-scale: 1.02; padding-left: 27px; }
+    .v3-voice:nth-child(12) { --voice-x: -5px; --voice-y: -5px; --voice-rotate: .3deg; --voice-scale: .96; }
     .v3-voice:nth-child(2) { transition-delay: .07s; }
     .v3-voice:nth-child(3) { transition-delay: .14s; }
     .v3-voice:nth-child(4) { transition-delay: .21s; }
@@ -637,7 +649,7 @@
       .v3-form-section::before { inset: 12px; }
       .v3-form-card { padding: 30px 20px; }
       .v3-voices::before { inset: 12px; }
-      .v3-voice { padding: 13px 18px; }
+      .v3-voice { padding: 12px 16px; }
       .v3-industry-list { grid-template-columns: 1fr; }
       .v3-ui__body { grid-template-columns: 90px minmax(0, 1fr); min-height: 285px; }
       .v3-ui__nav { padding: 13px 8px; }
@@ -804,7 +816,7 @@
     </div></section>
     <section class="v3-voices" aria-labelledby="v3-voices-title"><div class="v3-container">
       <p class="v3-kicker">VOICES</p><h2 id="v3-voices-title">参加された方の声</h2><p class="v3-voices__lead">業務の見える化とOEMの役割分担について、こうした関心が寄せられています。</p>
-      <div class="v3-voice-cloud" id="v3-voice-cloud" aria-label="参加者の声"><span class="v3-voice v3-voice--navy">「業務改善の入口が見えてきた」</span><span class="v3-voice">「自社の顧客にも提案できそう」</span><span class="v3-voice v3-voice--line">「まずは動画で仕組みを確認したい」</span><span class="v3-voice">「AIコンサルの次の一手になりそう」</span><span class="v3-voice v3-voice--navy">「現場の仕事を起点にできるのがいい」</span><span class="v3-voice">「OEMの役割分担がわかりやすい」</span><span class="v3-voice v3-voice--line">「顧問先との会話を始める材料になりそう」</span><span class="v3-voice">「現場にヒアリングを重ねる前に、仕事の実態が見えるのは提案しやすい」</span><span class="v3-voice v3-voice--navy">「AI導入の相談を受けた時の、具体的な最初の一歩として紹介できそう」</span><span class="v3-voice">「開発や解析まで任せられるなら、販売に集中できる」</span><span class="v3-voice v3-voice--line">「業務の見える化から、研修やシステム提案まで自然につながりそう」</span><span class="v3-voice">「どの顧客から提案を始めるか、動画で具体的に知りたい」</span></div>
+      <div class="v3-voice-cloud" id="v3-voice-cloud" aria-label="参加者の声"><span class="v3-voice v3-voice--navy">「業務改善の入口が見えてきた」</span><span class="v3-voice">「自社の顧客にも提案できそう」</span><span class="v3-voice v3-voice--line">「まずは動画で仕組みを確認したい」</span><span class="v3-voice">「AIコンサルの次の一手になりそう」</span><span class="v3-voice v3-voice--navy">「現場の仕事を起点にできるのがいい」</span><span class="v3-voice">「OEMの役割分担がわかりやすい」</span><span class="v3-voice v3-voice--line">「顧問先との会話を始める材料になりそう」</span><span class="v3-voice">「現場の仕事が見えると、提案しやすい」</span><span class="v3-voice v3-voice--navy">「AI導入相談の、最初の一歩に紹介できそう」</span><span class="v3-voice">「開発や解析まで任せられるなら、販売に集中できる」</span><span class="v3-voice v3-voice--line">「業務の見える化から、次の提案へつながりそう」</span><span class="v3-voice">「どの顧客から始めるか、動画で具体的に知りたい」</span></div>
       <p class="v3-voices__note">※ 掲載コメントは確認・更新予定です。</p>
     </div></section>
     <section class="v3-form-section" id="v3-form" aria-labelledby="v3-form-title"><div class="v3-container v3-form-layout">
