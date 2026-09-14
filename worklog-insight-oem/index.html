@@ -36,11 +36,11 @@
     a { color: inherit; }
     button, input, select, textarea { font: inherit; }
     .container { width: min(100% - 40px, 1200px); margin: 0 auto; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px; color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: .1em; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px; padding-bottom: 6px; border-bottom: 2px solid currentColor; color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: .13em; }
     .eyebrow::before { width: 24px; height: 1px; background: currentColor; content: ""; }
     .section { padding: clamp(64px, 7vw, 104px) 0; }
     h1, h2, h3, p { margin-top: 0; }
-    h2 { margin-bottom: 20px; font-family: var(--serif); font-size: clamp(30px, 3.2vw, 46px); font-weight: 600; line-height: 1.42; letter-spacing: .018em; }
+    h2 { margin-bottom: 20px; font-family: var(--serif); font-size: clamp(32px, 3.4vw, 48px); font-weight: 700; line-height: 1.38; letter-spacing: .012em; }
     .section-copy { max-width: 540px; margin-bottom: 0; color: var(--gray); }
     .button { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 11px 26px; border: 1px solid var(--blue); border-radius: 2px; background: var(--blue); color: #fff; font-size: 16px; font-weight: 700; letter-spacing: .01em; line-height: 1.3; text-align: center; text-decoration: none; transition: background .2s ease, transform .2s ease; }
     .button:hover { background: var(--navy); transform: translateY(-1px); }
@@ -53,7 +53,7 @@
     .hero-inner { display: flex; align-items: center; min-height: 100svh; padding: 112px 0 72px; }
     .hero-content { max-width: 740px; }
     .hero .eyebrow { color: #dbe7ff; }
-    h1 { margin-bottom: 24px; font-family: var(--serif); font-size: clamp(36px, 4.8vw, 66px); font-weight: 700; line-height: 1.28; letter-spacing: .018em; }
+    h1 { margin-bottom: 24px; font-family: var(--serif); font-size: clamp(38px, 5vw, 70px); font-weight: 700; line-height: 1.25; letter-spacing: .012em; text-shadow: 0 2px 18px rgba(0,0,0,.2); }
     .hero-lead { max-width: 550px; margin-bottom: 34px; font-size: clamp(17px, 2vw, 20px); line-height: 1.9; }
     .hero-note { margin: 16px 0 0; color: rgba(255,255,255,.82); font-size: 14px; font-weight: 500; }
     .hero .button { background: #fff; border-color: #fff; color: var(--navy); }
@@ -65,7 +65,7 @@
     .photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
     .steps { display: grid; gap: 0; margin: 34px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
     .steps li { display: grid; grid-template-columns: 42px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
-    .steps strong { display: block; margin-bottom: 1px; font-size: 17px; font-weight: 700; }
+    .steps strong { display: block; margin-bottom: 1px; color: var(--navy); font-size: 17px; font-weight: 800; }
     .steps span { color: var(--gray); font-size: 15px; line-height: 1.7; }
     .step-number { color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: .08em; }
 
@@ -75,10 +75,8 @@
     .oem .photo { order: 2; }
     .oem-list { display: grid; gap: 18px; margin: 32px 0 0; padding: 0; list-style: none; }
     .oem-list li { padding-left: 18px; border-left: 2px solid var(--blue); }
-    .oem-list strong { display: block; margin-bottom: 2px; font-size: 17px; font-weight: 700; }
+    .oem-list strong { display: block; margin-bottom: 2px; color: var(--navy); font-size: 17px; font-weight: 800; }
     .oem-list span { color: var(--gray); font-size: 15px; line-height: 1.7; }
-    .money-note { margin: 30px 0 0; padding: 16px 18px; border: 1px solid rgba(18,55,114,.18); background: rgba(255,255,255,.48); color: var(--gray); font-size: 15px; line-height: 1.75; }
-    .money-note strong { color: var(--ink); }
 
     .why { background: var(--navy); color: #fff; }
     .why-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(330px, .92fr); gap: clamp(34px, 7vw, 100px); align-items: center; }
@@ -95,11 +93,11 @@
     .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 30px 0 22px; border-top: 1px solid var(--line); }
     .facts div { padding: 14px 10px 14px 0; border-bottom: 1px solid var(--line); }
     .facts span { display: block; color: var(--gray); font-size: 13px; font-weight: 500; }
-    .facts strong { display: block; font-size: 18px; font-weight: 700; }
+    .facts strong { display: block; color: var(--navy); font-size: 18px; font-weight: 800; }
     .agenda { margin: 0; padding: 0; list-style: none; }
     .agenda li { position: relative; margin: 6px 0; padding-left: 18px; color: var(--gray); font-size: 15px; }
     .agenda li::before { position: absolute; left: 0; top: .78em; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); content: ""; }
-    .reassurance { margin: 20px 0 0; color: var(--navy); font-size: 15px; font-weight: 700; }
+    .reassurance { margin: 20px 0 0; color: var(--navy); font-size: 15px; font-weight: 800; }
 
     .signup { position: relative; overflow: hidden; padding: clamp(64px, 8vw, 108px) 0; background: var(--paper); }
     .signup::before { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(250,249,245,.97) 0%, rgba(250,249,245,.88) 55%, rgba(250,249,245,.58) 100%), url("images/office-hall.jpg") center / cover no-repeat; content: ""; }
@@ -109,7 +107,7 @@
     .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
     .field { display: grid; gap: 7px; }
     .field.full { grid-column: 1 / -1; }
-    label { font-size: 15px; font-weight: 700; }
+    label { color: var(--navy); font-size: 15px; font-weight: 800; }
     .required { margin-left: 5px; color: var(--blue); font-size: 12px; }
     input, select, textarea { width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid #bfc5d1; border-radius: 2px; background: #fff; color: var(--ink); font-size: 16px; line-height: 1.5; }
     textarea { min-height: 118px; resize: vertical; }
@@ -185,7 +183,6 @@
             <li><strong>販売を始めるための素材</strong><span>営業台本・サンプル管理画面・サービスLPをそのままご用意します。</span></li>
             <li><strong>改善までつなぐ提案</strong><span>AIツール、動画研修、システム開発、BPOまで。見える化の先を提案できます。</span></li>
           </ul>
-          <p class="money-note"><strong>エンドのお客様は1ID（月額）10,000円。そのうち4,000円が御社の取り分です。</strong><br>初期費用の考え方は2通りあります。詳しくはOEM説明会でお話しします。</p>
         </div>
         <div class="photo"><img src="images/oem-meeting.jpg" alt="資料とノートパソコン、コーヒーを囲んで打ち合わせをする人たちの後ろ姿" width="1536" height="1024" loading="lazy"></div>
       </div>
