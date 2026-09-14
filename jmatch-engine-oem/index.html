@@ -79,6 +79,17 @@ h1, h2, h3 { font-weight: 900; letter-spacing: -.022em; }
 
 .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 a { color: inherit; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .eyebrow {
   margin: 0 0 16px;
@@ -408,6 +419,193 @@ section { padding: clamp(64px, 9vw, 116px) 0; }
 .form-done h3 { margin: 0 0 12px; font-size: 1.25rem; }
 .form-done p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.9; }
 
+/* ── セミナー内容：左に進行、右に各章を置くコンパクト版 ───────────── */
+.flow__layout {
+  display: grid;
+  grid-template-columns: minmax(240px, .78fr) minmax(0, 1.42fr);
+  gap: clamp(44px, 8vw, 116px);
+  align-items: start;
+}
+.flow__head {
+  position: sticky;
+  top: 28px;
+  margin: 0;
+  text-align: left;
+  padding-top: 4px;
+}
+.flow__head::after {
+  content: "01 — 05";
+  display: block;
+  width: fit-content;
+  margin-top: 30px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: var(--ink-faint);
+}
+.flow__heading { font-size: clamp(1.7rem, 3.4vw, 2.8rem); }
+.flow__desc { margin: 0; max-width: 370px; }
+.flow__list { max-width: none; margin: 0; border-top: 1px solid var(--line); }
+.flow__item {
+  grid-template-columns: 54px 1fr;
+  gap: 18px;
+  padding: 22px 0;
+}
+.flow__item:first-child { padding-top: 22px; }
+.flow__icon { width: 54px; height: 54px; }
+.flow__icon svg { width: 25px; height: 25px; }
+.flow__num { margin: 0; }
+.flow__item-title { margin: 3px 0 5px; font-size: clamp(1rem, 1.85vw, 1.18rem); }
+.flow__item-text { font-size: 14px; line-height: 1.75; }
+
+/* ── 収益：説明と流れを同じ図面に接続 ─────────────────────────────── */
+.revenue__lead { margin-bottom: clamp(34px, 5vw, 52px); }
+.revenue-map {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(190px, .74fr) minmax(320px, 1.18fr) minmax(190px, .74fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 18px 0;
+  align-items: center;
+  max-width: 1040px;
+  min-height: 390px;
+  margin: 0 auto;
+}
+.revenue-map__core { grid-column: 2; grid-row: 1 / span 2; width: 100%; position: relative; z-index: 1; }
+.revenue-map__core svg { display: block; width: 100%; height: auto; overflow: visible; }
+.revenue-callout {
+  position: relative;
+  z-index: 2;
+  padding: 20px 20px 18px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 10px;
+}
+.revenue-callout::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: clamp(24px, 4vw, 54px);
+  border-top: 1px solid rgba(255,213,74,.78);
+}
+.revenue-callout--one { grid-column: 1; grid-row: 1; align-self: end; }
+.revenue-callout--one::after { right: -54px; }
+.revenue-callout--two { grid-column: 3; grid-row: 1; align-self: end; }
+.revenue-callout--two::after { left: -54px; }
+.revenue-callout--three { grid-column: 3; grid-row: 2; align-self: start; }
+.revenue-callout--three::after { left: -54px; }
+.revenue-callout__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 0 0 13px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--navy-deep);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+}
+.revenue-callout h3 { margin: 0 0 8px; font-size: 16px; line-height: 1.48; }
+.revenue-callout p { margin: 0; color: rgba(255,255,255,.78); font-size: 13.5px; line-height: 1.75; }
+
+/* ── 参加された方の声：毎回配置が少し変わる声の散らばり ───────────── */
+.voices__lead { margin-bottom: clamp(34px, 5vw, 50px); }
+.cloud {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+  max-width: 1080px;
+  align-items: center;
+}
+.voice { width: fit-content; max-width: 100%; text-align: left; }
+.voice:nth-child(1) { grid-column: 1 / span 6; justify-self: start; transform: rotate(-1.4deg) scale(.28); }
+.voice:nth-child(2) { grid-column: 8 / span 5; justify-self: end; transform: rotate(1.2deg) scale(.28); }
+.voice:nth-child(3) { grid-column: 3 / span 4; justify-self: center; transform: rotate(.8deg) scale(.28); }
+.voice:nth-child(4) { grid-column: 7 / span 6; justify-self: start; transform: rotate(-.7deg) scale(.28); }
+.voice:nth-child(5) { grid-column: 1 / span 5; justify-self: end; transform: rotate(.9deg) scale(.28); }
+.voice:nth-child(6) { grid-column: 7 / span 5; justify-self: center; transform: rotate(-1.6deg) scale(.28); }
+.voice:nth-child(7) { grid-column: 2 / span 7; justify-self: start; transform: rotate(.5deg) scale(.28); }
+.voice:nth-child(8) { grid-column: 10 / span 3; justify-self: end; transform: rotate(-.8deg) scale(.28); }
+.voice:nth-child(9) { grid-column: 1 / span 6; justify-self: center; transform: rotate(1.3deg) scale(.28); }
+.voice:nth-child(10) { grid-column: 8 / span 5; justify-self: start; transform: rotate(-.4deg) scale(.28); }
+.voice:nth-child(11) { grid-column: 3 / span 7; justify-self: center; transform: rotate(.6deg) scale(.28); }
+.voice:nth-child(12) { grid-column: 1 / span 4; justify-self: start; transform: rotate(-1deg) scale(.28); }
+.voice:nth-child(13) { grid-column: 6 / span 7; justify-self: end; transform: rotate(.8deg) scale(.28); }
+.voice:nth-child(14) { grid-column: 2 / span 5; justify-self: center; transform: rotate(-.6deg) scale(.28); }
+.voice:nth-child(15) { grid-column: 8 / span 4; justify-self: start; transform: rotate(1deg) scale(.28); }
+.cloud.is-in .voice { transform: rotate(0) scale(1); }
+
+/* ── フォーム：請求の意味と入力面を分けた最終CTA ───────────────────── */
+.form-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255,213,74,.18), transparent 25%),
+    radial-gradient(circle at 95% 85%, rgba(255,255,255,.1), transparent 28%),
+    var(--navy-deep);
+}
+.form-section::before {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(255,255,255,.13);
+  pointer-events: none;
+}
+.form-section .container { position: relative; z-index: 1; }
+.form-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(440px, 1.08fr);
+  gap: clamp(40px, 7vw, 100px);
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.form-intro { color: #fff; }
+.form-intro .eyebrow { color: rgba(255,255,255,.62); }
+.form-intro h2 { margin: 0 0 20px; font-size: clamp(2rem, 4vw, 3.35rem); line-height: 1.25; }
+.form-intro > p { margin: 0; color: rgba(255,255,255,.78); font-size: 15px; line-height: 1.9; }
+.form-points { display: grid; gap: 12px; margin: 34px 0 0; padding: 0; list-style: none; }
+.form-points li { display: flex; gap: 12px; align-items: baseline; color: rgba(255,255,255,.9); font-size: 14px; }
+.form-points span { color: var(--accent); font-family: var(--mono); font-size: 12px; }
+.form-card { max-width: none; margin: 0; border-radius: 16px; transform: none; }
+.form-head { text-align: left; margin-bottom: 30px; }
+.form-head h2 { font-size: clamp(1.45rem, 3vw, 2rem); }
+.steps { justify-content: flex-start; }
+.field input:focus, .field textarea:focus { box-shadow: 0 0 0 3px rgba(22,50,92,.14); }
+
+@media (max-width: 820px) {
+  .flow__layout { grid-template-columns: 1fr; gap: 38px; }
+  .flow__head { position: static; text-align: center; }
+  .flow__head::after { margin: 22px auto 0; }
+  .flow__desc { margin: 0 auto; }
+  .revenue-map { grid-template-columns: 1fr; grid-template-rows: auto; gap: 16px; min-height: 0; }
+  .revenue-map__core { grid-column: 1; grid-row: 1; max-width: 480px; margin: 0 auto 12px; }
+  .revenue-callout { grid-column: 1; grid-row: auto; width: 100%; }
+  .revenue-callout::after { display: none; }
+  .revenue-callout--one { grid-row: 2; }
+  .revenue-callout--two { grid-row: 3; }
+  .revenue-callout--three { grid-row: 4; }
+  .form-layout { grid-template-columns: 1fr; gap: 38px; max-width: 660px; }
+  .form-intro { text-align: center; }
+  .form-points { justify-items: center; }
+}
+
+@media (max-width: 600px) {
+  .flow__item { grid-template-columns: 48px 1fr; gap: 14px; padding: 20px 0; }
+  .flow__icon { width: 48px; height: 48px; }
+  .cloud { display: flex; gap: 10px; }
+  .voice { transform: scale(.28) !important; }
+  .cloud.is-in .voice { transform: none !important; }
+  .voice--lg { padding: 15px 20px; }
+  .form-section::before { inset: 12px; }
+  .form-card { padding: 30px 20px; }
+}
+
 /* ── フッター ───────────────────────────────── */
 footer { padding: 44px 0 64px; text-align: center; }
 footer p { color: var(--ink-faint); font-size: 12.5px; line-height: 1.8; margin: 4px 0; }
@@ -496,13 +694,14 @@ footer p { color: var(--ink-faint); font-size: 12.5px; line-height: 1.8; margin:
 <!-- ══════════ セミナー内容（メイン） ══════════ -->
 <section class="flow" id="flow">
   <div class="container">
-    <div class="flow__head">
-      <p class="eyebrow">CONTENTS</p>
-      <h2 class="flow__heading">15分のセミナーは、<br>こんな流れで</h2>
-      <p class="flow__desc">御社の顧客リストを、御社のブランドで活かす方法を15分で。</p>
-    </div>
+    <div class="flow__layout">
+      <div class="flow__head">
+        <p class="eyebrow">SEMINAR SCHEDULE</p>
+        <h2 class="flow__heading">15分のセミナーは、<br>こんな流れで</h2>
+        <p class="flow__desc">御社の顧客リストを、御社のブランドで活かす方法を15分で。</p>
+      </div>
 
-    <div class="flow__list" id="flowList">
+      <div class="flow__list" id="flowList">
       <div class="flow__item">
         <div class="flow__icon">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -580,6 +779,7 @@ footer p { color: var(--ink-faint); font-size: 12.5px; line-height: 1.8; margin:
           <p class="flow__item-text">御社が決めるのはロゴ・色・名称の3つだけ。立ち上がるまでの流れと、必要な準備。</p>
         </div>
       </div>
+      </div>
     </div>
   </div>
 </section>
@@ -591,59 +791,47 @@ footer p { color: var(--ink-faint); font-size: 12.5px; line-height: 1.8; margin:
     <h2 class="revenue__heading">御社に入るお金は、3本あります。</h2>
     <p class="revenue__lead">詳細は、動画でご確認ください。</p>
 
-    <div class="revenue__diagram figscroll">
-      <svg viewBox="0 0 700 230" role="img" aria-label="顧客から御社へ、商材の売上・他社商材のマージン・有料会員の月額という3本の流れが入る図">
-        <rect x="1" y="21" width="158" height="188" rx="8" fill="none" stroke="rgba(255,255,255,.42)" stroke-width="1.6"/>
-        <text x="80" y="121" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="17" font-weight="900" fill="#ffffff">顧客</text>
-
-        <rect x="541" y="21" width="158" height="188" rx="8" fill="#ffffff"/>
-        <text x="620" y="121" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="17" font-weight="900" fill="#16325c">御社</text>
-
-        <rect x="176" y="44" width="348" height="30" rx="15" fill="rgba(255,255,255,.16)"/>
-        <text x="350" y="64" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">御社の商材の売上</text>
-        <path d="M524 59h14" stroke="rgba(255,255,255,.6)" stroke-width="1.6" marker-end="url(#arrowW)"/>
-
-        <rect x="176" y="100" width="348" height="30" rx="15" fill="rgba(255,255,255,.16)"/>
-        <text x="350" y="120" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">他社商材のマージン</text>
-        <path d="M524 115h14" stroke="rgba(255,255,255,.6)" stroke-width="1.6" marker-end="url(#arrowW)"/>
-
-        <rect x="176" y="156" width="348" height="30" rx="15" fill="rgba(255,255,255,.16)"/>
-        <text x="350" y="176" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff">有料会員の月額</text>
-        <path d="M524 171h14" stroke="rgba(255,255,255,.6)" stroke-width="1.6" marker-end="url(#arrowW)"/>
-
-        <path d="M159 59h17M159 115h17M159 171h17" stroke="rgba(255,255,255,.6)" stroke-width="1.6"/>
-
-        <defs>
-          <marker id="arrowW" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="rgba(255,255,255,.6)"/>
-          </marker>
-        </defs>
-      </svg>
-    </div>
-
-    <div class="revenue__list">
-      <div class="revenue__item">
-        <div class="revenue__num">01</div>
-        <div>
-          <h3>御社の商材が売れたとき</h3>
-          <p>売上は、まるごと御社のものです。ライトアップの取り分はありません。</p>
-        </div>
+    <figure class="revenue-map" aria-labelledby="revenueMapCaption">
+      <figcaption id="revenueMapCaption" class="sr-only">顧客から御社へ入る3つの収益の流れと、それぞれの説明</figcaption>
+      <article class="revenue-callout revenue-callout--one">
+        <p class="revenue-callout__num">01</p>
+        <h3>御社の商材が売れたとき</h3>
+        <p>売上は、まるごと御社のものです。ライトアップの取り分はありません。</p>
+      </article>
+      <div class="revenue-map__core" aria-hidden="true">
+        <svg viewBox="0 0 500 330" focusable="false">
+          <defs>
+            <marker id="revenueArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ffd54a"/></marker>
+          </defs>
+          <rect x="24" y="111" width="122" height="108" rx="12" fill="none" stroke="rgba(255,255,255,.54)" stroke-width="1.5"/>
+          <text x="85" y="169" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="16" font-weight="900" fill="#ffffff">顧客</text>
+          <text x="85" y="192" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="rgba(255,255,255,.62)">お客様・会員</text>
+          <rect x="354" y="91" width="122" height="148" rx="12" fill="#ffffff"/>
+          <text x="415" y="159" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="16" font-weight="900" fill="#16325c">御社</text>
+          <text x="415" y="182" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#557099">OEMブランド</text>
+          <path d="M146 123H340" fill="none" stroke="#ffd54a" stroke-width="2" marker-end="url(#revenueArrow)"/>
+          <path d="M146 165H340" fill="none" stroke="#ffd54a" stroke-width="2" marker-end="url(#revenueArrow)"/>
+          <path d="M146 207H340" fill="none" stroke="#ffd54a" stroke-width="2" marker-end="url(#revenueArrow)"/>
+          <circle cx="244" cy="123" r="13" fill="#ffd54a"/><circle cx="244" cy="165" r="13" fill="#ffd54a"/><circle cx="244" cy="207" r="13" fill="#ffd54a"/>
+          <text x="244" y="127" text-anchor="middle" font-family="DM Mono, sans-serif" font-size="10" font-weight="700" fill="#0d1f3a">1</text>
+          <text x="244" y="169" text-anchor="middle" font-family="DM Mono, sans-serif" font-size="10" font-weight="700" fill="#0d1f3a">2</text>
+          <text x="244" y="211" text-anchor="middle" font-family="DM Mono, sans-serif" font-size="10" font-weight="700" fill="#0d1f3a">3</text>
+          <text x="244" y="105" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="rgba(255,255,255,.76)">御社の商材の売上</text>
+          <text x="244" y="147" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="rgba(255,255,255,.76)">他社商材のマージン</text>
+          <text x="244" y="189" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="rgba(255,255,255,.76)">有料会員の月額</text>
+        </svg>
       </div>
-      <div class="revenue__item">
-        <div class="revenue__num">02</div>
-        <div>
-          <h3>他社商材が売れたとき</h3>
-          <p>売れた分がマージンとして御社に入ります。並べる商材は、御社が選び承認したものだけです。</p>
-        </div>
-      </div>
-      <div class="revenue__item">
-        <div class="revenue__num">03</div>
-        <div>
-          <h3>顧客が有料会員になったとき</h3>
-          <p>顧客が支払う月額の一部が、毎月御社へ。ほとんどの顧客は無料のまま満足し、それでよいと考えています。</p>
-        </div>
-      </div>
-    </div>
+      <article class="revenue-callout revenue-callout--two">
+        <p class="revenue-callout__num">02</p>
+        <h3>他社商材が売れたとき</h3>
+        <p>売れた分がマージンとして御社に入ります。並べる商材は、御社が選び承認したものだけです。</p>
+      </article>
+      <article class="revenue-callout revenue-callout--three">
+        <p class="revenue-callout__num">03</p>
+        <h3>顧客が有料会員になったとき</h3>
+        <p>顧客が支払う月額の一部が、毎月御社へ。ほとんどの顧客は無料のまま満足し、それでよいと考えています。</p>
+      </article>
+    </figure>
   </div>
 </section>
 
@@ -652,7 +840,7 @@ footer p { color: var(--ink-faint); font-size: 12.5px; line-height: 1.8; margin:
   <div class="container">
     <p class="eyebrow">VOICES</p>
     <h2 class="voices__heading">参加された方の声</h2>
-    <p class="voices__lead">過去3か所の説明会で、実際に出た声です。</p>
+    <p class="voices__lead">過去3か所の説明会でいただいた、期待と質問の声です。</p>
 
     <div class="cloud" id="cloud">
       <span class="voice voice--lg voice--fill">メールマガジンの効果が薄れていたので、Jマッチエンジンに期待しています</span>
@@ -666,16 +854,31 @@ footer p { color: var(--ink-faint); font-size: 12.5px; line-height: 1.8; margin:
       <span class="voice voice--md">顧客データの扱いは、契約書で確認しておきたい</span>
       <span class="voice voice--sm">売る商材がなくても使えるのか知りたい</span>
       <span class="voice voice--md voice--fill">既存のお客様に嫌がられないかが、いちばんの心配だった</span>
+      <span class="voice voice--sm voice--line">まずは自社で、1ユーザーとして使ってみたい</span>
+      <span class="voice voice--md">メールマガジンを見直す、いいきっかけになりそう</span>
+      <span class="voice voice--sm">どんな商材を並べられるのか、詳しく知りたい</span>
+      <span class="voice voice--md voice--fill">顧客への案内頻度も、最初に確認しておきたい</span>
     </div>
 
-    <p class="voices__note">※ 説明会でいただいたご意見を、個社が特定されない形で掲載しています。</p>
+    <p class="voices__note">※ 説明会でいただいたご意見を、個社が特定されない形で要旨に編集して掲載しています。</p>
   </div>
 </section>
 
 <!-- ══════════ フォーム ══════════ -->
 <section class="form-section" id="form">
   <div class="container">
-    <div class="form-card">
+    <div class="form-layout">
+      <div class="form-intro">
+        <p class="eyebrow">ARCHIVE REQUEST</p>
+        <h2>15分で、<br>検討材料をそろえる。</h2>
+        <p>仕組み、料金、導入までの流れを、短い動画でご確認いただけます。</p>
+        <ul class="form-points">
+          <li><span>01</span>Jマッチ・エンジンの仕組み</li>
+          <li><span>02</span>料金に含まれる内容</li>
+          <li><span>03</span>御社に入る3つの収益</li>
+        </ul>
+      </div>
+      <div class="form-card">
 
       <div id="formBody">
         <div class="form-head">
@@ -738,6 +941,7 @@ footer p { color: var(--ink-faint); font-size: 12.5px; line-height: 1.8; margin:
         <p>ご登録のメールアドレスへ、セミナー動画のアーカイブをすぐにお送りします。</p>
       </div>
 
+      </div>
     </div>
   </div>
 </section>
