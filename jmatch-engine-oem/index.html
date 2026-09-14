@@ -460,58 +460,158 @@ section { padding: clamp(64px, 9vw, 116px) 0; }
 .flow__item-title { margin: 3px 0 5px; font-size: clamp(1rem, 1.85vw, 1.18rem); }
 .flow__item-text { font-size: 14px; line-height: 1.75; }
 
-/* ── 収益：説明と流れを同じ図面に接続 ─────────────────────────────── */
-.revenue__lead { margin-bottom: clamp(34px, 5vw, 52px); }
-.revenue-map {
+/* ── 収益：3つの収益ラインを御社へ束ねるアーキテクチャ ───────────── */
+.revenue {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(190px, .74fr) minmax(320px, 1.18fr) minmax(190px, .74fr);
-  grid-template-rows: 1fr 1fr;
-  gap: 18px 0;
-  align-items: center;
-  max-width: 1040px;
-  min-height: 390px;
-  margin: 0 auto;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 84% 46%, rgba(255,213,74,.14), transparent 26%),
+    linear-gradient(135deg, #173761, #0d1f3a 64%);
 }
-.revenue-map__core { grid-column: 2; grid-row: 1 / span 2; width: 100%; position: relative; z-index: 1; }
-.revenue-map__core svg { display: block; width: 100%; height: auto; overflow: visible; }
-.revenue-callout {
-  position: relative;
-  z-index: 2;
-  padding: 20px 20px 18px;
-  background: rgba(255,255,255,.09);
-  border: 1px solid rgba(255,255,255,.28);
-  border-radius: 10px;
-}
-.revenue-callout::after {
+.revenue::before {
   content: "";
   position: absolute;
-  top: 50%;
-  width: clamp(24px, 4vw, 54px);
-  border-top: 1px solid rgba(255,213,74,.78);
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent);
+  pointer-events: none;
 }
-.revenue-callout--one { grid-column: 1; grid-row: 1; align-self: end; }
-.revenue-callout--one::after { right: -54px; }
-.revenue-callout--two { grid-column: 3; grid-row: 1; align-self: end; }
-.revenue-callout--two::after { left: -54px; }
-.revenue-callout--three { grid-column: 3; grid-row: 2; align-self: start; }
-.revenue-callout--three::after { left: -54px; }
-.revenue-callout__num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  margin: 0 0 13px;
+.revenue .container { position: relative; z-index: 1; }
+.revenue__heading { max-width: 720px; }
+.revenue__lead { margin-bottom: clamp(34px, 5vw, 52px); }
+.revenue-blueprint {
+  max-width: 1080px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,.25);
+  border-bottom: 1px solid rgba(255,255,255,.2);
+}
+.revenue-blueprint__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 4px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.56);
+}
+.revenue-blueprint__head span:last-child { color: var(--accent); }
+.revenue-blueprint__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, .34fr);
+  align-items: stretch;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+.revenue-streams { display: grid; }
+.revenue-stream {
+  --stream: var(--accent);
+  display: grid;
+  grid-template-columns: minmax(0, 1.16fr) minmax(180px, .7fr);
+  min-height: 136px;
+  border-bottom: 1px solid rgba(255,255,255,.16);
+}
+.revenue-stream:last-child { border-bottom: none; }
+.revenue-stream--margin { --stream: #8bc8ff; }
+.revenue-stream--monthly { --stream: #b8e0c1; }
+.revenue-source {
+  position: relative;
+  padding: 23px 28px 22px 4px;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 15px;
+  align-content: center;
+}
+.revenue-source__num {
+  grid-row: 1 / span 3;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: var(--accent);
-  color: var(--navy-deep);
+  color: #102746;
+  background: var(--stream);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--stream) 12%, transparent), 0 0 24px color-mix(in srgb, var(--stream) 35%, transparent);
   font-family: var(--mono);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
 }
-.revenue-callout h3 { margin: 0 0 8px; font-size: 16px; line-height: 1.48; }
-.revenue-callout p { margin: 0; color: rgba(255,255,255,.78); font-size: 13.5px; line-height: 1.75; }
+.revenue-source__eyebrow { margin: 1px 0 4px; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--stream); }
+.revenue-source h3 { margin: 0 0 5px; font-size: 17px; line-height: 1.4; }
+.revenue-source p { margin: 0; color: rgba(255,255,255,.72); font-size: 13px; line-height: 1.65; }
+.revenue-route {
+  display: grid;
+  align-content: center;
+  gap: 11px;
+  padding: 20px 0 20px 8px;
+}
+.revenue-route__label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; color: rgba(255,255,255,.64); }
+.revenue-route__rail {
+  position: relative;
+  height: 7px;
+  margin-right: 2px;
+  border-radius: 999px 0 0 999px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--stream) 32%, transparent), var(--stream));
+  box-shadow: 0 0 20px color-mix(in srgb, var(--stream) 32%, transparent);
+}
+.revenue-route__rail::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid var(--stream);
+  border-right: 2px solid var(--stream);
+  transform: translateY(-50%) rotate(45deg);
+}
+.revenue-route__caption { color: rgba(255,255,255,.96); font-size: 13px; font-weight: 700; }
+.revenue-vault {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 22px;
+  text-align: center;
+  background: rgba(255,255,255,.96);
+  color: var(--navy-deep);
+}
+.revenue-vault::before {
+  content: "REVENUE DESTINATION";
+  position: absolute;
+  top: 18px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .12em;
+  color: #7d91ad;
+}
+.revenue-vault__mark {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin: 12px 0 13px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--navy);
+  box-shadow: 0 12px 24px rgba(13,31,58,.22);
+  font-size: 20px;
+  font-weight: 900;
+}
+.revenue-vault h3 { margin: 0; font-size: 20px; }
+.revenue-vault p { margin: 7px 0 0; color: #5a6b82; font-size: 12px; line-height: 1.65; }
+.revenue-vault__total {
+  width: 100%;
+  margin: 20px 0 0;
+  padding-top: 15px;
+  border-top: 1px solid #d8e0ea;
+  color: #173761;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+.revenue-vault__total strong { display: block; margin-top: 5px; font-family: var(--sans); font-size: 14px; letter-spacing: 0; }
 
 /* ── 参加された方の声：毎回配置が少し変わる声の散らばり ───────────── */
 .voices__lead { margin-bottom: clamp(34px, 5vw, 50px); }
@@ -583,13 +683,13 @@ section { padding: clamp(64px, 9vw, 116px) 0; }
   .flow__head { position: static; text-align: center; }
   .flow__head::after { margin: 22px auto 0; }
   .flow__desc { margin: 0 auto; }
-  .revenue-map { grid-template-columns: 1fr; grid-template-rows: auto; gap: 16px; min-height: 0; }
-  .revenue-map__core { grid-column: 1; grid-row: 1; max-width: 480px; margin: 0 auto 12px; }
-  .revenue-callout { grid-column: 1; grid-row: auto; width: 100%; }
-  .revenue-callout::after { display: none; }
-  .revenue-callout--one { grid-row: 2; }
-  .revenue-callout--two { grid-row: 3; }
-  .revenue-callout--three { grid-row: 4; }
+  .revenue-blueprint__body { grid-template-columns: 1fr; }
+  .revenue-vault { min-height: 236px; order: -1; }
+  .revenue-vault__total { max-width: 320px; }
+  .revenue-stream { grid-template-columns: 1fr; min-height: 0; }
+  .revenue-source { padding: 22px 8px 12px 4px; }
+  .revenue-route { gap: 8px; padding: 0 8px 24px 57px; }
+  .revenue-route__rail { margin-right: 6px; }
   .form-layout { grid-template-columns: 1fr; gap: 38px; max-width: 660px; }
   .form-intro { text-align: center; }
   .form-points { justify-items: center; }
@@ -791,46 +891,61 @@ footer p { color: var(--ink-faint); font-size: 12.5px; line-height: 1.8; margin:
     <h2 class="revenue__heading">御社に入るお金は、3本あります。</h2>
     <p class="revenue__lead">詳細は、動画でご確認ください。</p>
 
-    <figure class="revenue-map" aria-labelledby="revenueMapCaption">
-      <figcaption id="revenueMapCaption" class="sr-only">顧客から御社へ入る3つの収益の流れと、それぞれの説明</figcaption>
-      <article class="revenue-callout revenue-callout--one">
-        <p class="revenue-callout__num">01</p>
-        <h3>御社の商材が売れたとき</h3>
-        <p>売上は、まるごと御社のものです。ライトアップの取り分はありません。</p>
-      </article>
-      <div class="revenue-map__core" aria-hidden="true">
-        <svg viewBox="0 0 500 330" focusable="false">
-          <defs>
-            <marker id="revenueArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ffd54a"/></marker>
-          </defs>
-          <rect x="24" y="111" width="122" height="108" rx="12" fill="none" stroke="rgba(255,255,255,.54)" stroke-width="1.5"/>
-          <text x="85" y="169" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="16" font-weight="900" fill="#ffffff">顧客</text>
-          <text x="85" y="192" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="rgba(255,255,255,.62)">お客様・会員</text>
-          <rect x="354" y="91" width="122" height="148" rx="12" fill="#ffffff"/>
-          <text x="415" y="159" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="16" font-weight="900" fill="#16325c">御社</text>
-          <text x="415" y="182" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#557099">OEMブランド</text>
-          <path d="M146 123H340" fill="none" stroke="#ffd54a" stroke-width="2" marker-end="url(#revenueArrow)"/>
-          <path d="M146 165H340" fill="none" stroke="#ffd54a" stroke-width="2" marker-end="url(#revenueArrow)"/>
-          <path d="M146 207H340" fill="none" stroke="#ffd54a" stroke-width="2" marker-end="url(#revenueArrow)"/>
-          <circle cx="244" cy="123" r="13" fill="#ffd54a"/><circle cx="244" cy="165" r="13" fill="#ffd54a"/><circle cx="244" cy="207" r="13" fill="#ffd54a"/>
-          <text x="244" y="127" text-anchor="middle" font-family="DM Mono, sans-serif" font-size="10" font-weight="700" fill="#0d1f3a">1</text>
-          <text x="244" y="169" text-anchor="middle" font-family="DM Mono, sans-serif" font-size="10" font-weight="700" fill="#0d1f3a">2</text>
-          <text x="244" y="211" text-anchor="middle" font-family="DM Mono, sans-serif" font-size="10" font-weight="700" fill="#0d1f3a">3</text>
-          <text x="244" y="105" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="rgba(255,255,255,.76)">御社の商材の売上</text>
-          <text x="244" y="147" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="rgba(255,255,255,.76)">他社商材のマージン</text>
-          <text x="244" y="189" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="rgba(255,255,255,.76)">有料会員の月額</text>
-        </svg>
+    <figure class="revenue-blueprint" aria-labelledby="revenueBlueprintCaption">
+      <figcaption id="revenueBlueprintCaption" class="sr-only">顧客接点から御社へ流れ込む、3つの収益ライン</figcaption>
+      <div class="revenue-blueprint__head" aria-hidden="true">
+        <span>REVENUE ARCHITECTURE</span>
+        <span>3 LINES / ONE DESTINATION</span>
       </div>
-      <article class="revenue-callout revenue-callout--two">
-        <p class="revenue-callout__num">02</p>
-        <h3>他社商材が売れたとき</h3>
-        <p>売れた分がマージンとして御社に入ります。並べる商材は、御社が選び承認したものだけです。</p>
-      </article>
-      <article class="revenue-callout revenue-callout--three">
-        <p class="revenue-callout__num">03</p>
-        <h3>顧客が有料会員になったとき</h3>
-        <p>顧客が支払う月額の一部が、毎月御社へ。ほとんどの顧客は無料のまま満足し、それでよいと考えています。</p>
-      </article>
+      <div class="revenue-blueprint__body">
+        <div class="revenue-streams">
+          <article class="revenue-stream revenue-stream--sales">
+            <div class="revenue-source">
+              <span class="revenue-source__num">01</span>
+              <p class="revenue-source__eyebrow">OWN PRODUCT</p>
+              <h3>御社の商材が売れたとき</h3>
+              <p>売上は、まるごと御社のものです。ライトアップの取り分はありません。</p>
+            </div>
+            <div class="revenue-route" aria-hidden="true">
+              <span class="revenue-route__label">CUSTOMER → YOUR BRAND</span>
+              <span class="revenue-route__rail"></span>
+              <span class="revenue-route__caption">御社の商材の売上</span>
+            </div>
+          </article>
+          <article class="revenue-stream revenue-stream--margin">
+            <div class="revenue-source">
+              <span class="revenue-source__num">02</span>
+              <p class="revenue-source__eyebrow">PARTNER PRODUCT</p>
+              <h3>他社商材が売れたとき</h3>
+              <p>売れた分がマージンとして御社に入ります。並べる商材は、御社が選び承認したものだけです。</p>
+            </div>
+            <div class="revenue-route" aria-hidden="true">
+              <span class="revenue-route__label">CUSTOMER → CURATED OFFER</span>
+              <span class="revenue-route__rail"></span>
+              <span class="revenue-route__caption">他社商材のマージン</span>
+            </div>
+          </article>
+          <article class="revenue-stream revenue-stream--monthly">
+            <div class="revenue-source">
+              <span class="revenue-source__num">03</span>
+              <p class="revenue-source__eyebrow">PAID MEMBERSHIP</p>
+              <h3>顧客が有料会員になったとき</h3>
+              <p>顧客が支払う月額の一部が、毎月御社へ。ほとんどの顧客は無料のまま満足し、それでよいと考えています。</p>
+            </div>
+            <div class="revenue-route" aria-hidden="true">
+              <span class="revenue-route__label">MEMBER → MONTHLY PLAN</span>
+              <span class="revenue-route__rail"></span>
+              <span class="revenue-route__caption">有料会員の月額</span>
+            </div>
+          </article>
+        </div>
+        <aside class="revenue-vault" aria-label="3つの収益が御社へ入る">
+          <span class="revenue-vault__mark">御</span>
+          <h3>御社</h3>
+          <p>OEMブランドの<br>収益の受け皿</p>
+          <p class="revenue-vault__total">3 REVENUE LINES<strong>ここへ流れ込む</strong></p>
+        </aside>
+      </div>
     </figure>
   </div>
 </section>
