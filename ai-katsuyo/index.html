@@ -1853,14 +1853,39 @@
 
     var WEEKDAYS = ["日", "月", "火", "水", "木", "金", "土"];
 
-    /* 紹介者欄へ必ず残す流入元の印。"" にすれば付与しない。 */
-    var REFERRER_TAG = "LP経由";
+    /* 紹介者欄へ必ず残す流入元の印。
+       既定は「LP経由」。URLに ?ref=<パートナー名> を付けると、その値へ差し替わる。
+       例: .../ai-katsuyo/?ref=ABC商事  →  紹介者欄の初期値が「ABC商事」になる
+       utm_source も同じ用途として受け付ける。"" にすれば付与しない。 */
+    var REFERRER_DEFAULT = "LP経由";
+
+    /* URLパラメータから流入元を読む。想定外の値で送信内容が壊れないよう、
+       制御文字を落とし、空白を詰め、60文字で切る。 */
+    function readReferrerParam() {
+      try {
+        var q = new URLSearchParams(window.location.search);
+        var v = q.get("ref") || q.get("utm_source") || "";
+        return v.replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim().slice(0, 60);
+      } catch (e) {
+        return "";
+      }
+    }
+
+    var REFERRER_TAG = readReferrerParam() || REFERRER_DEFAULT;
 
     function tagReferrer(value) {
       if (!REFERRER_TAG) return value;
       if (!value) return REFERRER_TAG;
       return value.indexOf(REFERRER_TAG) === -1 ? value + " / " + REFERRER_TAG : value;
     }
+
+    /* JavaScriptが動く環境では、紹介者欄の初期値をURLの指定で上書きする。
+       動かない環境ではHTML側の value="LP経由" がそのまま残る。 */
+    (function applyReferrerDefault() {
+      var el = document.getElementById("f-ref");
+      if (!el) return;
+      if (el.value === REFERRER_DEFAULT || el.value === "") el.value = REFERRER_TAG;
+    })();
 
     var $ = function (id) { return document.getElementById(id); };
 
