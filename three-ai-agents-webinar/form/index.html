@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>LINEへ移動しています｜3つのAIエージェント ウェビナー</title>
+  <title>申込フォームへ移動しています｜3つのAIエージェント ウェビナー</title>
 
   <!-- Meta Pixel -->
   <script>
@@ -44,27 +44,27 @@
     @media(prefers-reduced-motion:reduce){.bar>i{width:100%;animation:none}}
   </style>
 
-  <noscript><meta http-equiv="refresh" content="2;url=https://lsync.humanoid-inc.net/entry?tag=meta&amp;channel=34ac42e8-79c7-460c-bc2d-77423297dfdd"></noscript>
+  <noscript><meta http-equiv="refresh" content="2;url=https://forms.gle/NEA4sBP818fSEVQZ9"></noscript>
 </head>
 <body>
   <main class="panel">
-    <p class="kicker">LINE ENTRY</p>
-    <h1>LINEへ移動しています</h1>
-    <p class="lead">友だち追加の画面が開きます。<br>そのままお申し込みへお進みください。</p>
+    <p class="kicker">FORM ENTRY</p>
+    <h1>申込フォームへ移動しています</h1>
+    <p class="lead">Googleフォームが開きます。<br>必要事項をご登録ください。</p>
     <div class="bar" aria-hidden="true"><i></i></div>
-    <p class="manual">画面が切り替わらない場合は<br><a id="manual-link" href="https://lsync.humanoid-inc.net/entry?tag=meta&amp;channel=34ac42e8-79c7-460c-bc2d-77423297dfdd">こちらからLINEを開く</a></p>
+    <p class="manual">画面が切り替わらない場合は<br><a id="manual-link" href="https://forms.gle/NEA4sBP818fSEVQZ9">こちらからフォームを開く</a></p>
   </main>
 
   <script>
-    const lineUrl='https://lsync.humanoid-inc.net/entry?tag=meta&channel=34ac42e8-79c7-460c-bc2d-77423297dfdd';
+    const formUrl='https://forms.gle/NEA4sBP818fSEVQZ9';
 
-    /* コンバージョンイベント（LINE経由の申込。form と区別できるよう content_name を付ける） */
-    if(typeof fbq==='function') fbq('track','Lead',{content_name:'line'});
-    if(typeof clarity==='function') clarity('event','lead_line');
+    /* コンバージョンイベント（フォーム経由の申込。line と区別できるよう content_name を付ける） */
+    if(typeof fbq==='function') fbq('track','Lead',{content_name:'form'});
+    if(typeof clarity==='function') clarity('event','lead_form');
 
     /* 遷移まで1.6秒あける（計測タグが発火しきる時間を確保するため）。
-       replace() なので、LINEから戻ったときはこのページではなくLPに戻ります。 */
-    setTimeout(()=>{location.replace(lineUrl);},1600);
+       replace() なので、フォームから戻ったときはこのページではなくLPに戻ります。 */
+    setTimeout(()=>{location.replace(formUrl);},1600);
   </script>
 </body>
 </html>
