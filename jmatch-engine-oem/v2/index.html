@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <!-- ▼差し替え：description / og / title。公開URLが決まったら og:url と canonical を足す -->
-  <meta name="description" content="AIが補助金・融資・税制優遇の制度を毎日自動で集め、メール・LINE・Slackでお知らせ。申請書づくりは6人のAIエージェントが支える、新しい経営支援AI「Jマッチエンジン」の15分セミナーです。">
-  <link rel="canonical" href="https://writeup-inc.github.io/seminar/jmatch-engine/v2/">
-  <meta property="og:url" content="https://writeup-inc.github.io/seminar/jmatch-engine/v2/">
+  <meta name="description" content="顧客リストを持つ会社のための、Jマッチエンジン OEMの15分動画。御社のロゴで、顧客に毎週「使える制度」を届ける仕組み・収益・導入の流れをまとめました。">
+  <link rel="canonical" href="https://writeup-inc.github.io/seminar/jmatch-engine-oem/v2/">
+  <meta property="og:url" content="https://writeup-inc.github.io/seminar/jmatch-engine-oem/v2/">
   <meta name="theme-color" content="#16325c">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
-  <meta property="og:title" content="Jマッチエンジン 15分セミナー｜株式会社ライトアップ">
-  <meta property="og:description" content="制度を、AIが毎日さがして届ける。起業前後・小規模法人のための15分セミナーです。">
+  <meta property="og:title" content="Jマッチエンジン OEM 15分動画｜株式会社ライトアップ">
+  <meta property="og:description" content="御社のロゴで、顧客に毎週「使える制度」を。開発も運用もライトアップが持つOEMの15分動画です。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700;800;900&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
-  <title>Jマッチエンジン 15分セミナー｜株式会社ライトアップ</title>
+  <title>Jマッチエンジン OEM 15分動画｜株式会社ライトアップ</title>
   <style>
     /* lp-base.css — 日本語LP／HTML成果物の初期CSS
      *
@@ -405,7 +405,7 @@
 
     /* ヒーロー：夕方のオフィス写真＋紺のベール＋画面記録のファインダー */
     .s-hero { min-height: min(96svh, 840px); padding-bottom: 168px; background: #0b1a33; isolation: isolate; }
-    .sp-hero-photo { position: absolute; inset: -3%; z-index: 0; background: url("images/hero-open.webp") 50% 45% / cover no-repeat; transform-origin: 60% 50%; animation: spDrift 28s ease-in-out infinite alternate; }
+    .sp-hero-photo { position: absolute; inset: -3%; z-index: 0; background: url("images/hero-city.webp") 50% 55% / cover no-repeat; transform-origin: 60% 50%; animation: spDrift 28s ease-in-out infinite alternate; }
     @keyframes spDrift { from { transform: scale(1.02); } to { transform: scale(1.09) translate3d(-1.4%, -1%, 0); } }
     .s-hero::before {
       z-index: 1;
@@ -460,7 +460,7 @@
 
     /* ワークログ・インサイトとは：画面を使う写真を紺で沈め、その上に画面イメージ */
     .s-product { background: #0f2547; }
-    .sp-product-photo { position: absolute; inset: -4%; z-index: 0; background: url("images/product-pc.webp") 30% 50% / cover no-repeat; filter: blur(8px) saturate(.9); }
+    .sp-product-photo { position: absolute; inset: -4%; z-index: 0; background: url("images/product-meeting.webp") 30% 50% / cover no-repeat; filter: blur(8px) saturate(.9); }
     .s-product::before {
       z-index: 1;
       background:
@@ -472,7 +472,7 @@
 
     /* 参加された方の声：打ち合わせの写真を白で薄め、大きな引用符 */
     .s-voices { background: #f5f6f8; }
-    .sp-voices-photo { position: absolute; inset: -4%; z-index: 0; background: url("images/audience-desk.webp") center 40% / cover no-repeat; filter: blur(16px) saturate(1.1) brightness(1.25); opacity: .2; }
+    .sp-voices-photo { position: absolute; inset: -4%; z-index: 0; background: url("images/voices-seats.webp") center 40% / cover no-repeat; filter: blur(16px) saturate(1.1) brightness(1.25); opacity: .2; }
     .s-voices::before { z-index: 1; }
     .s-voices .s-container { z-index: 2; }
     .s-voices__note { margin-top: 48px; }
@@ -485,7 +485,7 @@
       background:
         radial-gradient(circle at 10% 20%, rgba(255, 213, 74, .16), transparent 26%),
         linear-gradient(90deg, rgba(9, 22, 44, .9) 0%, rgba(11, 27, 54, .7) 52%, rgba(9, 22, 44, .84) 100%),
-        #0d1f3a url("images/night-city.webp") center / cover no-repeat;
+        #0d1f3a url("images/form-room.webp") center / cover no-repeat;
     }
     .s-form-card { border-top: 5px solid #ffd54a; }
     .s-form-note { margin-top: 20px; }
@@ -503,7 +503,7 @@
     }
     @media (max-width: 600px) {
       .s-hero { padding-bottom: 132px; }
-      .sp-hero-photo { background-position: 50% 50%; }
+      .sp-hero-photo { background-position: 62% 50%; }
       .sp-frame { inset: 14px 14px 112px; }
       .sp-frame i { width: 20px; height: 20px; }
       .sp-rec { left: 30px; top: 1px; letter-spacing: .1em; }
@@ -533,6 +533,26 @@
     .nt__d { margin: 3px 0 0 !important; color: #555c66; font-size: 13px; line-height: 1.6; }
     .nt__tag { display: inline-block; margin-top: 7px; padding: 1px 8px; border-radius: 4px; background: #fff4d6; color: #7a5200; font-size: 12px; font-weight: 800; }
     .s-hero__sub em { font-style: normal; }
+    .nt__ch--admin { background: #555c66; }
+    .s-product__copy h2 { font-size: clamp(28px, 3.3vw, 42px); }
+    .sp-voices-photo { filter: blur(16px) grayscale(1) brightness(1.25); }
+    .s-midcta { margin: 28px 0 0; }
+    .s-btn--ghost { border: 1.5px solid rgba(255,255,255,.6); background: transparent; color: #fff; }
+    .s-btn--ghost:hover { background: #ffd54a; border-color: #ffd54a; color: #0d1f3a; }
+    .rv { max-width: 340px; margin: 34px 0 0; padding: 24px 22px 20px; border-radius: 14px; background: #16325c; color: #fff; box-shadow: 0 26px 50px rgba(13,31,58,.2); }
+    .rv__h { margin: 0 0 14px; color: #ffd54a; font-size: 14px; font-weight: 800; }
+    .rv__list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .rv__list li { display: grid; grid-template-columns: 30px 1fr; column-gap: 8px; padding: 10px 12px; border: 1px solid rgba(255,255,255,.2); border-radius: 8px; background: rgba(255,255,255,.05); }
+    .rv__n { grid-row: span 2; color: #ffd54a; font-family: "DM Mono", ui-monospace, monospace; font-size: 13px; }
+    .rv__list b { font-size: 14.5px; line-height: 1.4; }
+    .rv__list em { color: rgba(255,255,255,.82); font-size: 13px; font-style: normal; line-height: 1.5; }
+    .rv__to { margin: 8px 0 0; color: #ffd54a; font-size: 18px; line-height: 1; text-align: center; }
+    .rv__dst { margin: 6px auto 0; width: fit-content; padding: 6px 22px; border-radius: 999px; background: #ffd54a; color: #0d1f3a; font-size: 15px; font-weight: 900; }
+    .rv__note { margin: 12px 0 0 !important; color: rgba(255,255,255,.7); font-size: 12px; line-height: 1.6; }
+    .fy__a { display: block; margin-top: 4px; color: #555c66; font-size: 14px; font-weight: 500; line-height: 1.7; }
+    .fy__col--qa li::before { content: "?"; background: #555c66; color: #fff; }
+    @media (max-width: 820px) { .rv { max-width: 560px; margin-left: auto; margin-right: auto; } }
+    .s-factbar__src { max-width: 1120px; margin: 10px auto 0; color: #6b7380; font-size: 12.5px; text-align: right; }
     .s-flow__item { align-items: start; }
     .s-product__visual { min-width: 0; }
     .s-product__visual .s-product__note { margin-top: 14px; }
@@ -547,7 +567,6 @@
     .s-form-legal2 { color: #6b7380; text-align: left; }
     @media (max-width: 600px) { .fy { grid-template-columns: 1fr; } .fy__col { padding: 20px 18px; } }
     .s-product__note { margin: 18px 0 0; color: rgba(255,255,255,.7); font-size: 12.5px; line-height: 1.7; }
-    .s-voices::after { content: none; }
     .s-voice { white-space: normal; }
     .s-form-legal { margin: 26px 0 0; color: rgba(255,255,255,.72); font-size: 12.5px; line-height: 1.75; }
     @media (max-width: 600px) {
@@ -561,59 +580,60 @@
   <main class="s-page">
     <section class="s-hero" aria-labelledby="s-hero-title">
       <div class="sp-hero-photo" aria-hidden="true"></div>
-      <div class="sp-frame" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="sp-rec">AUTO CHECK&nbsp;&nbsp;DAILY</span></div>
+      <div class="sp-frame" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="sp-rec">DELIVERY&nbsp;&nbsp;EVERY WEEK</span></div>
       <div class="s-hero__content">
-        <p class="s-hero__eyebrow">J-MATCH ENGINE ／ SEMINAR</p>
-        <h1 class="s-hero__title" id="s-hero-title" aria-live="off"><span class="s-hero__line" id="s-copy-line-1"><span>補助金・融資・</span><span>税制優遇を、</span></span><span class="s-hero__line" id="s-copy-line-2"><span>AIが</span><span>毎日さがす。<span class="s-hero__cursor" aria-hidden="true"></span></span></span></h1>
-        <p class="s-hero__sub"><span>新しい経営支援AI「Jマッチエンジン」が始まりました。</span><span>起業前後の方と小規模法人のための、<em class="nobr">約15分</em>のオンラインセミナーです。</span></p>
-        <p class="s-hero__cta"><a class="s-btn" href="#s-form">15分のセミナー動画を申し込む&nbsp; ▸</a></p>
-        <p class="s-hero__note">録画（アーカイブ動画）でご覧いただく形式です</p>
+        <p class="s-hero__eyebrow">Jマッチエンジン OEM｜15分の説明動画</p>
+        <h1 class="s-hero__title" id="s-hero-title" aria-live="off"><span class="s-hero__line" id="s-copy-line-1"><span>眠っている</span><span>顧客リストに、</span></span><span class="s-hero__line" id="s-copy-line-2"><span>毎週、</span><span>補助金の知らせを。<span class="s-hero__cursor" aria-hidden="true"></span></span></span></h1>
+        <p class="s-hero__sub"><span>御社のロゴで、顧客に毎週、補助金・助成金・融資・税制優遇の候補を届けます。</span><span>「申請を検討」を押した顧客が見える仕組みと、3つの収益を<em class="nobr">15分の動画</em>で。</span></p>
+        <p class="s-hero__cta"><a class="s-btn" href="#s-form">15分のOEM動画を請求する&nbsp; ▸</a></p>
+        <p class="s-hero__note">地域金融機関・士業事務所・経営コンサル・販売会社など、顧客リストをお持ちの会社向けです</p>
       </div>
     </section>
-    <section class="s-factbar" aria-label="Jマッチエンジンの要点"><div class="s-factbar__grid">
-      <div class="s-factbar__item"><p class="s-factbar__num">毎日</p><p class="s-factbar__label">AIが制度を自動で集める</p></div>
-            <div class="s-factbar__item"><p class="s-factbar__num">3<span class="s-factbar__unit">か所</span></p><p class="s-factbar__label">メール・LINE・Slackへ通知</p></div>
-      <div class="s-factbar__item"><p class="s-factbar__num">6<span class="s-factbar__unit">人</span></p><p class="s-factbar__label">AIエージェントが申請書づくりを支援</p></div>
-      <div class="s-factbar__item"><p class="s-factbar__num">15<span class="s-factbar__unit">分</span></p><p class="s-factbar__label">管理画面を見ながら紹介</p></div>
-    </div></section>
+    <section class="s-factbar" aria-label="OEMの要点"><div class="s-factbar__grid">
+      <div class="s-factbar__item"><p class="s-factbar__num">1,125<span class="s-factbar__unit">社</span></p><p class="s-factbar__label">前身J-Systemの累計導入</p></div>
+      <div class="s-factbar__item"><p class="s-factbar__num">100<span class="s-factbar__unit">以上</span></p><p class="s-factbar__label">うち自治体・地方銀行（J-System）</p></div>
+      <div class="s-factbar__item"><p class="s-factbar__num">3<span class="s-factbar__unit">分の1</span></p><p class="s-factbar__label">顧客の有料プラン月額のうち、御社の取り分</p></div>
+      <div class="s-factbar__item"><p class="s-factbar__num">1<span class="s-factbar__unit">週間</span></p><p class="s-factbar__label">契約後、最短での立ち上げ</p></div>
+    </div><p class="s-factbar__src">※1,125社・100以上は、前身にあたる補助金診断サービス「J-System」の累計導入数です。</p></section>
     <section class="s-flow" aria-labelledby="s-flow-title"><div class="s-container s-flow__layout">
-      <div class="s-flow__head"><p class="s-kicker">CONTENTS</p><h2 id="s-flow-title"><span class="s-heading-phrase">約15分の録画で、</span><span class="s-heading-phrase">見られる4つ</span></h2><p class="s-flow__lead">管理画面、制度の届き方、6人のAIの役割、料金と始め方。この順にお見せします。</p><figure class="sp-flow-photo"><img src="images/hands-phone.webp" alt="ノートパソコンの横で、スマートフォンを確かめる人の手元" width="1280" height="850" loading="lazy" decoding="async"><figcaption aria-hidden="true">NOTICE — MAIL / LINE / SLACK</figcaption></figure></div>
+      <div class="s-flow__head"><p class="s-kicker">CONTENTS</p><h2 id="s-flow-title"><span class="s-heading-phrase">仕組みと収益を、</span><span class="s-heading-phrase">15分で。</span></h2><p class="s-flow__lead">社内で回して検討いただくときも、この動画をそのままお使いください。</p><div class="rv" role="img" aria-label="御社に入る3つの収益"><p class="rv__h">御社に入る、3つの収益</p><ol class="rv__list"><li><span class="rv__n">01</span><b>自社の商材</b><em>売上は全額、御社へ</em></li><li><span class="rv__n">02</span><b>他社の商材</b><em>売れた額の10%程度</em></li><li><span class="rv__n">03</span><b>顧客の有料プラン</b><em>月額の3分の1</em></li></ol><p class="rv__to">↓</p><p class="rv__dst">御社</p><p class="rv__note">他社商材の料率は商材ごとに設定。配分の条件は動画と個別のご案内で。</p></div></div>
       <ol class="s-flow__list" id="s-flow-list">
-        <li class="s-flow__item"><span class="s-flow__icon">01</span><div><p class="s-flow__num">01</p><h3 class="s-flow__title">制度が集まる管理画面</h3><p class="s-flow__text">AIが毎日集めた補助金・融資・税制優遇が、管理画面にどう並ぶかをお見せします。</p></div></li>
-        <li class="s-flow__item"><span class="s-flow__icon">02</span><div><p class="s-flow__num">02</p><h3 class="s-flow__title">制度が届く流れ</h3><p class="s-flow__text">見つかった制度が、メール・LINE・Slackにどんな形で届くかをご紹介します。</p></div></li>
-        <li class="s-flow__item"><span class="s-flow__icon">03</span><div><p class="s-flow__num">03</p><h3 class="s-flow__title">6人のAIと、下書きを整える流れ</h3><p class="s-flow__text">やりたいこと、お客さま、強み、市場、お金、次の行動。AIと話しながら、申請に使う事業計画の下書きを整えていく様子です。</p></div></li>
-        <li class="s-flow__item"><span class="s-flow__icon">04</span><div><p class="s-flow__num">04</p><h3 class="s-flow__title">料金と、始めるまでの流れ</h3><p class="s-flow__text">起業前と法人設立後では、使える制度も変わります。少人数の会社での使い方と、料金・始め方もお伝えします。</p></div></li>
+        <li class="s-flow__item"><span class="s-flow__icon">01</span><div><p class="s-flow__num">01</p><h3 class="s-flow__title">顧客に毎週、制度が届く仕組み</h3><p class="s-flow__text">顧客が御社ブランドのページで登録してから、毎週の候補を受け取り、「申請を検討」を押すまでの流れ。</p></div></li>
+        <li class="s-flow__item"><span class="s-flow__icon">02</span><div><p class="s-flow__num">02</p><h3 class="s-flow__title">御社に入る、3つの収益</h3><p class="s-flow__text">御社の商材の売上は、まるごと御社へ（当社の取り分はありません）。他社商材は売れた額の10%程度（商材ごとに設定）、顧客の有料プランは月額の3分の1が御社の取り分です。配分の条件は動画と個別のご案内でお伝えします。</p></div></li>
+        <li class="s-flow__item"><span class="s-flow__icon">03</span><div><p class="s-flow__num">03</p><h3 class="s-flow__title">御社がやること、当社がやること</h3><p class="s-flow__text">ブランドの設定は、ロゴ・色・名称の3つだけ。開発・サーバー・保守と、顧客からの問い合わせの一次対応は当社のAIスタッフが受けます。</p></div></li>
+        <li class="s-flow__item"><span class="s-flow__icon">04</span><div><p class="s-flow__num">04</p><h3 class="s-flow__title">打ち合わせ1回からの、導入の流れ</h3><p class="s-flow__text">契約後は最短1週間で立ち上がります。案内メールの文面、チラシ、説明トーク、登録用のQRコードも当社で用意します。</p></div></li>
       </ol>
     </div></section>
     <section class="s-product" aria-labelledby="s-product-title"><div class="sp-product-photo" aria-hidden="true"></div><div class="s-container s-product__layout">
-      <div class="s-product__visual"><div class="s-product__screen" role="img" aria-label="Jマッチエンジンから届く通知の画面イメージ。制度名は架空です">
-        <div class="nt"><div class="nt__head"><span class="nt__brand">J MATCH ENGINE</span><span class="nt__day">今日の新着</span></div>
+      <div class="s-product__visual"><div class="s-product__screen" role="img" aria-label="御社のブランドで顧客に届く通知の画面イメージ。会社名・制度名は架空です">
+        <div class="nt"><div class="nt__head"><span class="nt__brand">◯◯商会 × J MATCH</span><span class="nt__day">今週の該当</span></div>
           <ul class="nt__list">
-            <li class="nt__item"><span class="nt__ch">MAIL</span><div><p class="nt__t">新しい制度が2件見つかりました</p><p class="nt__d">設備投資の補助金／創業向けの融資制度</p><span class="nt__tag">締切の近い制度</span></div></li>
-            <li class="nt__item"><span class="nt__ch nt__ch--line">LINE</span><div><p class="nt__t">御社に関係しそうな補助金があります</p><p class="nt__d">対象：創業まもない小規模事業者（例）</p></div></li>
-            <li class="nt__item"><span class="nt__ch nt__ch--slack">Slack</span><div><p class="nt__t">#経営 に共有しました</p><p class="nt__d">来期の投資が、税制優遇の対象になるかもしれません</p></div></li>
+            <li class="nt__item"><span class="nt__ch">MAIL</span><div><p class="nt__t">【◯◯商会】御社が使えそうな制度が3件</p><p class="nt__d">設備導入の補助金／設備資金の融資／投資の税額控除</p></div></li>
+            <li class="nt__item"><span class="nt__ch nt__ch--line">LINE</span><div><p class="nt__t">この補助金に関連する商品のご案内</p><p class="nt__d">◯◯商会の取扱商品から（例）</p></div></li>
+            <li class="nt__item"><span class="nt__ch nt__ch--admin">管理画面</span><div><p class="nt__t">株式会社△△が「申請を検討」を押しました</p><p class="nt__d">動いた顧客だけ、営業が追えば足ります</p></div></li>
           </ul></div>
-      </div><p class="s-product__note">※通知の画面はイメージです。制度名・条件は架空の例です。</p></div>
-      <div class="s-product__copy"><p class="s-kicker">PRODUCT</p><h2 id="s-product-title">Jマッチエンジンが<br>受け持つ、3つの仕事</h2><p class="s-product__lead">補助金・融資・税制優遇から、御社に関係しそうな制度をAIが見つけて届け、申請に使う事業計画の下書きまで伴走する経営支援AIです。</p><ol class="s-product__list"><li class="s-product__item"><span class="s-product__num">01</span><div><h3>毎日、自動で集める</h3><p>制度の情報をAIが毎日確認し、御社に関係しそうなものを拾います。</p></div></li><li class="s-product__item"><span class="s-product__num">02</span><div><h3>メール・LINE・Slackに届く</h3><p>見つかった制度を、いつも見ている場所へお知らせします。</p></div></li><li class="s-product__item"><span class="s-product__num">03</span><div><h3>6人のAIが申請書づくりを支える</h3><p>会話しながら事業計画の下書きを整えます。申請の代行は行いません。</p><ul class="ag"><li>やりたいことを言葉にする</li><li>お客さまを考え直す</li><li>自社の強みを掘り出す</li><li>市場の変化を見立てる</li><li>お金の使い方を考える</li><li>次の行動を決める</li></ul></div></li></ol></div>
+      </div><p class="s-product__note">※画面はイメージです。会社名・制度名は架空の例です。</p></div>
+      <div class="s-product__copy"><p class="s-kicker">PRODUCT</p><h2 id="s-product-title"><span class="s-heading-phrase">顧客から見れば、</span><span class="s-heading-phrase">御社のサービス。</span></h2><p class="s-product__lead">Jマッチエンジンは、補助金・助成金・融資・税制優遇の候補を毎週届けるサービスを、御社の名前で顧客に提供するOEMです。売り込みではない接点が、毎週続きます。</p><ol class="s-product__list"><li class="s-product__item"><span class="s-product__num">01</span><div><h3>御社のブランドで配る</h3><p>登録ページも、毎週届く知らせも、差出人は御社の名前です。</p></div></li><li class="s-product__item"><span class="s-product__num">02</span><div><h3>毎週、制度と商材が届く</h3><p>メール・LINE・Slack・SMSから、顧客が選んだ経路へ。制度に関連する御社の商材も一緒に届きます。</p></div></li><li class="s-product__item"><span class="s-product__num">03</span><div><h3>動いた顧客が見える</h3><p>「申請を検討」を押した顧客が、御社の管理画面に届きます。リスト全体に電話をかける必要はありません。</p></div></li></ol><p class="s-midcta"><a class="s-btn s-btn--ghost" href="#s-form">15分のOEM動画を請求する&nbsp; ▸</a></p></div>
     </div></section>
     <section class="s-voices" aria-labelledby="s-voices-title"><div class="sp-voices-photo" aria-hidden="true"></div><div class="s-container">
-      <p class="s-kicker">FOR YOU</p><h2 id="s-voices-title"><span class="s-heading-phrase">制度を調べる</span><span class="s-heading-phrase">時間がない方へ</span></h2><p class="s-voices__lead">起業の前後や、人数の少ない会社ほど、制度を調べる時間はとれません。ひとつでも当てはまれば、15分だけご覧ください。</p>
-      <div class="fy" id="s-voice-cloud"><div class="fy__col"><h3>いまの段階</h3><ul><li>これから起業する</li><li>起業したばかり</li><li>個人事業から法人にした</li><li>社員数名の小規模法人</li></ul></div><div class="fy__col"><h3>困っていること</h3><ul><li>補助金を探す時間がない</li><li>融資の相談先がまだない</li><li>税制優遇を使えているか分からない</li><li>申請書を書いたことがない</li></ul></div></div>
+      <p class="s-kicker">VOICES</p><h2 id="s-voices-title"><span class="s-heading-phrase">説明会で出た、</span><span class="s-heading-phrase">期待と心配</span></h2><p class="s-voices__lead">過去3か所の説明会でいただいた声です。心配の声には、いまの答えを添えました。</p>
+      <div class="fy" id="s-voice-cloud"><div class="fy__col"><h3>期待の声</h3><ul><li>「メールマガジンの効果が薄れていたので、期待しています」</li><li>「眠っている顧客リストの活用法としては面白い」</li><li>「BtoBならマッチしそう」</li><li>「自社でも会員登録して、1ユーザーとして使いたい」</li><li>「本業サービスの、料金ネックの解決になる」</li><li>「他社サービスの販売マージンに、実は一番期待しています」</li></ul></div><div class="fy__col fy__col--qa"><h3>心配の声と、答え</h3><ul><li>「売る商材がなくても使えるのか知りたい」<span class="fy__a">他社商材のマージン（売れた額の10%程度）と、顧客の有料プラン月額の3分の1があります。</span></li><li>「既存のお客様に嫌がられないかが、いちばんの心配だった」<span class="fy__a">登録は顧客ご自身で。受け取る経路も、メール・LINE・Slack・SMSから顧客が選びます。</span></li><li>「同じエリアの他社にも提供されるのかが気になる」<span class="fy__a">エリアの扱いは、打ち合わせの場で確定させます。</span></li><li>「顧客データの扱いは、契約書で確認しておきたい」<span class="fy__a">御社が獲得した顧客は御社の顧客です。取り扱いは契約書に明記します。</span></li></ul></div></div>
+      <p class="s-voices__note">※説明会でいただいたご意見を、個社が特定されない形で要旨に編集して掲載しています。</p>
     </div></section>
     <section class="s-form-section" id="s-form" aria-labelledby="s-form-title"><div class="s-container s-form-layout">
-      <div class="s-form-intro"><p class="s-kicker">ARCHIVE VIDEO</p><h2 id="s-form-title"><span class="s-heading-phrase">制度が届く画面を、</span><span class="s-heading-phrase">15分で見る。</span></h2><p>制度が届く仕組みと、AIと申請書を準備する流れを、管理画面を見ながらご紹介します。</p><ul class="s-form-points"><li><span>01</span> アーカイブ動画で約15分</li><li><span>02</span> 管理画面を見ながら説明</li><li><span>03</span> 料金と始め方もご紹介</li></ul></div>
-      <div class="s-form-card"><div class="s-form-head"><h2>セミナー動画を申し込む</h2><p>まだ起業前の方も、お申し込みいただけます。</p></div><div class="s-form-steps" aria-label="入力ステップ"><span class="s-form-dot is-active"></span><span class="s-form-dot"></span></div>
-        <form id="s-entry-form" novalidate><div class="s-step is-active"><div class="s-field"><label for="s-name">お名前</label><input id="s-name" name="name" autocomplete="name" required></div><div class="s-field"><label for="s-email">メールアドレス</label><input id="s-email" name="email" type="email" autocomplete="email" required></div><div class="s-form-nav"><button class="s-btn" type="button" data-s-next>次へ&nbsp; ▸</button></div></div><div class="s-step"><div class="s-field"><label for="s-company">会社名・屋号<span class="s-optional">任意・起業前なら空欄で</span></label><input id="s-company" name="company" autocomplete="organization"></div><div class="s-field"><label for="s-stage">いまの段階<span class="s-optional">任意</span></label><select id="s-stage" name="stage"><option value="">選択してください</option><option>起業準備中</option><option>起業したばかり</option><option>法人（小規模）</option><option>個人事業主</option><option>その他</option></select></div><div class="s-field"><label for="s-message">セミナーで特に知りたいこと<span class="s-optional">任意</span></label><textarea id="s-message" name="message"></textarea></div><div class="s-form-nav"><button class="s-btn s-btn--back" type="button" data-s-back>戻る</button><button class="s-btn" type="submit">申し込む</button></div></div></form>
-        <div class="s-done" id="s-done" role="status" aria-live="polite"><h3>お申し込みありがとうございます。</h3><p>視聴のご案内方法は調整中です。</p></div><p class="s-form-note">いただいた情報は、個人情報保護方針に沿って取り扱います。</p><p class="s-form-note s-form-legal2">補助金の採択、融資、税制上の効果を保証するものではありません。申請の代行は行っていません。制度の最新情報や条件は、公募元・関係機関でもご確認ください。</p>
+      <div class="s-form-intro"><p class="s-kicker">OEM VIDEO</p><h2 id="s-form-title"><span class="s-heading-phrase">御社の名前で</span><span class="s-heading-phrase">配れるか、15分で。</span></h2><p>料金と提供条件は、動画と個別のご案内でお伝えします。</p><ul class="s-form-points"><li><span>01</span> 自社商材の売上：当社の取り分なし</li><li><span>02</span> 他社商材：売れた額の10%程度（商材ごとに設定）</li><li><span>03</span> 顧客の有料プラン：月額の3分の1</li></ul><div class="s-form-industries" id="s-form-industries"><h3>顧客リストを持つ、こんな会社に</h3><div class="s-industry-list"><span class="s-industry">地域金融機関</span><span class="s-industry">税理士・会計事務所</span><span class="s-industry">社労士・行政書士</span><span class="s-industry">経営コンサルティング</span><span class="s-industry">設備・機械の販売会社</span><span class="s-industry">IT導入・Web制作</span><span class="s-industry">業界団体・組合</span><span class="s-industry">法人向けの販売会社</span></div></div></div>
+      <div class="s-form-card"><div class="s-form-head"><h2>OEM動画を請求する</h2><p>ご検討の前段階でも大丈夫です。</p></div><div class="s-form-steps" aria-label="入力ステップ"><span class="s-form-dot is-active"></span><span class="s-form-dot"></span></div>
+        <form id="s-entry-form" novalidate><div class="s-step is-active"><div class="s-field"><label for="s-company">会社名</label><input id="s-company" name="company" autocomplete="organization" required></div><div class="s-field"><label for="s-name">お名前</label><input id="s-name" name="name" autocomplete="name" required></div><div class="s-field"><label for="s-email">メールアドレス</label><input id="s-email" name="email" type="email" autocomplete="email" required></div><div class="s-form-nav"><button class="s-btn" type="button" data-s-next>次へ&nbsp; ▸</button></div></div><div class="s-step"><div class="s-field"><label for="s-industry">御社に近い業種<span class="s-optional">任意</span></label><select id="s-industry" name="industry"><option value="">選択してください</option><option>地域金融機関</option><option>税理士・会計事務所</option><option>社労士・行政書士</option><option>経営コンサルティング</option><option>設備・機械の販売会社</option><option>IT導入・Web制作</option><option>業界団体・組合</option><option>法人向けの販売会社</option><option>その他</option></select></div><div class="s-field"><label for="s-products">主な取扱商材<span class="s-optional">任意</span></label><input id="s-products" name="products"></div><div class="s-field"><label for="s-list">お持ちの顧客リストの規模<span class="s-optional">任意</span></label><select id="s-list" name="list_size"><option value="">選択してください</option><option>100社未満</option><option>100〜999社</option><option>1,000社以上</option><option>まだ分からない</option></select></div><div class="s-form-nav"><button class="s-btn s-btn--back" type="button" data-s-back>戻る</button><button class="s-btn" type="submit">OEM動画を請求する</button></div></div></form>
+        <div class="s-done" id="s-done" role="status" aria-live="polite"><h3>ご請求ありがとうございます。</h3><p>動画のご案内方法は調整中です。</p></div><p class="s-form-note">いただいた情報は、個人情報保護方針に沿って取り扱います。</p><p class="s-form-note s-form-legal2">補助金・助成金は審査を伴う制度で、採択・受給を保証するものではありません。対象経費になるかの最終判断は制度の事務局が行います。申請の代行は行っていません。料金と提供条件は、動画と個別のご案内でお伝えします。</p>
       </div>
     </div></section>
   </main>
-    <footer class="s-footer"><p>Jマッチエンジン｜株式会社ライトアップ（<span class="nobr">東証グロース・証券コード6580</span>）</p><p class="sp-legal"><a href="https://www.writeup.jp/company/" target="_blank" rel="noopener">運営会社</a><a href="https://www.writeup.jp/privacy/" target="_blank" rel="noopener">個人情報保護方針</a></p><p>写真：Pixabay（timmossholder、Firmbee、Pexels、LoboStudioHamburg）</p></footer>
+    <footer class="s-footer"><p>Jマッチエンジン OEM｜株式会社ライトアップ（<span class="nobr">東証グロース・証券コード6580</span>）</p><p class="sp-legal"><a href="https://www.writeup.jp/company/" target="_blank" rel="noopener">運営会社</a><a href="https://www.writeup.jp/privacy/" target="_blank" rel="noopener">個人情報保護方針</a></p><p>写真：Pixabay（ClickerHappy、Pexels、SZimmermann_DE、StartupStockPhotos、kaboompics）</p></footer>
   <script>
     const sCopies = [
-      [['補助金・融資・', '税制優遇を、'], ['AIが', '毎日さがす。']],
-      [['見つけた制度を、'], ['メール・LINE・', 'Slackへ。']],
-      [['申請書づくりは、'], ['6人の', 'AIが支える。']]
+      [['眠っている', '顧客リストに、'], ['毎週、', '補助金の知らせを。']],
+      [['御社の商材の', '売上は、'], ['まるごと御社へ。']],
+      [['打ち合わせ1回、'], ['最短1週間で', '立ち上げ。']]
     ];
     const sTitle = document.getElementById('s-hero-title');
     const sLine1 = document.getElementById('s-copy-line-1');
