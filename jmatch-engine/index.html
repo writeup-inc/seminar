@@ -290,7 +290,10 @@
     .archive-status { margin-top: 22px !important; color: var(--yellow) !important; font-family: var(--mono); font-size: 12px !important; }
     @media (max-width: 820px) { .archive-float { right: 12px; bottom: 10px; left: 12px; justify-content: center; min-height: 52px; padding: 8px 14px; } .archive-float-icon { width: 31px; height: 31px; font-size: 11px; } .archive-layout { grid-template-columns: 1fr; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
-  </style>
+  
+/* 可読の下限：判断に使う文字を12px未満にしない（2026-09-24 一括是正） */
+.quick-label,.window-title,.mail-from,.mail-date,.candidate b,.story-chapter,.agent-no,.photo-tag,span small{font-size:12px!important}
+</style>
 </head>
 <body>
   <header class="site-head">
