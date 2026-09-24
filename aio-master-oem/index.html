@@ -1,445 +1,770 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="AIOマスターをOEM正規パートナーとして販売する会社向けの、第0次募集（20社）の説明会申込ページです。60分・オンライン。">
-<link rel="canonical" href="https://writeup-inc.github.io/seminar/aio-master-oem/">
-<meta property="og:url" content="https://writeup-inc.github.io/seminar/aio-master-oem/">
-<meta name="theme-color" content="#0d1d3a">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="AIOマスター OEM説明会｜株式会社ライトアップ">
-<meta property="og:description" content="今のお客様へ、AI検索対策を1本足す。売った金額の40%が御社の取り分です。第0次募集20社の説明会（60分・オンライン）。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<title>AIOマスター OEM説明会｜株式会社ライトアップ</title>
-<style>
-/* ===== lp-base.css ===== */
-h1, h2, h3, h4, h5,
-.lead, .catch, .hero__title, [data-keep-phrase] {
-  word-break: auto-phrase;
-  line-break: strict;
-  overflow-wrap: anywhere;
-}
-@supports not (word-break: auto-phrase) {
-  h1, h2, h3, h4, h5,
-  .lead, .catch, .hero__title, [data-keep-phrase] {
-    word-break: normal;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="AIOマスターをOEM正規パートナーとして販売する会社向けの、第0次募集（20社）の説明会申込ページです。60分・オンライン。">
+  <link rel="canonical" href="https://writeup-inc.github.io/seminar/aio-master-oem/">
+  <meta property="og:url" content="https://writeup-inc.github.io/seminar/aio-master-oem/">
+  <meta name="theme-color" content="#16325c">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="AIOマスター OEM説明会｜株式会社ライトアップ">
+  <meta property="og:description" content="今のお客様へ、AI検索対策を1本足す。売った金額の40%が御社の取り分です。第0次募集20社の説明会（60分・オンライン）。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700;800;900&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+  <title>AIOマスター OEM説明会｜株式会社ライトアップ</title>
+  <style>
+    /* lp-base.css — 日本語LP／HTML成果物の初期CSS
+     *
+     * 品質台帳（~/Documents/Codex/loop-engineering-memory/events.jsonl）で
+     * 再発が確認された表示欠陥を、指摘ではなく初期値で潰すためのファイル。
+     * 対応する欠陥ID:
+     *   japanese-heading-midword-wrap（見出しが単語途中で改行）11回
+     *   mobile-fv-headline-wrap（モバイルFVの見出し改行）3回
+     *   mobile-fixed-cta-overlap（固定CTAが本文を隠す）3回
+     *   meaningful-small-text-under-readable-size（意味のある文字が可読サイズ未満）5回
+     *
+     * 使い方: HTMLの<style>先頭にこの内容を貼る。色・書体・余白は各LPで上書きしてよいが、
+     * 下の「改行制御」「最小文字サイズ」「固定CTAの逃げ」の3ブロックは消さないこと。
+     */
+
+    /* ── 改行制御 ─────────────────────────────────────────────
+     * 日本語は単語区切りが無いため、既定のままだと文節の途中で折り返す。
+     * auto-phrase は文節単位で折る（Chrome 119+）。非対応環境は strict で逃がす。 */
+    h1, h2, h3, h4, h5,
+    .lead, .catch, .hero__title, [data-keep-phrase] {
+      word-break: auto-phrase;
+      line-break: strict;
+      overflow-wrap: anywhere;
+    }
+    @supports not (word-break: auto-phrase) {
+      h1, h2, h3, h4, h5,
+      .lead, .catch, .hero__title, [data-keep-phrase] {
+        word-break: normal;
+      }
+    }
+    /* 明示的に折りたくない語の途中で切られたら、その語を <span class="nobr"> で包む */
+    .nobr { white-space: nowrap; }
+
+    /* ── 最小文字サイズ ───────────────────────────────────────
+     * 判断材料になる文字は12px未満にしない。注記・免責のみ .note を許容。 */
+    :root { --fs-min: 12px; --fs-body: 16px; }
+    body { font-size: var(--fs-body); line-height: 1.8; }
+    small, .note, figcaption { font-size: var(--fs-min); line-height: 1.7; }
+
+    /* ── ファーストビューの見出し ─────────────────────────────
+     * 固定pxだと狭い画面で必ず折り返す。clamp で画面幅に追従させる。 */
+    h1, .hero__title { font-size: clamp(1.55rem, 5.2vw, 3.25rem); line-height: 1.35; }
+    h2 { font-size: clamp(1.3rem, 3.6vw, 2.1rem); line-height: 1.45; }
+
+    /* ── 固定CTAの逃げ ────────────────────────────────────────
+     * 画面下に固定CTAを置くページは、この変数を実測の高さに書き換える。
+     * 置かないページはそのままでよい（0のまま）。 */
+    :root { --fixed-cta-h: 0px; }
+    body { padding-bottom: calc(var(--fixed-cta-h) + env(safe-area-inset-bottom, 0px)); }
+
+    /* ── 横はみ出しの予防 ─────────────────────────────────────
+     * flex/grid の子は既定で min-width:auto のため、長い語で親を押し広げる。 */
+    *, *::before, *::after { box-sizing: border-box; }
+    img, svg, video, canvas, iframe { max-width: 100%; height: auto; }
+    main > *, section > *, .grid > *, .flex > * { min-width: 0; }
+    pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
+
+    /* ── 骨格：ヒーロー／数字の帯／CONTENTS／PRODUCT／声／申込 ── */
+    body {
+      background: #fff;
+      color: #14181d;
+      font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .s-container { width: min(100% - 48px, 1120px); margin: 0 auto; }
+    .s-page *, .s-footer * { box-sizing: border-box; }
+    /* :where で詳細度を0に落とし、個別クラスの margin-top を必ず効かせる */
+    :where(.s-page) :is(h1, h2, h3, p) { margin-top: 0; }
+    .s-page h1, .s-page h2, .s-page h3 { font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif; font-weight: 900; letter-spacing: -.03em; }
+    .s-kicker {
+      margin: 0 0 16px;
+      color: #16325c;
+      font-family: "DM Mono", ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .14em;
+    }
+    .s-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 59px;
+      padding: 17px 38px;
+      border: 0;
+      border-radius: 8px;
+      background: #16325c;
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: none;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .s-btn:hover { transform: translateY(-2px); background: #0d1f3a; }
+    .s-btn:focus-visible, .s-page input:focus-visible, .s-page select:focus-visible, .s-page textarea:focus-visible { outline: 3px solid rgba(255,213,74,.9); outline-offset: 3px; }
+
+    .s-hero {
+      position: relative;
+      display: flex;
+      min-height: 92svh;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 80px 24px 72px;
+      background: #16325c;
+      color: #fff;
+      text-align: center;
+    }
+    .s-hero::before {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: radial-gradient(circle at 18% 12%, rgba(255,255,255,.1), transparent 42%), radial-gradient(circle at 84% 82%, rgba(255,213,74,.11), transparent 46%);
+      content: "";
+      pointer-events: none;
+    }
+    .s-hero__map { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+    .s-hero__content { position: relative; z-index: 2; width: min(100%, 1000px); max-width: 1000px; }
+    .s-hero__eyebrow {
+      display: inline-block;
+      margin-bottom: 38px;
+      padding: 9px 22px;
+      border: 1px solid rgba(255,255,255,.36);
+      border-radius: 999px;
+      color: rgba(255,255,255,.92);
+      font-family: "DM Mono", ui-monospace, monospace;
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: .15em;
+    }
+    .s-hero__title {
+      display: flex;
+      min-height: 3.05em;
+      margin: 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: .06em;
+      font-size: clamp(37px, 5.8vw, 70px);
+      line-height: 1.27;
+      text-shadow: 0 2px 24px rgba(0,0,0,.18);
+      transition: opacity .22s ease, transform .22s ease;
+    }
+    .s-hero__title.is-changing { opacity: .16; transform: translateY(7px); }
+    .s-hero__line { display: flex; flex-wrap: wrap; justify-content: center; column-gap: .12em; }
+    .s-hero__line > span { white-space: nowrap; }
+    .s-hero__cursor { display: inline-block; width: 4px; height: .88em; margin-left: 4px; background: #ffd54a; vertical-align: -.06em; animation: sblink .9s step-end infinite; }
+    @keyframes sblink { 50% { opacity: 0; } }
+    .s-hero__sub { max-width: 960px; margin: 38px auto 0; color: rgba(255,255,255,.84); font-size: clamp(16px, 1.7vw, 18px); line-height: 2.02; }
+    .s-hero__sub span { display: block; white-space: nowrap; }
+    .s-hero__cta { margin-top: 42px; }
+    .s-hero__cta .s-btn { min-height: 63px; padding: 20px 52px; background: #fff; color: #16325c; box-shadow: 0 12px 34px rgba(0,0,0,.22); }
+    .s-hero__cta .s-btn:hover { background: #ffd54a; color: #0d1f3a; }
+    .s-hero__note { margin: 19px 0 0; color: rgba(255,255,255,.68); font-size: 13.5px; }
+
+    .s-factbar { padding: 0; background: #0d1f3a; color: #fff; }
+    .s-factbar__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .s-factbar__item { padding: clamp(21px, 2.9vw, 33px) 14px; border-left: 1px solid rgba(255,255,255,.14); text-align: center; }
+    .s-factbar__item:first-child { border-left: 0; }
+    .s-factbar__num { margin: 0; font-size: clamp(25px, 3.4vw, 38px); font-weight: 900; letter-spacing: -.04em; line-height: 1.05; }
+    .s-factbar__unit { margin-left: .13em; font-size: .5em; font-weight: 700; letter-spacing: 0; }
+    .s-factbar__label { margin: 8px 0 0; color: rgba(255,255,255,.72); font-size: 12px; line-height: 1.5; }
+
+    .s-flow { padding: clamp(72px, 9vw, 116px) 0; overflow: hidden; background: #fff; }
+    .s-flow__layout { display: grid; grid-template-columns: minmax(240px, .78fr) minmax(0, 1.42fr); gap: clamp(44px, 8vw, 116px); align-items: start; }
+    .s-flow__head { position: sticky; top: 28px; padding-top: 4px; }
+    .s-flow__head::after { display: block; width: fit-content; margin-top: 30px; padding-top: 14px; border-top: 1px solid #14181d; color: #8d95a1; content: "01 — 04"; font-family: "DM Mono", ui-monospace, monospace; font-size: 11px; letter-spacing: .12em; }
+    .s-flow h2 { margin-bottom: 18px; font-size: clamp(29px, 3.4vw, 45px); line-height: 1.3; }
+    .s-heading-phrase { display: block; white-space: nowrap; }
+    .s-flow__lead { max-width: 370px; margin-bottom: 0; color: #555c66; font-size: 15px; }
+    .s-flow__list { margin: 0; padding: 0; border-top: 1px solid #e4e7ec; list-style: none; }
+    .s-flow__item { display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 24px 0; border-bottom: 1px solid #e4e7ec; opacity: 0; transform: translateX(42px); transition: opacity .55s ease, transform .65s cubic-bezier(.2,.8,.3,1); }
+    .s-flow__item:nth-child(even) { transform: translateX(-42px); }
+    .s-flow__list.is-in .s-flow__item { opacity: 1; transform: none; }
+    .s-flow__item:nth-child(2) { transition-delay: .13s; }
+    .s-flow__item:nth-child(3) { transition-delay: .26s; }
+    .s-flow__item:nth-child(4) { transition-delay: .39s; }
+    .s-flow__icon { display: flex; width: 54px; height: 54px; align-items: center; justify-content: center; border: 1px solid #e4e7ec; border-radius: 50%; background: #f5f6f8; color: #16325c; font-family: "DM Mono", ui-monospace, monospace; font-size: 13px; }
+    .s-flow__num { margin: 0; color: #8d95a1; font-family: "DM Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: .1em; }
+    .s-flow__title { margin: 3px 0 6px; color: #14181d; font-size: clamp(16px, 1.85vw, 19px); line-height: 1.5; }
+    .s-flow__text { margin: 0; color: #555c66; font-size: 14.5px; line-height: 1.85; }
+
+    .s-reasons__lead { max-width: 650px; margin-bottom: clamp(38px, 6vw, 58px); color: rgba(255,255,255,.78); }
+    .s-reasons__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 920px; border-top: 1px solid rgba(255,255,255,.18); }
+    .s-reason__num { display: inline-flex; width: 28px; height: 28px; align-items: center; justify-content: center; margin-bottom: 14px; border-radius: 50%; background: #ffd54a; color: #0d1f3a; font-family: "DM Mono", ui-monospace, monospace; font-size: 12px; }
+
+    /* PRODUCT：画面イメージと3つの機能 */
+    .s-product { position: relative; overflow: hidden; padding: clamp(76px, 9vw, 120px) 0; background: #16325c; color: #fff; }
+    .s-product::before { position: absolute; inset: 0; background: radial-gradient(circle at 10% 20%, rgba(255,255,255,.09), transparent 30%), radial-gradient(circle at 84% 84%, rgba(255,213,74,.11), transparent 34%); content: ""; pointer-events: none; }
+    .s-product__layout { position: relative; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); gap: clamp(46px, 8vw, 112px); align-items: center; }
+    .s-product__screen { overflow: hidden; border: 1px solid rgba(255,255,255,.24); border-radius: 12px; background: #eef3f7; color: #172437; box-shadow: 20px 24px 0 rgba(0,0,0,.15), 0 32px 70px rgba(0,0,0,.2); }
+    .s-ui__top { display: flex; min-height: 50px; align-items: center; justify-content: space-between; padding: 0 18px; border-bottom: 1px solid #d7e0e9; background: #fff; }
+    .s-ui__brand { color: #16325c; font-family: "DM Mono", ui-monospace, monospace; font-size: 12px; font-weight: 500; letter-spacing: .1em; }
+    .s-ui__date { color: #7b8794; font-size: 12px; }
+    .s-ui__body { display: grid; grid-template-columns: 118px minmax(0, 1fr); min-height: 318px; }
+    .s-ui__nav { display: grid; align-content: start; gap: 7px; padding: 18px 12px; border-right: 1px solid #d7e0e9; background: #f7fafc; }
+    .s-ui__nav span { padding: 8px 9px; border-radius: 5px; color: #6c7887; font-size: 12px; line-height: 1.35; }
+    .s-ui__nav .is-active { background: #dfeafa; color: #16325c; font-weight: 800; }
+    .s-ui__main { padding: 21px; }
+    .s-ui__mainhead { display: flex; align-items: start; justify-content: space-between; margin-bottom: 18px; }
+    .s-ui__mainhead h3 { margin: 0 0 4px; color: #172437; font-size: clamp(16px, 2vw, 20px); line-height: 1.35; }
+    .s-ui__mainhead p { margin: 0; color: #7b8794; font-size: 12px; }
+    .s-ui__badge { padding: 5px 8px; border-radius: 999px; background: #e8f2eb; color: #39704b; font-size: 12px; font-weight: 800; }
+    .s-ui__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+    .s-ui__stat { padding: 11px 9px; border: 1px solid #dfe6ed; border-radius: 7px; background: #fff; }
+    .s-ui__stat span, .s-ui__barlabel { display: block; color: #7b8794; font-size: 12px; }
+    .s-ui__stat strong { display: block; margin-top: 5px; color: #16325c; font-size: 15px; line-height: 1; }
+    .s-ui__chart { padding: 14px; border: 1px solid #dfe6ed; border-radius: 7px; background: #fff; }
+    .s-ui__charthead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; color: #536171; font-size: 12px; font-weight: 800; }
+    .s-ui__charthead span:last-child { color: #39704b; }
+    .s-ui__barrow { display: grid; grid-template-columns: 6.2em 1fr 35px; gap: 8px; align-items: center; margin-top: 9px; font-size: 12px; }
+    .s-ui__bar { height: 7px; overflow: hidden; border-radius: 999px; background: #e8edf2; }
+    .s-ui__bar i { display: block; height: 100%; border-radius: inherit; background: #2d61a5; }
+    .s-ui__barrow strong { color: #536171; font-size: 9.5px; text-align: right; }
+    .s-product__copy .s-kicker { color: rgba(255,255,255,.64); }
+    .s-product__copy h2 { margin-bottom: 19px; font-size: clamp(31px, 4vw, 50px); line-height: 1.27; }
+    .s-product__lead { margin-bottom: 32px; color: rgba(255,255,255,.78); font-size: 15.5px; line-height: 1.95; }
+    .s-product__list { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(255,255,255,.18); }
+    .s-product__item { display: grid; grid-template-columns: 48px 1fr; gap: 14px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,.18); }
+    .s-product__num { color: #ffd54a; font-family: "DM Mono", ui-monospace, monospace; font-size: 13px; font-weight: 500; letter-spacing: .06em; }
+    .s-product__item h3 { margin: 0 0 5px; font-size: 17px; line-height: 1.45; }
+    .s-product__item p { margin: 0; color: rgba(255,255,255,.72); font-size: 14px; line-height: 1.75; }
+
+    .s-industries__lead { max-width: 620px; margin: 0 auto clamp(36px, 5vw, 52px); color: #555c66; font-size: 15px; }
+    .s-industries__note { margin: 38px 0 0; color: #8d95a1; font-size: 12.5px; }
+
+    .s-form-section { position: relative; overflow: hidden; padding: clamp(76px, 10vw, 128px) 0; background: radial-gradient(circle at 10% 20%, rgba(255,213,74,.18), transparent 25%), radial-gradient(circle at 95% 85%, rgba(255,255,255,.1), transparent 28%), #0d1f3a; }
+    .s-form-section::before { position: absolute; inset: 24px; border: 1px solid rgba(255,255,255,.13); content: ""; pointer-events: none; }
+    .s-form-layout { position: relative; display: grid; grid-template-columns: minmax(0, .82fr) minmax(440px, 1.08fr); gap: clamp(40px, 7vw, 100px); max-width: 1100px; margin: 0 auto; align-items: center; }
+    .s-form-intro { color: #fff; }
+    .s-form-intro .s-kicker { color: rgba(255,255,255,.62); }
+    .s-form-intro h2 { margin-bottom: 20px; font-size: clamp(31px, 4vw, 52px); line-height: 1.25; }
+    .s-form-intro > p { margin-bottom: 0; color: rgba(255,255,255,.78); font-size: 15px; }
+    .s-form-points { display: grid; gap: 12px; margin: 34px 0 0; padding: 0; list-style: none; }
+    .s-form-points li { display: flex; gap: 12px; align-items: baseline; color: rgba(255,255,255,.9); font-size: 14px; }
+    .s-form-points span { color: #ffd54a; font-family: "DM Mono", ui-monospace, monospace; font-size: 12px; }
+    .s-form-card { padding: clamp(30px, 5.5vw, 58px) clamp(20px, 4vw, 50px); border-radius: 16px; background: #fff; box-shadow: 0 40px 80px rgba(0,0,0,.42), 0 14px 30px rgba(0,0,0,.26); }
+    .s-form-head { margin-bottom: 30px; }
+    .s-form-head h2 { margin: 0 0 12px; color: #14181d; font-size: clamp(23px, 3vw, 31px); line-height: 1.34; }
+    .s-form-head p { margin: 0; color: #555c66; font-size: 14px; }
+    .s-form-steps { display: flex; gap: 10px; margin-bottom: 32px; }
+    .s-form-dot { width: 9px; height: 9px; border-radius: 50%; background: #e4e7ec; }
+    .s-form-dot.is-active { background: #16325c; }
+    .s-form-dot.is-done { background: #b7bfca; }
+    .s-step { display: none; }
+    .s-step.is-active { display: block; }
+    .s-field { margin-bottom: 21px; }
+    .s-field label { display: block; margin-bottom: 8px; color: #14181d; font-size: 13.5px; font-weight: 800; }
+    .s-optional { margin-left: 6px; color: #8d95a1; font-weight: 400; }
+    .s-field input, .s-field select, .s-field textarea { width: 100%; border: 1px solid #cfd5de; border-radius: 8px; padding: 13px 14px; background: #fff; color: #14181d; font: inherit; font-size: 15px; }
+    .s-field textarea { min-height: 96px; resize: vertical; }
+    .s-form-nav { display: flex; gap: 12px; margin-top: 32px; }
+    .s-form-nav .s-btn { flex: 1; }
+    .s-btn--back { border: 1px solid #cfd5de; background: #fff; color: #555c66; }
+    .s-btn--back:hover { background: #f5f6f8; color: #14181d; }
+    .s-form-note { margin: 22px 0 0; color: #8d95a1; font-size: 12.5px; line-height: 1.7; text-align: center; }
+    .s-done { display: none; text-align: center; }
+    .s-done.is-active { display: block; }
+    .s-done h3 { margin: 0 0 12px; color: #14181d; font-size: 21px; }
+    .s-done p { margin: 0; color: #555c66; font-size: 14px; }
+    .s-footer { padding: 44px 24px 64px; background: #fff; color: #8d95a1; text-align: center; }
+    .s-footer p { margin: 4px 0; font-size: 12.5px; }
+
+    /* 声は軽やかに、業種は申込前に整然と提示する */
+    .s-flow__item { border-color: #dfe3e9; }
+    .s-flow__item:hover { background: linear-gradient(90deg, rgba(22,50,92,.035), transparent 72%); }
+    .s-reasons__grid { max-width: none; }
+    .s-voices { position: relative; overflow: hidden; padding: clamp(76px, 9vw, 120px) 0; background: #f5f6f8; text-align: center; }
+    .s-voices::before { position: absolute; inset: 28px; border: 1px solid rgba(22,50,92,.08); content: ""; pointer-events: none; }
+    .s-voices .s-container { position: relative; }
+    .s-voices h2 { margin-bottom: 14px; font-size: clamp(29px, 3.8vw, 46px); line-height: 1.32; }
+    .s-voices__lead { max-width: 600px; margin: 0 auto clamp(36px, 5vw, 52px); color: #555c66; font-size: 15px; }
+    .s-voice-cloud { display: flex; max-width: 1080px; margin: 0 auto; flex-wrap: wrap; align-items: center; justify-content: center; gap: 15px 24px; }
+    .s-voice { --voice-x: 0px; --voice-y: 0px; --voice-rotate: 0deg; --voice-scale: 1; display: inline-flex; max-width: 100%; align-items: center; justify-content: center; padding: 14px 22px; border: 1px solid #e1e5ea; border-radius: 999px; background: #fff; color: #14181d; font-size: clamp(11px, 1.65vw, 17px); font-weight: 800; line-height: 1.25; white-space: nowrap; opacity: 0; transform: translate(var(--voice-x), var(--voice-y)) rotate(var(--voice-rotate)) scale(.36); transition: opacity .46s ease, transform .64s cubic-bezier(.16,.84,.3,1.06), background .18s ease; }
+    .s-voice-cloud.is-in .s-voice { opacity: 1; transform: translate(var(--voice-x), var(--voice-y)) rotate(var(--voice-rotate)) scale(var(--voice-scale)); }
+    .s-voice:nth-child(1) { --voice-x: 14px; --voice-y: -4px; --voice-rotate: -.5deg; --voice-scale: 1.03; padding-right: 28px; }
+    .s-voice:nth-child(2) { --voice-x: -8px; --voice-y: 8px; --voice-rotate: .7deg; --voice-scale: .96; padding-left: 18px; }
+    .s-voice:nth-child(3) { --voice-x: 6px; --voice-y: -8px; --voice-rotate: -.3deg; --voice-scale: 1.01; }
+    .s-voice:nth-child(4) { --voice-x: -15px; --voice-y: 5px; --voice-rotate: .4deg; --voice-scale: .98; padding-right: 29px; }
+    .s-voice:nth-child(5) { --voice-x: 9px; --voice-y: 7px; --voice-rotate: -.6deg; --voice-scale: 1.04; }
+    .s-voice:nth-child(6) { --voice-x: -3px; --voice-y: -6px; --voice-rotate: .35deg; --voice-scale: .97; padding-left: 27px; }
+    .s-voice:nth-child(7) { --voice-x: 16px; --voice-y: -2px; --voice-rotate: -.45deg; --voice-scale: 1.02; }
+    .s-voice:nth-child(8) { --voice-x: -12px; --voice-y: 8px; --voice-rotate: .5deg; --voice-scale: .94; padding-right: 25px; }
+    .s-voice:nth-child(9) { --voice-x: 4px; --voice-y: -9px; --voice-rotate: -.25deg; --voice-scale: 1; }
+    .s-voice:nth-child(10) { --voice-x: -14px; --voice-y: 3px; --voice-rotate: .6deg; --voice-scale: .98; }
+    .s-voice:nth-child(11) { --voice-x: 11px; --voice-y: 8px; --voice-rotate: -.4deg; --voice-scale: 1.02; padding-left: 27px; }
+    .s-voice:nth-child(12) { --voice-x: -5px; --voice-y: -5px; --voice-rotate: .3deg; --voice-scale: .96; }
+    .s-voice:nth-child(2) { transition-delay: .07s; }
+    .s-voice:nth-child(3) { transition-delay: .14s; }
+    .s-voice:nth-child(4) { transition-delay: .21s; }
+    .s-voice:nth-child(5) { transition-delay: .28s; }
+    .s-voice:nth-child(6) { transition-delay: .35s; }
+    .s-voice:nth-child(7) { transition-delay: .42s; }
+    .s-voice:nth-child(8) { transition-delay: .49s; }
+    .s-voice:nth-child(9) { transition-delay: .56s; }
+    .s-voice:nth-child(10) { transition-delay: .63s; }
+    .s-voice:nth-child(11) { transition-delay: .70s; }
+    .s-voice:nth-child(12) { transition-delay: .77s; }
+    .s-voice--navy { border-color: #16325c; background: #16325c; color: #fff; }
+    .s-voice--line { border-color: #16325c; color: #16325c; }
+    .s-voices__note { margin: 30px 0 0; color: #8d95a1; font-size: 12.5px; }
+    .s-form-industries { margin-top: 38px; padding-top: 27px; border-top: 1px solid rgba(255,255,255,.2); }
+    .s-form-industries h3 { margin: 0 0 16px; color: #fff; font-size: 17px; line-height: 1.45; }
+    .s-industry-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+    .s-industry { display: flex; min-height: 42px; align-items: center; padding: 8px 12px; border: 1px solid rgba(255,255,255,.22); border-radius: 7px; color: rgba(255,255,255,.9); font-size: 13px; font-weight: 700; line-height: 1.4; opacity: 0; transform: translateY(9px) scale(.9); transition: opacity .4s ease, transform .46s cubic-bezier(.16,.84,.3,1.06), background .18s ease; }
+    .s-form-industries.is-in .s-industry { opacity: 1; transform: none; }
+    .s-industry:nth-child(2) { transition-delay: .12s; }
+    .s-industry:nth-child(3) { transition-delay: .24s; }
+    .s-industry:nth-child(4) { transition-delay: .36s; }
+    .s-industry:nth-child(5) { transition-delay: .48s; }
+    .s-industry:nth-child(6) { transition-delay: .60s; }
+    .s-industry:nth-child(7) { transition-delay: .72s; }
+    .s-industry:nth-child(8) { transition-delay: .84s; }
+    .s-industry:hover { background: rgba(255,255,255,.12); }
+
+    @media (max-width: 820px) {
+      .s-flow__layout, .s-form-layout, .s-product__layout { grid-template-columns: 1fr; gap: 38px; }
+      .s-flow__head { position: static; text-align: center; }
+      .s-flow__head::after { margin-right: auto; margin-left: auto; }
+      .s-flow__lead { margin-right: auto; margin-left: auto; }
+      .s-form-layout { max-width: 660px; }
+      .s-form-intro { text-align: center; }
+      .s-form-points { justify-items: center; }
+      .s-product__screen { max-width: 680px; }
+    }
+    @media (max-width: 767px) {
+      .s-factbar__grid { grid-template-columns: repeat(2, 1fr); }
+      .s-factbar__item:nth-child(3) { border-left: 0; }
+      .s-factbar__item:nth-child(n + 3) { border-top: 1px solid rgba(255,255,255,.14); }
+      .s-reasons__grid { grid-template-columns: 1fr; }
+      .s-product__screen { box-shadow: 12px 14px 0 rgba(0,0,0,.15), 0 28px 55px rgba(0,0,0,.18); }
+    }
+    @media (max-width: 600px) {
+      .s-container { width: min(100% - 32px, 1120px); }
+      .s-hero { min-height: auto; padding: 66px 16px 60px; }
+      .s-hero__eyebrow { margin-bottom: 29px; font-size: 11px; }
+      .s-hero__title { min-height: 4.2em; font-size: clamp(30px, 9.2vw, 36px); }
+      .s-hero__sub { max-width: 100%; margin-top: 30px; font-size: 15.5px; line-height: 1.95; }
+      .s-hero__sub span { white-space: normal; }
+      .s-heading-phrase { white-space: normal; }
+      .s-hero__cta { margin-top: 34px; }
+      .s-hero__cta .s-btn { width: 100%; padding-right: 18px; padding-left: 18px; }
+      .s-flow { overflow-x: clip; }
+      .s-flow__item { grid-template-columns: 48px 1fr; gap: 14px; padding: 21px 0; }
+      .s-flow__icon { width: 48px; height: 48px; }
+      .s-form-section { padding: 72px 0; }
+      .s-form-section::before { inset: 12px; }
+      .s-form-card { padding: 30px 20px; }
+      .s-voices::before { inset: 12px; }
+      .s-voice { padding: 12px 16px; }
+      .s-industry-list { grid-template-columns: 1fr; }
+      .s-ui__body { grid-template-columns: 90px minmax(0, 1fr); min-height: 285px; }
+      .s-ui__nav { padding: 13px 8px; }
+      .s-ui__nav span { padding: 7px 5px; font-size: 12px; }
+      .s-ui__main { padding: 14px; }
+      .s-ui__stats { gap: 5px; }
+      .s-ui__stat { padding: 9px 6px; }
+      .s-ui__chart { padding: 10px; }
+      .s-ui__barrow { grid-template-columns: 1fr 34px; gap: 2px 6px; } .s-ui__barrow .s-ui__barlabel { grid-column: 1 / -1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .s-hero__cursor { animation: none; }
+      .s-flow__item, .s-voice, .s-industry { opacity: 1; transform: none !important; transition: none; }
+      .s-btn:hover { transform: none; }
+    }
+
+    /* ── 写真レイヤー：各区画に写真を敷き、ベールで沈めて奥行きを出す（のっぺり対策の本体） ── */
+
+    /* 改行制御の追い打ち（本文・吹き出しも文節で折る） */
+    .s-page :is(h1, h2, h3) { word-break: auto-phrase; line-break: strict; overflow-wrap: anywhere; }
+    @supports not (word-break: auto-phrase) { .s-page :is(h1, h2, h3) { word-break: normal; } }
+    .s-page :is(section, main) > * { min-width: 0; }
+    .s-page :is(p, li, .s-voice, .s-hero__sub span, .s-ui__stat span) { word-break: auto-phrase; text-wrap: pretty; }
+    .s-voice { text-wrap: balance; }
+
+    .s-kicker { display: flex; align-items: center; gap: 10px; }
+    .s-kicker::before { width: 22px; height: 2px; background: #e9b820; content: ""; }
+    .s-product__copy .s-kicker::before,
+    .s-form-intro .s-kicker::before { background: #ffd54a; }
+    .s-voices .s-kicker { justify-content: center; }
+
+    /* ヒーロー：夕方のオフィス写真＋紺のベール＋画面記録のファインダー */
+    .s-hero { min-height: min(96svh, 840px); padding-bottom: 168px; background: #0b1a33; isolation: isolate; }
+    .sp-hero-photo { position: absolute; inset: -3%; z-index: 0; background: url("images/hero-chatgpt.webp") 58% 30% / cover no-repeat; transform-origin: 60% 40%; animation: spDrift 28s ease-in-out infinite alternate; }
+    @keyframes spDrift { from { transform: scale(1.02); } to { transform: scale(1.09) translate3d(-1.4%, -1%, 0); } }
+    .s-hero::before {
+      z-index: 1;
+      background:
+        radial-gradient(ellipse 58% 50% at 50% 46%, rgba(8, 20, 42, .78), rgba(8, 20, 42, .34) 70%, rgba(8, 20, 42, .18) 100%),
+        linear-gradient(180deg, rgba(10, 24, 48, .66) 0%, rgba(14, 36, 72, .34) 42%, rgba(12, 28, 56, .5) 74%, rgba(9, 21, 42, .92) 100%),
+        radial-gradient(circle at 84% 80%, rgba(255, 213, 74, .16), transparent 44%);
+    }
+    .s-hero__map { display: none; }
+    .sp-frame { position: absolute; z-index: 2; inset: clamp(20px, 3.4vw, 44px) clamp(20px, 3.4vw, 44px) 150px; pointer-events: none; }
+    .sp-frame i { position: absolute; width: 30px; height: 30px; border: 0 solid rgba(255, 255, 255, .5); }
+    .sp-frame i:nth-child(1) { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; }
+    .sp-frame i:nth-child(2) { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; }
+    .sp-frame i:nth-child(3) { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; }
+    .sp-frame i:nth-child(4) { right: 0; bottom: 0; border-right-width: 2px; border-bottom-width: 2px; }
+    .sp-rec { position: absolute; top: 4px; left: 46px; display: flex; align-items: center; gap: 8px; color: rgba(255, 255, 255, .78); font-family: "DM Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: .14em; line-height: 1.4; white-space: nowrap; }
+    .sp-rec::before { width: 8px; height: 8px; border-radius: 50%; background: #ff5a4f; box-shadow: 0 0 0 4px rgba(255, 90, 79, .18); content: ""; animation: sblink 1.6s step-end infinite; }
+    .s-hero__eyebrow { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .3); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+    .s-hero__title { text-shadow: 0 2px 30px rgba(4, 12, 28, .55); }
+    .s-hero__sub { margin-top: 30px; color: rgba(255, 255, 255, .92); text-shadow: 0 1px 14px rgba(4, 12, 28, .6); }
+    .s-hero__cta { margin-top: 40px; }
+    .s-hero__note { margin-top: 16px; }
+    .s-hero__cta .s-btn { background: #ffd54a; color: #0d1f3a; box-shadow: 0 14px 36px rgba(0, 0, 0, .3), 0 0 0 6px rgba(255, 213, 74, .16); }
+    .s-hero__cta .s-btn:hover { background: #fff; color: #16325c; }
+    .s-hero__note { color: rgba(255, 255, 255, .78); }
+
+    /* 数字の帯：ヒーロー写真の上に浮かせたガラスのカード */
+    .s-factbar { position: relative; z-index: 3; margin-top: -92px; padding: 0 24px; background: transparent; }
+    .s-factbar__grid { max-width: 1120px; margin: 0 auto; overflow: hidden; border: 1px solid rgba(255, 255, 255, .18); border-radius: 16px; background: rgba(10, 24, 48, .74); -webkit-backdrop-filter: blur(14px) saturate(1.25); backdrop-filter: blur(14px) saturate(1.25); box-shadow: 0 30px 60px rgba(6, 16, 34, .3); }
+    .s-factbar__unit { color: #ffd54a; }
+    .s-factbar__grid { background: linear-gradient(180deg, rgba(10, 24, 48, .8) 0%, #0d1f3a 55%); }
+    .s-factbar__label { color: rgba(255, 255, 255, .8); word-break: auto-phrase; text-wrap: balance; }
+
+    /* CONTENTS：左に見出しとお金の流れ、背景にうっすら方眼 */
+    .s-flow {
+      padding-top: clamp(84px, 10vw, 128px);
+      background:
+        linear-gradient(rgba(22, 50, 92, .045) 1px, transparent 1px) 0 0 / 32px 32px,
+        linear-gradient(90deg, rgba(22, 50, 92, .045) 1px, transparent 1px) 0 0 / 32px 32px,
+        linear-gradient(180deg, #fff 0%, #f5f7fa 100%);
+    }
+    .sp-flow-photo { position: relative; max-width: 340px; margin: 34px 0 0; overflow: hidden; border-radius: 14px; aspect-ratio: 1 / 1; box-shadow: 0 26px 50px rgba(13, 31, 58, .2); }
+    .sp-flow-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 42% 50%; }
+    .sp-flow-photo::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 52%, rgba(10, 24, 48, .72) 100%); content: ""; }
+    .sp-flow-photo figcaption { position: absolute; left: 16px; bottom: 13px; z-index: 1; color: #fff; font-family: "DM Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: .12em; }
+    .s-flow__item:hover { background: none; }
+    .s-flow__item:hover .s-flow__title { color: #16325c; }
+    .s-flow__num,
+    .s-flow__head::after { display: none; }
+    .s-flow__item { align-items: center; }
+    .s-flow__icon { border-color: #16325c; background: #16325c; color: #ffd54a; }
+
+    /* PRODUCT：画面の写真を紺で沈め、その上に画面イメージ */
+    .s-product { background: #0f2547; }
+    .sp-product-photo { position: absolute; inset: -4%; z-index: 0; background: url("images/product.webp") 30% 50% / cover no-repeat; filter: blur(8px) saturate(.9); }
+    .s-product::before {
+      z-index: 1;
+      background:
+        linear-gradient(100deg, rgba(10, 26, 52, .62) 0%, rgba(13, 33, 66, .88) 52%, rgba(10, 24, 48, .96) 100%),
+        radial-gradient(circle at 84% 84%, rgba(255, 213, 74, .12), transparent 34%);
+    }
+    .s-product__layout { z-index: 2; }
+    .s-product__screen { box-shadow: 0 0 0 8px rgba(255, 255, 255, .06), 0 40px 80px rgba(0, 0, 0, .38); transform: perspective(1600px) rotateY(4deg); }
+
+    /* 始める前に確かめたいこと：無地の地に、3列のQ&A */
+    .s-voices { background: #f5f6f8; }
+    .sp-voices-photo { position: absolute; inset: -4%; z-index: 0; background: url("images/meeting.webp") center 40% / cover no-repeat; filter: blur(16px) saturate(1.1) brightness(1.25); opacity: .2; }
+    .s-voices::before { z-index: 1; }
+    .s-voices .s-container { z-index: 2; }
+    .s-voices__note { margin-top: 48px; }
+    .s-voices::after { position: absolute; z-index: 1; top: clamp(-6px, .5vw, 8px); left: 50%; color: rgba(22, 50, 92, .07); content: "“"; font-family: "Noto Serif JP", serif; font-size: clamp(120px, 13vw, 180px); font-weight: 700; line-height: 1; pointer-events: none; transform: translateX(-50%); }
+    .s-voice { box-shadow: 0 10px 24px rgba(13, 31, 58, .09); }
+    .s-voice:not(.s-voice--navy) { background: rgba(255, 255, 255, .92); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+
+    /* 申込：夜のオフィス写真を紺で沈め、フォームを浮かせる */
+    .s-form-section {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255, 213, 74, .16), transparent 26%),
+        linear-gradient(90deg, rgba(9, 22, 44, .93) 0%, rgba(11, 27, 54, .8) 52%, rgba(9, 22, 44, .88) 100%),
+        #0d1f3a url("images/night.webp") center 60% / cover no-repeat;
+    }
+    .s-form-card { border-top: 5px solid #ffd54a; }
+    .s-form-note { margin-top: 20px; }
+    .s-industry { background: rgba(255, 255, 255, .05); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+    .s-footer { border-top: 1px solid #e4e7ec; color: #6b7380; }
+    .sp-legal { margin-top: 14px !important; }
+    .sp-legal a { display: inline-block; margin: 0 10px; padding: 11px 4px; line-height: 22px; color: #555c66; font-size: 13px; text-underline-offset: 3px; }
+    .sp-legal a:hover { color: #16325c; }
+
+    @media (max-width: 820px) {
+      .sp-flow-photo { max-width: 560px; margin-right: auto; margin-left: auto; aspect-ratio: 16 / 9; }
+      .s-flow__head .s-kicker { justify-content: center; }
+      .s-form-intro .s-kicker { justify-content: center; }
+      .s-product__screen { margin: 0 auto; transform: none; }
+    }
+    @media (max-width: 600px) {
+      .s-hero { padding-bottom: 132px; }
+      .sp-frame { inset: 14px 14px 112px; }
+      .sp-frame i { width: 20px; height: 20px; }
+      .sp-rec { left: 30px; top: 1px; letter-spacing: .1em; }
+      .s-hero__eyebrow { margin-top: 18px; font-size: 12px; }
+      .s-factbar { margin-top: -76px; padding: 0 16px; }
+      .s-factbar__grid { border-radius: 12px; }
+      .s-voice-cloud { gap: 8px 6px; }
+      .s-voice-cloud .s-voice { --voice-x: 0px; --voice-y: 0px; padding: 9px 13px; font-size: 12.5px; line-height: 1.45; white-space: normal; }
+      .s-industry-list { grid-template-columns: 1fr 1fr; gap: 6px; }
+      .s-industry { min-height: 38px; padding: 6px 10px; font-size: 12.5px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sp-hero-photo, .sp-rec::before { animation: none; }
+    }
+  .s-done a{display:inline-block;padding:10px 0;color:#16325c;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+  .fc-btn{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.2em .6em;min-height:44px;margin-top:22px;padding:8px 18px;border:1px solid currentColor;border-radius:999px;background:transparent;color:#454b53;font:inherit;font-size:13px;font-weight:700;line-height:1.5;cursor:pointer;text-align:left}
+  .fc-btn:hover{color:#14181d}
+  .fc-sub{font-size:12px;font-weight:400;opacity:.8}
+  .s-product .fc-btn{color:rgba(255,255,255,.82)}
+  .s-product .fc-btn:hover{color:#fff}
+  .s-product__foot{margin:22px 0 0;color:rgba(255,255,255,.78);font-size:15px;line-height:1.85}
+  .s-product__src{margin:10px 0 0;color:rgba(255,255,255,.6);font-size:12.5px;line-height:1.7}
+
+  body{margin:0}
+  .s-product__layout{align-items:start}
+  @media (min-width:821px){.s-product__visual{position:sticky;top:80px}}
+  @media (max-width:820px){.s-product__copy{order:-1}}
+  .s-ui__rule{margin:0 0 12px;color:#536171;font-size:12px;line-height:1.5}
+  .s-ui__barrow strong,.s-ui__bar + strong{font-size:12px}
+  .s-ui__barlabel{white-space:nowrap}
+  .s-mkt{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0 0}
+  .s-mkt div{padding:14px 12px;border:1px solid rgba(255,255,255,.18);border-radius:10px;background:rgba(255,255,255,.06);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff}
+  .s-mkt b{display:block;font-size:clamp(22px,2.6vw,30px);font-weight:900;letter-spacing:-.03em;line-height:1.1}
+  .s-mkt span{display:block;margin-top:6px;color:rgba(255,255,255,.78);font-size:13px;line-height:1.5}
+  .s-mkt-src{margin:10px 0 0;color:rgba(255,255,255,.62);font-size:12.5px;line-height:1.6}
+  .s-voices::after{content:none}
+  .s-qa{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1080px;margin:0 auto;text-align:left}
+  .s-qa section{padding:22px 22px 8px;border-top:3px solid #16325c;border-radius:0 0 12px 12px;background:#fff;box-shadow:0 10px 24px rgba(13,31,58,.07)}
+  .s-qa h3{margin:0 0 6px;color:#16325c;font-size:14px;letter-spacing:.12em}
+  .s-qa dl{margin:0}
+  .s-qa dt{margin:14px 0 4px;color:#14181d;font-size:16px;font-weight:800;line-height:1.5}
+  .s-qa dd{margin:0;padding:0 0 14px;border-bottom:1px solid #eceff3;color:#454b53;font-size:15px;line-height:1.8}
+  .s-qa dd:last-child{border-bottom:0}
+  @media (max-width:900px){.s-qa{grid-template-columns:1fr}}
+  .s-money{list-style:none;max-width:340px;margin:30px 0 0;padding:0;display:grid;gap:22px}
+  .s-money li{position:relative;display:grid;grid-template-columns:6.2em 1fr;align-items:center;gap:10px;padding:12px 14px;border:1px solid #d9dfe7;border-left:4px solid #16325c;border-radius:8px;background:#fff;box-shadow:0 6px 16px rgba(13,31,58,.06)}
+  .s-money li::after{position:absolute;left:50%;bottom:-20px;color:#9aa3ae;content:"↓";font-size:14px;line-height:1;transform:translateX(-50%)}
+  .s-money li:last-child::after{content:none}
+  .s-money li:last-child{border-left-color:#ffd54a;background:#16325c;color:#fff}
+  .s-money b{font-size:13px;color:#16325c;letter-spacing:.04em}
+  .s-money li:last-child b{color:#ffd54a}
+  .s-money span{font-size:15px;font-weight:700;line-height:1.5}
+  .s-money-note{max-width:340px;margin:12px 0 0;color:#5d6570;font-size:13px;line-height:1.7}
+  @media (max-width:820px){.s-money,.s-money-note{max-width:560px;margin-left:auto;margin-right:auto}}
+  .s-next{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:26px 0 0;padding:0;counter-reset:n}
+  .s-next li{position:relative;padding:12px 10px;border:1px solid rgba(255,255,255,.2);border-radius:8px;background:rgba(255,255,255,.06);color:#fff;font-size:14px;font-weight:700;line-height:1.5}
+  .s-next li::before{display:block;margin-bottom:4px;color:#ffd54a;counter-increment:n;content:"STEP " counter(n);font-family:"DM Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.1em}
+  @media (max-width:600px){.s-next{grid-template-columns:1fr 1fr}}
+  .s-form-head h3{margin:0 0 12px;color:#14181d;font-size:clamp(23px,3vw,31px);line-height:1.34}
+  .sp-rec::before{content:none}
+  .s-hero__title{cursor:pointer}
+  .s-hero__title:focus-visible{outline:3px solid rgba(255,213,74,.9);outline-offset:6px;border-radius:6px}
+  .s-dots{display:flex;justify-content:center;gap:4px;margin:18px 0 0}
+  .s-dots button{width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+  .s-dots button::before{display:block;width:10px;height:10px;margin:auto;border:1.5px solid rgba(255,255,255,.7);border-radius:50%;content:""}
+  .s-dots button[aria-current="true"]::before{background:#ffd54a;border-color:#ffd54a}
+  .s-pop{width:min(92vw,720px);max-height:88vh;padding:0;border:0;border-radius:14px;color:#14181d}
+  .s-pop::backdrop{background:rgba(6,14,28,.72)}
+  .s-pop__h{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 24px;border-bottom:1px solid #e4e7ec;background:#fff}
+  .s-pop__h p{margin:0;font-size:15px;font-weight:800}
+  .s-pop__x{width:44px;height:44px;border:0;border-radius:8px;background:#f1f3f6;font-size:20px;cursor:pointer}
+  .s-pop__b{padding:20px 24px 26px}
+  .s-pop__lbl{margin:0 0 10px;color:#5d6570;font-size:13px;font-weight:700;letter-spacing:.06em}
+  .s-pop ol{margin:0;padding:0;list-style:none}
+  .s-pop__copies li{padding:14px 0;border-bottom:1px solid #eceff3}
+  .s-pop__copies b{display:block;font-size:clamp(1.25rem,4.6vw,1.6rem);font-weight:900;line-height:1.4;word-break:auto-phrase}
+  .s-pop__copies span{display:block;margin-top:6px;color:#555c66;font-size:15px;line-height:1.7}
+  .s-pop__story{margin-top:24px !important;counter-reset:h}
+  .s-pop__story li{counter-increment:h}
+  .s-pop__story a{display:block;padding:10px 0;color:#16325c;font-size:17px;font-weight:700;line-height:1.6;text-decoration:none;word-break:auto-phrase}
+  .s-pop__story a::before{margin-right:10px;color:#9aa3ae;content:counter(h);font-family:"DM Mono",ui-monospace,monospace;font-size:14px}
+  @media (max-width:600px){.s-pop__story a{font-size:16px}.s-mkt{grid-template-columns:1fr 1fr 1fr;gap:6px}.s-mkt div{padding:10px 8px}.s-mkt span{font-size:12px}}
+
+
+
+  @media (max-width:600px){
+    .s-hero{padding-top:40px}
+    .s-hero__eyebrow{margin-bottom:20px}
+    .s-dots{margin-top:6px}
+    .s-hero__sub{font-size:15px;line-height:1.8}
   }
-}
-.nobr { white-space: nowrap; }
-:root { --fs-min: 12px; --fs-body: 16px; }
-body { font-size: var(--fs-body); line-height: 1.8; }
-small, .note, figcaption { font-size: var(--fs-min); line-height: 1.7; }
-h1, .hero__title { font-size: clamp(1.55rem, 5.2vw, 3.25rem); line-height: 1.35; }
-h2 { font-size: clamp(1.3rem, 3.6vw, 2.1rem); line-height: 1.45; }
-:root { --fixed-cta-h: 0px; }
-body { padding-bottom: calc(var(--fixed-cta-h) + env(safe-area-inset-bottom, 0px)); }
-img, svg, video, canvas, iframe { max-width: 100%; height: auto; }
-main > *, section > *, .grid > *, .flex > * { min-width: 0; }
-pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
+  .s-qa{align-items:start}
+  .s-product__visual .fc-btn{margin-top:14px}
+  .s-ui__stats{grid-template-columns:repeat(3,minmax(0,1fr))}
 
-/* ===== トークン ===== */
-:root{
-  --navy:#0d1d3a; --navy2:#152a50; --ink:#12161c; --tx:#2b313a; --g1:#555d68; --g2:#79818c;
-  --ln:#e5e8ed; --soft:#f5f6f8; --y:#ffd54a; --y2:#fff3c4;
-  --sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",Meiryo,sans-serif; --num:Inter,"Helvetica Neue",Arial,sans-serif;
-}
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;background:#fff;color:var(--tx);font-family:var(--sans);font-size:16px;line-height:1.85;letter-spacing:.02em;font-feature-settings:"palt" 1;-webkit-font-smoothing:antialiased}
-h1,h2,h3,p,ol,ul,dl,dd{margin:0}
-a{color:inherit}
-.w{width:min(1120px,100%);margin:0 auto;padding:0 clamp(20px,4vw,40px)}
-.kicker{display:flex;align-items:center;gap:12px;margin:0 0 18px;color:var(--g2);font-family:var(--num);font-size:13px;font-weight:700;letter-spacing:.2em}
-.kicker::before{width:28px;height:2px;background:var(--y);content:""}
-.h2{color:var(--ink);font-size:clamp(28px,3.4vw,42px);font-weight:900;line-height:1.38;letter-spacing:-.01em}
-.desc{margin-top:20px;color:var(--g1);font-size:16px;line-height:1.95}
-p,li,dd,dt{word-break:auto-phrase;text-wrap:pretty}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:60px;padding:16px 44px;border:0;border-radius:999px;background:var(--y);color:var(--navy);font:inherit;font-size:17px;font-weight:800;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,213,74,.28)}
-.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.h1:focus-visible{outline:3px solid rgba(255,213,74,.9);outline-offset:3px}
-.fc-btn{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.2em .6em;min-height:44px;margin-top:28px;padding:8px 18px;border:1px solid var(--ln);border-radius:999px;background:#fff;color:var(--g1);font:inherit;font-size:13px;font-weight:700;line-height:1.5;cursor:pointer;text-align:left}
-.fc-btn:hover{border-color:var(--g2);color:var(--ink)}
-.fc-sub{font-size:12px;font-weight:400;color:var(--g2)}
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
-.reveal.is-in{opacity:1;transform:none}
-
-/* ===== ヒーロー：見出しは中央、背景にAIチャットの画面を薄く ===== */
-.hero{position:relative;overflow:hidden;display:grid;place-items:center;min-height:min(92svh,820px);padding:96px 20px 88px;background:var(--navy);color:#fff;text-align:center;isolation:isolate}
-.hero-bg{position:absolute;z-index:-2;top:50%;left:50%;width:min(1080px,94vw);translate:-50% -50%;opacity:.2;pointer-events:none;
-  -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 40%,transparent 100%);mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 40%,transparent 100%)}
-.hero::after{position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 50%,rgba(13,29,58,.55),rgba(13,29,58,0) 75%);content:""}
-.chat{border:1px solid rgba(255,255,255,.5);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.06);text-align:left}
-.chat-bar{display:flex;gap:8px;align-items:center;height:46px;padding:0 20px;border-bottom:1px solid rgba(255,255,255,.4)}
-.chat-bar i{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.6)}
-.chat-log{display:grid;gap:22px;padding:34px 44px 40px}
-.chat-q{justify-self:end;padding:14px 22px;border-radius:20px 20px 4px 20px;background:rgba(255,255,255,.3);font-size:22px}
-.chat-a{display:grid;grid-template-columns:40px 1fr;gap:16px;font-size:20px}
-.chat-a .av{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:rgba(255,213,74,.5);color:var(--navy)}
-.chat-a ol{display:grid;gap:10px;margin-top:12px;padding:0;list-style:none}
-.chat-a li{display:flex;justify-content:space-between;padding:12px 18px;border:1px solid rgba(255,255,255,.4);border-radius:12px}
-.chat-a li.you{border-color:var(--y);background:var(--y);color:var(--navy);font-weight:800}
-.eyebrow{display:inline-block;margin-bottom:30px;padding:8px 20px;border:1px solid rgba(255,255,255,.28);border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.9)}
-.h1{min-height:2.7em;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:clamp(36px,5.6vw,68px);font-weight:900;line-height:1.3;letter-spacing:-.01em;cursor:pointer}
-.h1 .ln{display:flex;flex-wrap:wrap;justify-content:center;column-gap:.1em}
-.h1 .ln>span{white-space:nowrap}
-.cur{display:inline-block;width:4px;height:.86em;margin-left:5px;background:var(--y);vertical-align:-.06em;animation:blink .9s step-end infinite}
-@keyframes blink{50%{opacity:0}}
-.dots{display:flex;justify-content:center;gap:2px;margin-top:14px}
-.dots button{width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
-.dots button::before{display:block;width:8px;height:8px;margin:auto;border-radius:50%;background:rgba(255,255,255,.35);content:""}
-.dots button[aria-current="true"]::before{width:22px;border-radius:4px;background:var(--y)}
-.sub{max-width:720px;margin:22px auto 0;color:rgba(255,255,255,.86);font-size:clamp(15px,1.6vw,18px);line-height:1.95}
-.hero .btn{margin-top:38px}
-.note{margin-top:16px;color:rgba(255,255,255,.66);font-size:13px}
-.hero-cap{position:absolute;right:20px;bottom:16px;color:rgba(255,255,255,.42);font-size:12px}
-
-/* ===== 数字の帯 ===== */
-.facts{border-bottom:1px solid var(--ln)}
-.facts ul{display:grid;grid-template-columns:repeat(4,1fr);padding:0;list-style:none}
-.facts li{padding:34px 18px;text-align:center}
-.facts li+li{border-left:1px solid var(--ln)}
-.facts b{display:block;color:var(--navy);font-family:var(--num);font-size:clamp(30px,3.4vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
-.facts b small{margin-left:2px;font-family:var(--sans);font-size:.45em;font-weight:700;letter-spacing:0}
-.facts span{display:block;margin-top:8px;color:var(--g1);font-size:13.5px;line-height:1.6}
-
-/* ===== 区画の共通 ===== */
-.sec{padding:clamp(80px,10vw,128px) 0}
-.sec.soft{background:var(--soft)}
-.two{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,7vw,96px);align-items:start}
-.items{padding:0;list-style:none;border-top:1px solid var(--ln)}
-.items li{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:28px 0;border-bottom:1px solid var(--ln)}
-.items .n{color:var(--navy);font-family:var(--num);font-size:15px;font-weight:800;letter-spacing:.08em;padding-top:3px}
-.items h3{color:var(--ink);font-size:clamp(18px,1.9vw,21px);font-weight:900;line-height:1.5}
-.items p{margin-top:8px;color:var(--g1);font-size:15.5px;line-height:1.9}
-.fine{margin-top:18px;color:var(--g2);font-size:13px;line-height:1.7}
-
-/* PRODUCT：画面イメージと市場データ */
-.shot{border:1px solid var(--ln);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 24px 60px rgba(13,29,58,.1)}
-.shot-top{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--ln);font-size:12px;color:var(--g2)}
-.shot-top b{color:var(--navy);font-family:var(--num);letter-spacing:.12em}
-.shot-body{padding:22px}
-.shot-h{display:flex;justify-content:space-between;align-items:start;gap:10px}
-.shot-h h3{color:var(--ink);font-size:18px;font-weight:900}
-.shot-h p{color:var(--g2);font-size:12px}
-.tag{padding:3px 10px;border-radius:999px;background:#e8f2eb;color:#2f6b43;font-size:12px;font-weight:800;white-space:nowrap}
-.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px}
-.kpis div{padding:12px;border:1px solid var(--ln);border-radius:10px}
-.kpis span{display:block;color:var(--g2);font-size:12px;line-height:1.4}
-.kpis b{display:block;margin-top:6px;color:var(--navy);font-size:17px;font-weight:900}
-.bars{margin-top:16px;padding:14px;border:1px solid var(--ln);border-radius:10px}
-.bars>p{color:var(--g1);font-size:12px;line-height:1.5}
-.bar{display:grid;grid-template-columns:6.4em 1fr 3em;gap:10px;align-items:center;margin-top:10px;font-size:12px;color:var(--g1)}
-.bar i{display:block;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--navy) var(--v),#e9edf2 var(--v))}
-.bar b{text-align:right;color:var(--ink)}
-.mkt{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
-.mkt div{padding:16px 14px;border-radius:12px;background:#fff;border:1px solid var(--ln)}
-.mkt b{display:block;color:var(--navy);font-family:var(--num);font-size:clamp(24px,2.6vw,30px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
-.mkt span{display:block;margin-top:6px;color:var(--g1);font-size:13px;line-height:1.5}
-
-/* Q&A */
-.center{text-align:center}
-.center .kicker{justify-content:center}
-.center .desc{max-width:640px;margin-left:auto;margin-right:auto}
-.qa{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,48px);margin-top:56px;text-align:left}
-.qa h3{padding-bottom:12px;border-bottom:2px solid var(--navy);color:var(--navy);font-size:15px;font-weight:900;letter-spacing:.12em}
-.qa dt{margin-top:22px;color:var(--ink);font-size:16px;font-weight:800;line-height:1.55}
-.qa dd{margin-top:6px;color:var(--g1);font-size:15px;line-height:1.85}
-
-/* 申込 */
-.apply{background:var(--navy);color:#fff}
-.apply .kicker{color:rgba(255,255,255,.62)}
-.apply .h2{color:#fff}
-.apply .desc{color:rgba(255,255,255,.8)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:36px;padding:0;list-style:none;counter-reset:s;border-top:1px solid rgba(255,255,255,.18)}
-.steps li{padding:16px 12px 0 0;font-size:14.5px;font-weight:700;line-height:1.55}
-.steps li::before{display:block;margin-bottom:6px;color:var(--y);font-family:var(--num);font-size:12px;letter-spacing:.14em;counter-increment:s;content:"STEP " counter(s)}
-.fit{margin-top:32px;color:rgba(255,255,255,.72);font-size:14px;line-height:1.9}
-.fit b{display:block;margin-bottom:4px;color:#fff;font-size:15px}
-.card{padding:clamp(26px,3.4vw,40px);border-radius:18px;background:#fff;color:var(--tx);box-shadow:0 30px 70px rgba(0,0,0,.25)}
-.card h3{color:var(--ink);font-size:clamp(22px,2.4vw,27px);font-weight:900}
-.card>p{margin-top:6px;color:var(--g1);font-size:14.5px}
-.pips{display:flex;gap:6px;margin:18px 0 6px}
-.pips span{width:22px;height:4px;border-radius:2px;background:var(--ln)}
-.pips span.on{background:var(--navy)}
-.step{display:none}.step.on{display:block}
-.f{margin-top:16px}
-.f label{display:block;margin-bottom:6px;color:var(--ink);font-size:14px;font-weight:700}
-.opt{margin-left:8px;color:var(--g2);font-size:12px;font-weight:500}
-.f input,.f select,.f textarea{width:100%;min-height:50px;padding:12px 14px;border:1px solid #cfd5dd;border-radius:10px;background:#fff;color:var(--ink);font:inherit;font-size:16px}
-.f textarea{min-height:96px;resize:vertical}
-.nav{display:flex;gap:10px;margin-top:22px}
-.nav .btn{flex:1;min-height:54px;padding:12px 18px;font-size:15.5px;background:var(--navy);color:#fff}
-.nav .btn.back{flex:0 0 auto;background:var(--soft);color:var(--ink)}
-.done{display:none;padding:10px 0 4px}.done.on{display:block}
-.done h4{margin:0;color:var(--ink);font-size:20px;font-weight:900}
-.done p{margin-top:10px;color:var(--g1);font-size:15px}
-.done a{display:inline-block;padding:10px 0;color:var(--navy);font-weight:800;text-underline-offset:3px}
-.cardnote{margin-top:16px;color:var(--g2);font-size:12.5px;line-height:1.7;text-align:center}
-
-footer{padding:40px 20px 48px;color:var(--g2);font-size:13px;line-height:1.8;text-align:center}
-footer nav{margin-top:10px}
-footer nav a{display:inline-block;margin:0 10px;padding:11px 4px;color:var(--g1);text-underline-offset:3px}
-
-/* ポップアップ */
-.pop{width:min(92vw,720px);max-height:88vh;padding:0;border:0;border-radius:16px;color:var(--ink)}
-.pop::backdrop{background:rgba(6,14,28,.72)}
-.pop-h{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:10px 12px 10px 24px;border-bottom:1px solid var(--ln);background:#fff}
-.pop-h p{font-size:15px;font-weight:800}
-.pop-x{width:44px;height:44px;border:0;border-radius:10px;background:var(--soft);font-size:20px;cursor:pointer}
-.pop-b{padding:20px 24px 28px}
-.pop-l{margin:0 0 10px;color:var(--g2);font-size:13px;font-weight:700;letter-spacing:.06em}
-.pop ol{padding:0;list-style:none}
-.pop-c li{padding:14px 0;border-bottom:1px solid var(--ln)}
-.pop-c b{display:block;font-size:clamp(1.25rem,4.6vw,1.6rem);font-weight:900;line-height:1.4;word-break:auto-phrase}
-.pop-c span{display:block;margin-top:6px;color:var(--g1);font-size:15px;line-height:1.7}
-.pop-s{counter-reset:h}
-.pop-s li{counter-increment:h}
-.pop-s a{display:block;padding:10px 0;color:var(--navy);font-size:17px;font-weight:700;line-height:1.6;text-decoration:none;word-break:auto-phrase}
-.pop-s a::before{margin-right:10px;color:var(--g2);font-family:var(--num);font-size:14px;content:counter(h)}
-
-@media (max-width:900px){
-  .two{grid-template-columns:1fr}
-  .qa{grid-template-columns:1fr;gap:8px}
-  .facts ul{grid-template-columns:1fr 1fr}
-  .facts li:nth-child(3){border-left:0}
-  .facts li:nth-child(n+3){border-top:1px solid var(--ln)}
-}
-@media (max-width:600px){
-  .hero{min-height:auto;padding:72px 16px 72px}
-  .hero-bg{width:118vw;opacity:.11}
-  .eyebrow{margin-bottom:24px;font-size:12.5px}
-  .h1{font-size:clamp(30px,9vw,36px);min-height:4em}
-  .sub{font-size:15px;line-height:1.85}
-  .hero .btn{width:100%;margin-top:30px}
-  .hero-cap{left:0;right:0;text-align:center}
-  .facts li{padding:24px 10px}
-  .items li{grid-template-columns:40px 1fr;gap:12px}
-  .mkt{gap:6px}.mkt div{padding:12px 8px}.mkt span{font-size:12px}
-  .steps{grid-template-columns:1fr 1fr;row-gap:14px}
-  .pop-s a{font-size:16px}
-}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.cur{animation:none}.btn{transition:none}}
-
-.head{max-width:820px;margin-bottom:clamp(40px,5vw,56px)}
-.items.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(24px,3.4vw,44px);border-top:0}
-.items.cols li{display:block;padding:24px 0 0;border-top:2px solid var(--navy);border-bottom:0}
-.items.cols .n{display:block;margin-bottom:10px}
-.apply .h2{font-size:clamp(24px,2.5vw,31px)}
-@media (min-width:901px){.apply .two{grid-template-columns:1fr 1fr}}
-.hero-bg{opacity:.17}
-.hero>div:not(.hero-bg){min-width:0;max-width:100%}
-@media (max-width:900px){.items.cols{grid-template-columns:1fr;gap:28px}}
-</style>
+  .s-hero::before{background:
+    radial-gradient(ellipse 58% 50% at 50% 44%, rgba(8,20,42,.9), rgba(8,20,42,.66) 72%),
+    linear-gradient(180deg, rgba(10,24,48,.78) 0%, rgba(12,30,60,.6) 45%, rgba(9,21,42,.94) 100%)}
+  .sp-hero-photo{filter:saturate(.6) blur(1.2px)}
+  .sp-cap{position:absolute;z-index:3;right:clamp(28px,3.6vw,52px);bottom:162px;margin:0;color:rgba(255,255,255,.5);font-size:12px}
+  @media (max-width:600px){.sp-hero-photo{background-position:62% 20%}.sp-cap{left:0;right:0;bottom:92px;text-align:center}}
+  </style>
 </head>
 <body>
-<main>
-  <section class="hero" aria-labelledby="h1">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="chat"><div class="chat-bar"><i></i><i></i><i></i></div>
-        <div class="chat-log">
-          <p class="chat-q">世田谷区でおすすめのリフォーム会社を教えて</p>
-          <div class="chat-a"><span class="av">✦</span><div>世田谷区で評判の良いリフォーム会社を3社ご紹介します。<ol><li><span>1　◯◯リフォーム</span><span>口コミが多い</span></li><li><span>2　△△工務店</span><span>施工実績が豊富</span></li><li class="you"><span>3　□□ハウス</span><span>御社のお客様</span></li></ol></div></div>
-        </div>
+  <main class="s-page">
+    <section class="s-hero" aria-labelledby="s-hero-title">
+      <div class="sp-hero-photo" aria-hidden="true"></div>
+      <div class="sp-frame" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="sp-rec">ChatGPTに聞いたとき</span></div>
+      <p class="sp-cap">背景は画面イメージです（社名は架空）</p>
+      <div class="s-hero__content">
+        <p class="s-hero__eyebrow">AIOマスター ／ 第0次募集</p>
+        <h1 class="s-hero__title" id="s-hero-title" aria-live="off" tabindex="0" aria-haspopup="dialog" aria-controls="s-pop" title="押すと、3つのコピーと見出しを並べて読めます"><span class="s-hero__line" id="s-copy-line-1"><span>今のお客様へ、</span></span><span class="s-hero__line" id="s-copy-line-2"><span>AI検索対策を</span><span>1本足す。<span class="s-hero__cursor" aria-hidden="true"></span></span></span></h1>
+        <div class="s-dots" role="group" aria-label="コピーの切り替え"><button type="button" aria-label="コピー1" aria-current="true"></button><button type="button" aria-label="コピー2" aria-current="false"></button><button type="button" aria-label="コピー3" aria-current="false"></button></div>
+        <p class="s-hero__sub"><span>見込み客がAIに「おすすめの会社」を聞いたとき、御社のお客様の名前が挙がるようにする。</span><span>載った質問の数だけ課金するAI検索対策です。60分のオンライン説明会で、仕組みと取り分をご説明します。</span></p>
+        <p class="s-hero__cta"><a class="s-btn" href="#s-form">説明会に申し込む&nbsp; ▸</a></p>
+        <p class="s-hero__note">オンライン開催・参加無料。日程はお申し込みのあとにご案内します</p>
       </div>
-    </div>
-    <div>
-      <p class="eyebrow">AIOマスター ／ 第0次募集</p>
-      <h1 class="h1" id="h1" tabindex="0" aria-haspopup="dialog" aria-controls="pop" aria-live="off" title="押すと、3つのコピーと見出しを並べて読めます"><span class="ln" id="l1"><span>今のお客様へ、</span></span><span class="ln" id="l2"><span>AI検索対策を</span><span>1本足す。</span></span></h1>
-      <div class="dots" role="group" aria-label="コピーの切り替え"><button type="button" aria-label="コピー1" aria-current="true"></button><button type="button" aria-label="コピー2" aria-current="false"></button><button type="button" aria-label="コピー3" aria-current="false"></button></div>
-      <p class="sub">見込み客がAIに「おすすめの会社」を聞いたとき、御社のお客様の名前が挙がるようにする。そのAI検索対策を、御社の商材にするための60分の説明会です。</p>
-      <a class="btn" href="#apply">説明会に申し込む <span aria-hidden="true">→</span></a>
-      <p class="note">オンライン開催・参加無料。日程はお申し込みのあとにご案内します</p>
-    </div>
-    <p class="hero-cap">背景は画面イメージです（社名は架空）</p>
-  </section>
-
-  <section class="facts" aria-label="第0次募集の要点"><div class="w"><ul>
-    <li><b>40<small>%</small></b><span>売った金額のうち、御社の取り分</span></li>
-    <li><b>6,000<small>円</small></b><span>第0次の仕入れ（1ID・月）<br>標準の3分の1</span></li>
-    <li><b>20<small>社</small></b><span>第0次の募集枠（先着順）</span></li>
-    <li><b>5.2<small>万円</small></b><span>1件売れたときの月の取り分（試算）</span></li>
-  </ul></div></section>
-
-  <section class="sec" aria-labelledby="h-contents"><div class="w">
-    <div class="head reveal">
-      <p class="kicker">CONTENTS</p>
-      <h2 class="h2" id="h-contents">前半30分で、40%の理由を。<br>後半30分は、ご質問に答えます。</h2>
-      <p class="desc">AIOマスターを御社の商材にするかを決めるために、説明会でお話しする3つです。</p>
-    </div>
-    <div class="reveal">
-      <ol class="items cols">
-        <li><span class="n">01</span><div><h3>何を、いくらで売るのか</h3><p>AIの回答に載った質問の数だけ課金する、AI検索対策です。売値は御社が決められます。標準は初期50,000円・月額30,000円・成果報酬1問10,000円（月300,000円まで）。</p></div></li>
-        <li><span class="n">02</span><div><h3>40%を払える理由</h3><p>代理店の取り分は20%前後が一般的です。施策の実行をAIに移して原価を20%程度まで下げ、残る粗利80%を当社と折半しています。請求・決済・回収も当社が行います。</p></div></li>
-        <li><span class="n">03</span><div><h3>仕入れ月6,000円の条件</h3><p>第0次は1IDを月6,000円で仕入れます（標準は18,000円）。月5IDずつ12ヶ月、計60ID。支払いは月3万円ずつ増え、何も売れなかった場合の12ヶ月の累計は234万円です。売れたIDの仕入れは相殺され、売れ残ったIDも消えません。</p></div></li>
+    </section>
+    <section class="s-factbar" aria-label="第0次募集の要点"><div class="s-factbar__grid">
+      <div class="s-factbar__item"><p class="s-factbar__num">40<span class="s-factbar__unit">%</span></p><p class="s-factbar__label">売った金額のうち、御社の取り分</p></div><div class="s-factbar__item"><p class="s-factbar__num">6,000<span class="s-factbar__unit">円</span></p><p class="s-factbar__label">第0次の仕入れ 1ID・月（標準の3分の1）</p></div><div class="s-factbar__item"><p class="s-factbar__num">20<span class="s-factbar__unit">社</span></p><p class="s-factbar__label">第0次の募集枠（先着順）</p></div><div class="s-factbar__item"><p class="s-factbar__num">5.2<span class="s-factbar__unit">万円</span></p><p class="s-factbar__label">1件売れたときの月の取り分（試算）</p></div>
+    </div></section>
+    <section class="s-flow" aria-labelledby="s-flow-title"><div class="s-container s-flow__layout">
+      <div class="s-flow__head"><p class="s-kicker">CONTENTS</p><h2 id="s-flow-title"><span class="s-heading-phrase">前半30分で、</span><span class="s-heading-phrase">40%の理由を。</span><span class="s-heading-phrase">後半30分は、</span><span class="s-heading-phrase">ご質問に答えます。</span></h2><p class="s-flow__lead">AIOマスターを御社の商材にするかを決めるために、説明会でお話しする4つです。</p><figure class="sp-flow-photo"><img src="images/work-hands.webp" alt="ノートPCで作業している手元" width="1280" height="853" loading="lazy" decoding="async"><figcaption aria-hidden="true">AI SEARCH — PARTNER</figcaption></figure></div>
+      <div>
+      <ol class="s-flow__list" id="s-flow-list">
+        <li class="s-flow__item"><span class="s-flow__icon">01</span><div><p class="s-flow__num">01</p><h3 class="s-flow__title">何を、いくらで売るのか</h3><p class="s-flow__text">AIの回答に載った質問の数だけ課金する、AI検索対策です。売値は御社が決められます。標準は初期50,000円・月額30,000円・成果報酬1問10,000円（月300,000円まで）。</p></div></li><li class="s-flow__item"><span class="s-flow__icon">02</span><div><p class="s-flow__num">02</p><h3 class="s-flow__title">40%を払える理由</h3><p class="s-flow__text">代理店の取り分は20%前後が一般的です。施策の実行をAIに移して原価を20%程度まで下げ、残る粗利80%を当社と折半しています。</p></div></li><li class="s-flow__item"><span class="s-flow__icon">03</span><div><p class="s-flow__num">03</p><h3 class="s-flow__title">仕入れ月6,000円の条件</h3><p class="s-flow__text">第0次は1IDを月6,000円で仕入れます（標準は18,000円）。月5IDずつ12ヶ月、計60ID。支払いは月3万円ずつ増え、何も売れなかった場合の12ヶ月の累計は234万円です。売れたIDの仕入れはその時点で相殺され、売れ残ったIDは消えません。</p></div></li><li class="s-flow__item"><span class="s-flow__icon">04</span><div><p class="s-flow__num">04</p><h3 class="s-flow__title">御社がやること</h3><p class="s-flow__text">管理画面で売値を決め、発行された申込URLをお客様へ送ります。請求・決済・回収は当社が行い、お客様の支払いの40%が毎月御社に入ります。</p></div></li>
       </ol>
-      <p class="fine">収支の数字は、標準価格・掲載10問を置いた試算です。成果・収益を保証するものではありません。</p>
       <button class="fc-btn" type="button" data-fc-section="代理店マージンの相場" data-fc-claim="Web集客・SaaS商材の販売代理店に支払われるマージンは、売上の20%前後が一般的な相場である">ChatGPTでファクトチェック<span class="fc-sub">別タブで開きます</span></button>
-    </div>
-  </div></section>
-
-  <section class="sec soft" aria-labelledby="h-product"><div class="w">
-    <div class="head reveal">
-      <p class="kicker">PRODUCT</p>
-      <h2 class="h2" id="h-product">AIに聞く時代の検索対策を、<br>載った分だけの料金で売る。</h2>
-      <p class="desc">生成AIを使う人は1年で約3倍に増え、会社選びの相談も検索からAIへ移り始めています。AIOマスターは、その回答にお客様の会社が載るよう、診断から請求までをAIで回します。</p>
-    </div>
-    <div class="two">
-    <div class="reveal">
-      <ol class="items">
-        <li><span class="n">01</span><div><h3>3分で診断する</h3><p>会社名を入れると、その場で本物のAIに問い合わせ、掲載率と、AIが代わりに推薦している競合の実名が出ます。</p></div></li>
-        <li><span class="n">02</span><div><h3>サイトの内と外を整える</h3><p>お客様の作業は、毎月の指示書どおりにサイトを直す1箇所だけ（代行も可）。サイトの外側の情報は、AIが積み上げます。</p></div></li>
-        <li><span class="n">03</span><div><h3>測って、載った分だけ請求</h3><p>社名を含まない質問50問を、1問につき月12回測り、2回以上載れば成果です。判定の根拠になるAIの回答は、全文を公開します。</p></div></li>
-      </ol>
-    </div>
-    <div class="reveal">
-      <div class="shot" role="img" aria-label="お客様用ダッシュボード（画面イメージ。数字はすべて例です）">
-        <div class="shot-top"><b>AIO DASHBOARD</b><span>画面イメージ</span></div>
-        <div class="shot-body">
-          <div class="shot-h"><div><h3>今月の掲載状況</h3><p>リフォーム会社（例）</p></div><span class="tag">計測中</span></div>
-          <div class="kpis"><div><span>掲載された質問</span><b>7問</b></div><div><span>1問あたりの計測</span><b>月12回</b></div><div><span>今月の成果報酬</span><b>7万円</b></div></div>
-          <div class="bars"><p>12回中2回以上載った質問を、成果として数えます</p>
-            <div class="bar"><span>地域・MEO</span><i style="--v:40%"></i><b>4問</b></div>
-            <div class="bar"><span>比較・検討</span><i style="--v:20%"></i><b>2問</b></div>
-            <div class="bar"><span>広域おすすめ</span><i style="--v:10%"></i><b>1問</b></div>
-          </div>
-        </div>
       </div>
-      <div class="mkt" aria-label="生成AIの利用率"><div><b>26.7%</b><span>個人の利用経験（前年9.1%）</span></div><div><b>44.7%</b><span>20代の利用経験</span></div><div><b>55.2%</b><span>業務で使う企業</span></div></div>
-      <p class="fine">出典：総務省「令和7年版 情報通信白書」（2025年）</p>
-      <button class="fc-btn" type="button" data-fc-section="生成AIの利用率（市場データ）" data-fc-claim="日本の個人の生成AI利用経験率は26.7%で、前年度調査の9.1%から拡大した（総務省 令和7年版 情報通信白書）／20代の生成AI利用経験率は44.7%（同）／日本企業のうち、何らかの業務で生成AIを使用中と回答した割合は55.2%（同）／生成AIの利用経験者は1年で約3倍に増えた">ChatGPTでファクトチェック<span class="fc-sub">別タブで開きます</span></button>
-    </div>
-    </div>
-  </div></section>
+    </div></section>
+    <section class="s-product" aria-labelledby="s-product-title"><div class="sp-product-photo" aria-hidden="true"></div><div class="s-container s-product__layout">
+      <div class="s-product__visual"><div class="s-product__screen" role="img" aria-label="お客様用ダッシュボード（画面イメージ。数字はすべて例です）">
+        <div class="s-ui__top"><span class="s-ui__brand">AIO DASHBOARD</span><span class="s-ui__date">画面イメージ</span></div>
+        <div class="s-ui__body"><nav class="s-ui__nav" aria-label="画面イメージのメニュー"><span class="is-active">掲載状況</span><span>質問50問</span><span>回答ログ</span><span>指示書</span><span>請求</span></nav><div class="s-ui__main"><div class="s-ui__mainhead"><div><h3>今月の掲載状況</h3><p>リフォーム会社（例）</p></div><span class="s-ui__badge">計測中</span></div><div class="s-ui__stats"><div class="s-ui__stat"><span>掲載された質問</span><strong>7問</strong></div><div class="s-ui__stat"><span>1問あたりの計測</span><strong>月12回</strong></div><div class="s-ui__stat"><span>今月の成果報酬</span><strong>7万円</strong></div></div><div class="s-ui__chart"><div class="s-ui__charthead"><span>検索意図ごとの掲載</span><span>例</span></div><p class="s-ui__rule">12回中2回以上載った質問を、成果として数えます</p><div class="s-ui__barrow"><span class="s-ui__barlabel">地域・MEO</span><div class="s-ui__bar"><i style="width:40%"></i></div><strong>4問</strong></div><div class="s-ui__barrow"><span class="s-ui__barlabel">比較・検討</span><div class="s-ui__bar"><i style="width:20%"></i></div><strong>2問</strong></div><div class="s-ui__barrow"><span class="s-ui__barlabel">広域おすすめ</span><div class="s-ui__bar"><i style="width:10%"></i></div><strong>1問</strong></div></div></div></div>
+      </div>
+        <div class="s-mkt" aria-label="生成AIの利用率"><div><b>26.7%</b><span>個人の利用経験（前年9.1%）</span></div><div><b>44.7%</b><span>20代の利用経験</span></div><div><b>55.2%</b><span>業務で使う企業</span></div></div><p class="s-mkt-src">出典：総務省「令和7年版 情報通信白書」（2025年）</p>
+        <button class="fc-btn" type="button" data-fc-section="生成AIの利用率（市場データ）" data-fc-claim="日本の個人の生成AI利用経験率は26.7%で、前年度調査の9.1%から拡大した（総務省 令和7年版 情報通信白書）／20代の生成AI利用経験率は44.7%（同）／日本企業のうち、何らかの業務で生成AIを使用中と回答した割合は55.2%（同）／生成AIの利用経験者は1年で約3倍に増えた">ChatGPTでファクトチェック<span class="fc-sub">別タブで開きます</span></button>
+      </div>
+      <div class="s-product__copy"><p class="s-kicker">PRODUCT</p><h2 id="s-product-title"><span class="s-heading-phrase">AIに聞く時代の</span><span class="s-heading-phrase">検索対策を、</span><span class="s-heading-phrase">載った分だけの</span><span class="s-heading-phrase">料金で売る。</span></h2><p class="s-product__lead">生成AIを使う人は1年で約3倍に増えました。会社選びの相談も、検索からAIへ移り始めています。AIOマスターは、その回答にお客様の会社が載るよう、診断から請求までをAIで回します。</p><ol class="s-product__list"><li class="s-product__item"><span class="s-product__num">01</span><div><h3>3分で診断する</h3><p>会社名を入れると、その場で本物のAIに問い合わせ、掲載率と、AIが代わりに推薦している競合の実名が出ます。</p></div></li><li class="s-product__item"><span class="s-product__num">02</span><div><h3>サイトの内と外を整える</h3><p>お客様の作業は、毎月の指示書どおりにサイトを直す1箇所だけ（代行も可）。サイトの外側の情報は、AIが積み上げます。</p></div></li><li class="s-product__item"><span class="s-product__num">03</span><div><h3>測って、載った分だけ請求</h3><p>社名を含まない質問50問を、1問につき月12回測り、2回以上載れば成果です。判定の根拠になるAIの回答は、全文を公開します。</p></div></li></ol><p class="s-product__foot">売る相手は、いまお取引のある地域の小さな会社です。商談の入口は、その場で見せられる3分の無料診断です。</p></div>
+    </div></section>
+    <section class="s-voices" aria-labelledby="s-voices-title"><div class="sp-voices-photo" aria-hidden="true"></div><div class="s-container">
+      <p class="s-kicker">BEFORE YOU START</p><h2 id="s-voices-title"><span class="s-heading-phrase">売った実績は、</span><span class="s-heading-phrase">まだ乏しい。</span><span class="s-heading-phrase">だから仕入れは</span><span class="s-heading-phrase">3分の1です。</span></h2><p class="s-voices__lead">AIOマスターの販売実績は、まだこれからです。その代わり、SEOを累計3万社に販売したノウハウを、毎週の電話と勉強会でお渡しします。始める前に確かめたい8つに、先に答えます。</p>
+      <div class="s-qa">
+        <section aria-label="お金"><h3>お金</h3><dl><dt>売れ残ったIDは？</dt><dd>消えません。いつ売っても使えます。請求は購入から12ヶ月で止まります。</dd><dt>何件売れば元が取れる？</dt><dd>2ヶ月に1件で、ほぼ均衡します（標準価格・掲載10問の試算）。</dd><dt>在庫を持たずに始めたい</dt><dd>紹介パートナーなら在庫はありません。取り分はお客様の決済額の10%です。</dd></dl></section>
+        <section aria-label="仕組み"><h3>仕組み</h3><dl><dt>お客様の作業は？</dt><dd>毎月の指示書どおりに、サイトを1箇所直すだけです。代行もできます。</dd><dt>必ずAIに載る？</dt><dd>保証しません。載った質問の分だけ請求します。</dd><dt>どんな会社に売れる？</dt><dd>地域の小さな会社です。まず3分の無料診断を見せてください。</dd></dl></section>
+        <section aria-label="売り方"><h3>売り方</h3><dl><dt>売り方が分からない</dt><dd>毎週の電話と毎月の定例で、一緒に組み立てます。</dd><dt>お客様への説明は？</dt><dd>営業説明動画と、毎週のAIO勉強会を用意しています。お客様を招待できます。</dd></dl></section>
+      </div>
+      <p class="s-voices__note">※ 収支の数字は一定の前提を置いた試算で、成果・収益を保証するものではありません。残りのご質問は、説明会の後半30分でお答えします。</p>
+    </div></section>
+    <section class="s-form-section" id="s-form" aria-labelledby="s-form-title"><div class="s-container s-form-layout">
+      <div class="s-form-intro"><p class="s-kicker">PARTNER BRIEFING</p><h2 id="s-form-title"><span class="s-heading-phrase">第0次は、</span><span class="s-heading-phrase">先着20社まで。</span><span class="s-heading-phrase">説明会の日に、</span><span class="s-heading-phrase">決めてください。</span></h2><p>仕組み、取り分40%の理由、収支の試算、参加条件まで、隠さずにお話しします。20社が埋まり次第、第1次（仕入れ1ID 18,000円）に切り替わります。</p><ol class="s-next" aria-label="説明会のあとの流れ"><li>説明会に参加</li><li>アンケートで判断を伝える</li><li>3日以内に個別打ち合わせ</li><li>初週は御社で1IDを使う</li></ol><div class="s-form-industries" id="s-form-industries"><h3>こんな会社に向いています</h3><div class="s-industry-list"><span class="s-industry">ITコーディネーター</span><span class="s-industry">地域の営業会社</span><span class="s-industry">経営コンサル</span><span class="s-industry">士業のネットワーク</span><span class="s-industry">学習塾の運営</span><span class="s-industry">MEO代理店</span><span class="s-industry">補助金の申請支援</span></div></div></div>
+      <div class="s-form-card"><div class="s-form-head"><h3>説明会に申し込む</h3><p>オンライン・60分・参加無料。ご検討中の段階でも大丈夫です。</p></div><div class="s-form-steps" aria-label="入力ステップ"><span class="s-form-dot is-active"></span><span class="s-form-dot"></span></div>
+        <form id="s-entry-form" novalidate><div class="s-step is-active"><div class="s-field"><label for="s-company">会社名</label><input id="s-company" name="company" autocomplete="organization" required></div><div class="s-field"><label for="s-name">お名前</label><input id="s-name" name="name" autocomplete="name" required></div><div class="s-field"><label for="s-email">メールアドレス</label><input id="s-email" name="email" type="email" autocomplete="email" required></div><div class="s-field"><label for="s-products">いまお取り扱いの商材<span class="s-optional">任意</span></label><input id="s-products" name="products" placeholder="例：MEO対策、補助金の申請支援"></div><div class="s-form-nav"><button class="s-btn" type="button" data-s-next>次へ&nbsp; ▸</button></div></div><div class="s-step"><div class="s-field"><label for="s-industry">御社に近い業種<span class="s-optional">任意</span></label><select id="s-industry" name="industry"><option value="">選択してください</option><option>ITコーディネーター</option><option>地域の営業会社</option><option>経営コンサル</option><option>士業のネットワーク</option><option>学習塾の運営</option><option>MEO代理店</option><option>補助金の申請支援</option><option>その他</option></select></div><div class="s-field"><label for="s-message">説明会で特に確認したいこと<span class="s-optional">任意</span></label><textarea id="s-message" name="message"></textarea></div><div class="s-form-nav"><button class="s-btn s-btn--back" type="button" data-s-back>戻る</button><button class="s-btn" type="submit">入力内容をコピーして、申込フォームへ</button></div></div></form>
+        <div class="s-done" id="s-done" role="status" aria-live="polite"><h3>あと1つで、お申し込みが終わります。</h3><p>入力内容をコピーしました。別タブで開いたお問い合わせフォームに貼り付けて送信すると、お申し込みが完了します。このページだけでは、まだ当社に届いていません。</p><p><a href="https://www.writeup.jp/contact/" target="_blank" rel="noopener">お問い合わせフォームを開く</a></p></div><p class="s-form-note">送信は当社のお問い合わせフォームから行います。いただいた情報は、本件のご連絡以外には使用しません。</p>
+      </div>
+    </div></section>
+  </main>
+    <footer class="s-footer"><p>株式会社ライトアップ（東証グロース・証券コード6580）</p><p>記載の価格はすべて税別です。AIの回答は変動するため、特定の掲載結果や収益を保証するものではありません。</p><p class="sp-legal"><a href="https://www.writeup.jp/company/" target="_blank" rel="noopener">運営会社</a><a href="https://www.writeup.jp/privacy/" target="_blank" rel="noopener">個人情報保護方針</a></p></footer>
+  <dialog class="s-pop" id="s-pop" aria-labelledby="s-pop-t">
+    <div class="s-pop__h"><p id="s-pop-t">このページを、見出しだけで読む</p><button type="button" class="s-pop__x" id="s-pop-x" aria-label="閉じる">×</button></div>
+    <div class="s-pop__b"><p class="s-pop__lbl">いちばん上で切り替わっている3つのコピー</p><ol class="s-pop__copies" id="s-pop-copies"></ol><p class="s-pop__lbl" style="margin-top:24px">見出しをつなげると、こういう話です</p><ol class="s-pop__story" id="s-pop-story"></ol></div>
+  </dialog>
+  <script>
+    const sCopies = [[["今のお客様へ、"], ["AI検索対策を", "1本足す。"]], [["売った金額の", "40%が、"], ["御社の取り分です。"]], [["請求も回収も", "不要。"], ["送るのは", "URLだけ。"]]];
+    const sNotes = ['何を売るのか。AIの回答に載った質問の数だけ料金が決まる検索対策を、御社の商材として売れます。', 'いくら入るのか。お客様が払った金額の40%が、初期費用・月額・成果報酬の区別なく御社に入ります。', '何をしなくていいのか。請求・決済・回収はライトアップが行います。御社は売値を決め、申込URLを送ります。'];
+    const sTitle = document.getElementById('s-hero-title');
+    const sLine1 = document.getElementById('s-copy-line-1');
+    const sLine2 = document.getElementById('s-copy-line-2');
+    const sDots = Array.from(document.querySelectorAll('.s-dots button'));
+    const sReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let sCopyIndex = 0, sTimer = null, sPaused = false;
+    const sRender = function (copy, upto) {
+      const lines = [sLine1, sLine2]; let left = upto; const nodes = [];
+      lines.forEach(function (line, li) {
+        line.replaceChildren();
+        copy[li].forEach(function (ph) { const sp = document.createElement('span'); const n = Math.max(0, Math.min(ph.length, left)); sp.textContent = ph.slice(0, n); left -= ph.length; line.appendChild(sp); nodes.push(sp); });
+      });
+      const cur = document.createElement('span'); cur.className = 's-hero__cursor'; cur.setAttribute('aria-hidden', 'true');
+      let target = nodes[nodes.length - 1]; let acc = 0; const total = copy.flat().join('').length;
+      if (upto < total) { for (let i = 0; i < nodes.length; i++) { acc += copy.flat()[i].length; if (upto <= acc) { target = nodes[i]; break; } } }
+      target.appendChild(cur);
+    };
+    const sSetDots = function () { sDots.forEach(function (d, i) { d.setAttribute('aria-current', i === sCopyIndex ? 'true' : 'false'); }); };
+    const sPlay = function (index) {
+      clearTimeout(sTimer); sCopyIndex = index; sSetDots();
+      const copy = sCopies[index]; const total = copy.flat().join('').length;
+      if (sReduce) { sRender(copy, total); sTimer = setTimeout(function () { if (!sPaused) sPlay((sCopyIndex + 1) % sCopies.length); }, 5000); return; }
+      let n = 0;
+      const step = function () {
+        if (sPaused) return;
+        n += 1; sRender(copy, n);
+        if (n < total) { sTimer = setTimeout(step, 72); return; }
+        sTimer = setTimeout(function () { if (!sPaused) sPlay((sCopyIndex + 1) % sCopies.length); }, 5000);
+      };
+      sRender(copy, 0); sTimer = setTimeout(step, 150);
+    };
+    if (sTitle) {
+      sDots.forEach(function (d, i) { d.addEventListener('click', function () { sPaused = false; sPlay(i); }); });
+      sPlay(0);
+      const sPop = document.getElementById('s-pop');
+      if (sPop && sPop.showModal) {
+        const copiesOl = document.getElementById('s-pop-copies');
+        sCopies.forEach(function (c, i) { const li = document.createElement('li'); const b = document.createElement('b'); b.textContent = c[0].join('') + c[1].join(''); const sp = document.createElement('span'); sp.textContent = sNotes[i]; li.append(b, sp); copiesOl.appendChild(li); });
+        const storyOl = document.getElementById('s-pop-story');
+        document.querySelectorAll('main section h2[id]').forEach(function (h) { if (h.id === 's-hero-title') return; const li = document.createElement('li'); const a = document.createElement('a'); a.href = '#' + h.id; a.textContent = h.textContent.trim(); a.addEventListener('click', function (e) { e.preventDefault(); sPop.close(); h.setAttribute('tabindex', '-1'); h.scrollIntoView({ behavior: sReduce ? 'auto' : 'smooth', block: 'start' }); h.focus({ preventScroll: true }); }); li.appendChild(a); storyOl.appendChild(li); });
+        const open = function () { sPaused = true; clearTimeout(sTimer); sRender(sCopies[sCopyIndex], 999); sPop.showModal(); };
+        sTitle.addEventListener('click', open);
+        sTitle.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+        document.getElementById('s-pop-x').addEventListener('click', function () { sPop.close(); });
+        sPop.addEventListener('click', function (e) { if (e.target === sPop) sPop.close(); });
+        sPop.addEventListener('close', function () { sPaused = false; sPlay((sCopyIndex + 1) % sCopies.length); });
+      }
+    }
+    ['s-flow-list'].forEach(function (id) {
+      const target = document.getElementById(id);
+      if (!target) return;
+      const reveal = function () { target.classList.add('is-in'); };
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (entries, observer) { if (entries[0].isIntersecting) { reveal(); observer.disconnect(); } }, { threshold: .18 }).observe(target);
+      else reveal();
+    });
 
-  <section class="sec" aria-labelledby="h-qa"><div class="w">
-    <div class="center reveal">
-      <p class="kicker">BEFORE YOU START</p>
-      <h2 class="h2" id="h-qa">売った実績は、まだ乏しい。<br>だから仕入れは3分の1です。</h2>
-      <p class="desc">AIOマスターの販売実績は、まだこれからです。その代わり、SEOを累計3万社に販売したノウハウを、毎週の電話と勉強会でお渡しします。始める前に確かめたい8つに、先に答えます。</p>
-    </div>
-    <div class="qa reveal">
-      <section aria-label="お金"><h3>お金</h3><dl><dt>売れ残ったIDは？</dt><dd>消えません。いつ売っても使えます。請求は購入から12ヶ月で止まります。</dd><dt>何件売れば元が取れる？</dt><dd>2ヶ月に1件で、ほぼ均衡します（標準価格・掲載10問の試算）。</dd><dt>在庫を持たずに始めたい</dt><dd>紹介パートナーなら在庫はありません。取り分はお客様の決済額の10%です。</dd></dl></section>
-      <section aria-label="仕組み"><h3>仕組み</h3><dl><dt>お客様の作業は？</dt><dd>毎月の指示書どおりに、サイトを1箇所直すだけです。代行もできます。</dd><dt>必ずAIに載る？</dt><dd>保証しません。載った質問の分だけ請求します。</dd><dt>どんな会社に売れる？</dt><dd>地域の小さな会社です。まず3分の無料診断を見せてください。</dd></dl></section>
-      <section aria-label="売り方"><h3>売り方</h3><dl><dt>売り方が分からない</dt><dd>毎週の電話と毎月の定例で、一緒に組み立てます。</dd><dt>お客様への説明は？</dt><dd>営業説明動画と、毎週のAIO勉強会を用意しています。お客様を招待できます。</dd></dl></section>
-    </div>
-  </div></section>
+    const sIndustries = document.getElementById('s-form-industries');
+    if (sIndustries) {
+      const revealIndustries = function () { setTimeout(function () { sIndustries.classList.add('is-in'); }, 480); };
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (entries, observer) { if (entries[0].isIntersecting) { revealIndustries(); observer.disconnect(); } }, { threshold: .55 }).observe(sIndustries);
+      else revealIndustries();
+    }
 
-  <section class="sec apply" id="apply" aria-labelledby="h-apply"><div class="w two">
-    <div class="reveal">
-      <p class="kicker">PARTNER BRIEFING</p>
-      <h2 class="h2" id="h-apply">第0次は、先着20社まで。<br>説明会の日に、決めてください。</h2>
-      <p class="desc">仕組み、取り分40%の理由、収支の試算、参加条件まで、隠さずにお話しします。20社が埋まり次第、第1次（仕入れ1ID 18,000円）に切り替わります。</p>
-      <ol class="steps" aria-label="説明会のあとの流れ"><li>説明会に参加</li><li>アンケートで判断を伝える</li><li>3日以内に個別打ち合わせ</li><li>初週は御社で1IDを使う</li></ol>
-      <p class="fit"><b>こんな会社に向いています</b>ITコーディネーター、地域の営業会社、経営コンサル、士業のネットワーク、学習塾の運営、MEO代理店、補助金の申請支援</p>
-    </div>
-    <div class="card reveal">
-      <h3>説明会に申し込む</h3>
-      <p>オンライン・60分・参加無料。ご検討中の段階でも大丈夫です。</p>
-      <div class="pips" aria-hidden="true"><span class="on"></span><span></span></div>
-      <form id="form" novalidate>
-        <div class="step on">
-          <div class="f"><label for="f-company">会社名</label><input id="f-company" autocomplete="organization" required></div>
-          <div class="f"><label for="f-name">お名前</label><input id="f-name" autocomplete="name" required></div>
-          <div class="f"><label for="f-email">メールアドレス</label><input id="f-email" type="email" autocomplete="email" required></div>
-          <div class="nav"><button class="btn" type="button" id="f-next">次へ</button></div>
-        </div>
-        <div class="step">
-          <div class="f"><label for="f-products">いまお取り扱いの商材<span class="opt">任意</span></label><input id="f-products" placeholder="例：MEO対策、補助金の申請支援"></div>
-          <div class="f"><label for="f-industry">御社に近い業種<span class="opt">任意</span></label><select id="f-industry"><option value="">選択してください</option><option>ITコーディネーター</option><option>地域の営業会社</option><option>経営コンサル</option><option>士業のネットワーク</option><option>学習塾の運営</option><option>MEO代理店</option><option>補助金の申請支援</option><option>その他</option></select></div>
-          <div class="f"><label for="f-message">説明会で特に確認したいこと<span class="opt">任意</span></label><textarea id="f-message"></textarea></div>
-          <div class="nav"><button class="btn back" type="button" id="f-back">戻る</button><button class="btn" type="submit">入力内容をコピーして、申込フォームへ</button></div>
-        </div>
-      </form>
-      <div class="done" id="done" role="status" aria-live="polite"><h4>あと1つで、お申し込みが終わります。</h4><p>入力内容をコピーしました。別タブで開いたお問い合わせフォームに貼り付けて送信すると、お申し込みが完了します。このページだけでは、まだ当社に届いていません。</p><p><a href="https://www.writeup.jp/contact/" target="_blank" rel="noopener">お問い合わせフォームを開く</a></p></div>
-      <p class="cardnote">送信は当社のお問い合わせフォームから行います。いただいた情報は、本件のご連絡以外には使用しません。</p>
-    </div>
-  </div></section>
-</main>
+    const sForm = document.getElementById('s-entry-form');
+    if (sForm) {
+      const sSteps = Array.from(sForm.querySelectorAll('.s-step'));
+      const sDots = Array.from(document.querySelectorAll('.s-form-dot'));
+      let sStepIndex = 0;
+      const setV3Step = function (index) {
+        sStepIndex = index;
+        sSteps.forEach(function (step, i) { step.classList.toggle('is-active', i === index); });
+        sDots.forEach(function (dot, i) { dot.classList.toggle('is-active', i === index); dot.classList.toggle('is-done', i < index); });
+      };
+      sForm.querySelector('[data-s-next]').addEventListener('click', function () {
+        const required = Array.from(sSteps[sStepIndex].querySelectorAll('[required]'));
+        const invalid = required.find(function (field) { return !field.checkValidity(); });
+        if (invalid) { invalid.reportValidity(); return; }
+        setV3Step(1);
+      });
+      sForm.querySelector('[data-s-back]').addEventListener('click', function () { setV3Step(0); });
+      sForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const v = function (id) { return (document.getElementById(id).value || '').trim(); };
+        const text = '【AIOマスター OEM説明会（第0次募集）の申込】\n会社名：' + v('s-company') + '\nお名前：' + v('s-name') + '\nメールアドレス：' + v('s-email') + '\nいまお取り扱いの商材：' + (v('s-products') || '（未記入）') + '\n御社に近い業種：' + (v('s-industry') || '（未選択）') + '\n説明会で確認したいこと：' + (v('s-message') || '（なし）');
+        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).catch(function () {});
+        else { const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} document.body.removeChild(ta); }
+        window.open('https://www.writeup.jp/contact/', '_blank', 'noopener');
+        sForm.hidden = true;
+        document.getElementById('s-done').classList.add('is-active');
+      });
+    }
+    document.addEventListener('click', function (e) {
+      const b = e.target.closest('.fc-btn'); if (!b) return;
+      const url = (document.querySelector('link[rel=canonical]') || {}).href || location.href;
+      const p = '次のLPの記載が事実として正しいか、第三者の立場で確認してください。\n\n【対象ページ】' + url + '\n【セクション】' + b.dataset.fcSection + '\n【記載内容】\n' + b.dataset.fcClaim.split('／').join('\n') + '\n\n【確認してほしいこと】\n- 記載は一般的な事実・相場・公的情報と照らして正しいか\n- 誤り・誇張・古い情報があれば指摘する\n- 反対の見方や、読み手が注意すべき点\n- 確認できないことは「確認できない」と書き、推測で補わない';
+      window.open('https://chatgpt.com/?q=' + encodeURIComponent(p), '_blank', 'noopener,noreferrer');
+      if (navigator.clipboard) navigator.clipboard.writeText(p).catch(function () {});
+    });
 
-<footer>
-  <p>株式会社ライトアップ（東証グロース・証券コード6580）</p>
-  <p>記載の価格はすべて税別です。AIの回答は変動するため、特定の掲載結果や収益を保証するものではありません。</p>
-  <nav aria-label="運営会社の情報"><a href="https://www.writeup.jp/company/" target="_blank" rel="noopener">運営会社</a><a href="https://www.writeup.jp/privacy/" target="_blank" rel="noopener">個人情報保護方針</a></nav>
-</footer>
-
-<dialog class="pop" id="pop" aria-labelledby="pop-t">
-  <div class="pop-h"><p id="pop-t">このページを、見出しだけで読む</p><button type="button" class="pop-x" id="pop-x" aria-label="閉じる">×</button></div>
-  <div class="pop-b"><p class="pop-l">いちばん上で切り替わっている3つのコピー</p><ol class="pop-c" id="pop-c"></ol><p class="pop-l" style="margin-top:24px">見出しをつなげると、こういう話です</p><ol class="pop-s" id="pop-s"></ol></div>
-</dialog>
-
-<script>
-(function () {
-  const copies = [[["今のお客様へ、"], ["AI検索対策を", "1本足す。"]], [["売った金額の", "40%が、"], ["御社の取り分です。"]], [["請求も回収も", "不要。"], ["送るのは", "URLだけ。"]]];
-  const notes = ['何を売るのか。AIの回答に載った質問の数だけ料金が決まる検索対策を、御社の商材として売れます。', 'いくら入るのか。お客様が払った金額の40%が、初期費用・月額・成果報酬の区別なく御社に入ります。', '何をしなくていいのか。請求・決済・回収はライトアップが行います。御社は売値を決め、申込URLを送ります。'];
-  const h1 = document.getElementById('h1'), l1 = document.getElementById('l1'), l2 = document.getElementById('l2');
-  const dots = Array.from(document.querySelectorAll('.dots button'));
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let idx = 0, timer = null, paused = false;
-  const render = function (copy, upto) {
-    let left = upto; const nodes = [];
-    [l1, l2].forEach(function (line, i) { line.replaceChildren(); copy[i].forEach(function (ph) { const sp = document.createElement('span'); sp.textContent = ph.slice(0, Math.max(0, Math.min(ph.length, left))); left -= ph.length; line.appendChild(sp); nodes.push(sp); }); });
-    const flat = copy.flat(); const total = flat.join('').length; let target = nodes[nodes.length - 1];
-    if (upto < total) { let acc = 0; for (let i = 0; i < nodes.length; i++) { acc += flat[i].length; if (upto <= acc) { target = nodes[i]; break; } } }
-    const c = document.createElement('span'); c.className = 'cur'; c.setAttribute('aria-hidden', 'true'); target.appendChild(c);
-  };
-  const play = function (i) {
-    clearTimeout(timer); idx = i; dots.forEach(function (d, k) { d.setAttribute('aria-current', k === idx ? 'true' : 'false'); });
-    const copy = copies[i]; const total = copy.flat().join('').length;
-    const next = function () { timer = setTimeout(function () { if (!paused) play((idx + 1) % copies.length); }, 5000); };
-    if (reduce) { render(copy, total); next(); return; }
-    let n = 0; render(copy, 0);
-    const step = function () { if (paused) return; n += 1; render(copy, n); if (n < total) { timer = setTimeout(step, 60); } else { next(); } };
-    timer = setTimeout(step, 150);
-  };
-  dots.forEach(function (d, k) { d.addEventListener('click', function () { paused = false; play(k); }); });
-  play(0);
-
-  const pop = document.getElementById('pop');
-  if (pop && pop.showModal) {
-    const pc = document.getElementById('pop-c');
-    copies.forEach(function (c, i) { const li = document.createElement('li'); const b = document.createElement('b'); b.textContent = c[0].join('') + c[1].join(''); const s = document.createElement('span'); s.textContent = notes[i]; li.append(b, s); pc.appendChild(li); });
-    const ps = document.getElementById('pop-s');
-    document.querySelectorAll('main h2[id]').forEach(function (h) { const li = document.createElement('li'); const a = document.createElement('a'); a.href = '#' + h.id; a.textContent = h.textContent.trim(); a.addEventListener('click', function (e) { e.preventDefault(); pop.close(); h.setAttribute('tabindex', '-1'); h.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); h.focus({ preventScroll: true }); }); li.appendChild(a); ps.appendChild(li); });
-    const open = function () { paused = true; clearTimeout(timer); render(copies[idx], 999); pop.showModal(); };
-    h1.addEventListener('click', open);
-    h1.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
-    document.getElementById('pop-x').addEventListener('click', function () { pop.close(); });
-    pop.addEventListener('click', function (e) { if (e.target === pop) pop.close(); });
-    pop.addEventListener('close', function () { paused = false; play((idx + 1) % copies.length); });
-  }
-
-  const els = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) { const io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }); }, { threshold: .12 }); els.forEach(function (el) { io.observe(el); }); }
-  else els.forEach(function (el) { el.classList.add('is-in'); });
-
-  const form = document.getElementById('form');
-  const steps = form.querySelectorAll('.step'); const pips = document.querySelectorAll('.pips span');
-  const go = function (i) { steps.forEach(function (s, k) { s.classList.toggle('on', k === i); }); pips.forEach(function (p, k) { p.classList.toggle('on', k <= i); }); };
-  document.getElementById('f-next').addEventListener('click', function () { const bad = Array.from(steps[0].querySelectorAll('[required]')).find(function (f) { return !f.checkValidity(); }); if (bad) { bad.reportValidity(); return; } go(1); });
-  document.getElementById('f-back').addEventListener('click', function () { go(0); });
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const v = function (id) { return (document.getElementById(id).value || '').trim(); };
-    const text = '【AIOマスター OEM説明会（第0次募集）の申込】\n会社名：' + v('f-company') + '\nお名前：' + v('f-name') + '\nメールアドレス：' + v('f-email') + '\nいまお取り扱いの商材：' + (v('f-products') || '（未記入）') + '\n御社に近い業種：' + (v('f-industry') || '（未選択）') + '\n説明会で確認したいこと：' + (v('f-message') || '（なし）');
-    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).catch(function () {});
-    else { const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (err) {} document.body.removeChild(ta); }
-    window.open('https://www.writeup.jp/contact/', '_blank', 'noopener');
-    form.hidden = true; document.querySelector('.pips').hidden = true; document.getElementById('done').classList.add('on');
-  });
-
-  document.addEventListener('click', function (e) {
-    const b = e.target.closest('.fc-btn'); if (!b) return;
-    const url = (document.querySelector('link[rel=canonical]') || {}).href || location.href;
-    const p = '次のLPの記載が事実として正しいか、第三者の立場で確認してください。\n\n【対象ページ】' + url + '\n【セクション】' + b.dataset.fcSection + '\n【記載内容】\n' + b.dataset.fcClaim.split('／').join('\n') + '\n\n【確認してほしいこと】\n- 記載は一般的な事実・相場・公的情報と照らして正しいか\n- 誤り・誇張・古い情報があれば指摘する\n- 反対の見方や、読み手が注意すべき点\n- 確認できないことは「確認できない」と書き、推測で補わない';
-    window.open('https://chatgpt.com/?q=' + encodeURIComponent(p), '_blank', 'noopener,noreferrer');
-    if (navigator.clipboard) navigator.clipboard.writeText(p).catch(function () {});
-  });
-})();
-</script>
+  </script>
 </body>
 </html>
