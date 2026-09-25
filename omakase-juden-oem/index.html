@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="lp-type" content="両脳/申込/I興味">
+  <meta name="description" content="おまかせ受電AIをOEMパートナーとして販売する会社向けの説明会（事前登録受付中）。店舗の電話を用件ごとにAIと人へ振り分ける仕組み、貴社と弊社の分担、通話品質と違い、まだ決まっていない条件までお話しします。">
+  <meta name="theme-color" content="#0b2c5c">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="おまかせ受電AI OEMパートナー説明会（事前登録受付中）｜株式会社ライトアップ">
+  <meta property="og:description" content="貴社の商材に、AI電話を1本足せます。売価と店舗の窓口は貴社が持つ受電AIの、OEMパートナー向け説明会です。">
+  <meta property="og:url" content="https://writeup-inc.github.io/seminar/omakase-juden-oem/">
+  <link rel="canonical" href="https://writeup-inc.github.io/seminar/omakase-juden-oem/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <title>おまかせ受電AI OEMパートナー説明会（事前登録受付中）｜株式会社ライトアップ</title>
+  <style>
+/* lp-base.css — 日本語LP／HTML成果物の初期CSS
+ *
+ * 品質台帳（~/Documents/Codex/loop-engineering-memory/events.jsonl）で
+ * 再発が確認された表示欠陥を、指摘ではなく初期値で潰すためのファイル。
+ * 対応する欠陥ID:
+ *   japanese-heading-midword-wrap（見出しが単語途中で改行）11回
+ *   mobile-fv-headline-wrap（モバイルFVの見出し改行）3回
+ *   mobile-fixed-cta-overlap（固定CTAが本文を隠す）3回
+ *   meaningful-small-text-under-readable-size（意味のある文字が可読サイズ未満）5回
+ *
+ * 使い方: HTMLの<style>先頭にこの内容を貼る。色・書体・余白は各LPで上書きしてよいが、
+ * 下の「改行制御」「最小文字サイズ」「固定CTAの逃げ」の3ブロックは消さないこと。
+ */
+
+/* ── 改行制御 ─────────────────────────────────────────────
+ * 日本語は単語区切りが無いため、既定のままだと文節の途中で折り返す。
+ * auto-phrase は文節単位で折る（Chrome 119+）。非対応環境は strict で逃がす。 */
+h1, h2, h3, h4, h5,
+.lead, .catch, .hero__title, [data-keep-phrase] {
+  word-break: auto-phrase;
+  line-break: strict;
+  overflow-wrap: anywhere;
+}
+@supports not (word-break: auto-phrase) {
+  h1, h2, h3, h4, h5,
+  .lead, .catch, .hero__title, [data-keep-phrase] {
+    word-break: normal;
+  }
+}
+/* 明示的に折りたくない語の途中で切られたら、その語を <span class="nobr"> で包む */
+.nobr { white-space: nowrap; }
+
+/* ── 最小文字サイズ ───────────────────────────────────────
+ * 判断材料になる文字は12px未満にしない。注記・免責のみ .note を許容。 */
+:root { --fs-min: 12px; --fs-body: 16px; }
+body { font-size: var(--fs-body); line-height: 1.8; }
+small, .note, figcaption { font-size: var(--fs-min); line-height: 1.7; }
+
+/* ── ファーストビューの見出し ─────────────────────────────
+ * 固定pxだと狭い画面で必ず折り返す。clamp で画面幅に追従させる。 */
+h1, .hero__title { font-size: clamp(1.55rem, 5.2vw, 3.25rem); line-height: 1.35; }
+h2 { font-size: clamp(1.3rem, 3.6vw, 2.1rem); line-height: 1.45; }
+
+/* ── 固定CTAの逃げ ────────────────────────────────────────
+ * 画面下に固定CTAを置くページは、この変数を実測の高さに書き換える。
+ * 置かないページはそのままでよい（0のまま）。 */
+:root { --fixed-cta-h: 0px; }
+body { padding-bottom: calc(var(--fixed-cta-h) + env(safe-area-inset-bottom, 0px)); }
+
+/* ── 横はみ出しの予防 ─────────────────────────────────────
+ * flex/grid の子は既定で min-width:auto のため、長い語で親を押し広げる。 */
+*, *::before, *::after { box-sizing: border-box; }
+img, svg, video, canvas, iframe { max-width: 100%; height: auto; }
+main > *, section > *, .grid > *, .flex > * { min-width: 0; }
+pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
+
+/* ── コンテンツ幅（2026-09-24 たかマスター決定） ───────────────
+ * 主コンテナは最大1200px。1120px・1300pxなど別の値にしない（案件で明示されたときだけ例外）。
+ * 例: .wrap{width:min(var(--lp-max),100% - 40px);margin-inline:auto}
+ * 本文・リードの1行は日本語35〜40字まで（max-width:38em 前後）。 */
+:root { --lp-max: 1200px; }
+
+    /* ── 色：B-01（OEMパートナーのご案内）の紺にそろえる。黄は seminar-page の型どおり唯一のアクセント ── */
+    :root {
+      --nv: #0b2c5c;    /* 主（B-01と同じ紺） */
+      --nv2: #082349;   /* 深 */
+      --nv3: #061a37;   /* 最深 */
+      --y: #ffd54a;     /* 唯一のアクセント */
+      --y-s: #e9b820;   /* 白地で線に使うときの沈めた黄 */
+      --bg: #ffffff;
+      --paper: #f3f6fa;
+      --paper2: #e9eef2;
+      --line: #d9d9d9;
+      --line2: #efefef;
+      --ink: #111111;
+      --muted: #4f5357;
+      --muted2: #666a6f;
+      --ac-t: #0b2c5c;  /* 明るい地の上の紺の文字 */
+      --card: #ffffff;
+      --field: #ffffff;
+      --field-ln: #b9c6da;
+      --chip: #f3f6fa;
+      --btn: #0b2c5c; --btn-fg: #ffffff; --req: #0b2c5c; --req-fg: #ffffff;
+      --hold: #8a5a00; --hold-l: #fff4d6;
+      --ff: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      --ff-head: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Sans", sans-serif;
+      --ff-en: Outfit, "Helvetica Neue", Arial, sans-serif;
+      /* ポップアップ（hero-rotation.md）用 */
+      --bk: var(--ink); --ac: var(--ac-t); --acm: #b9c6da; --acl: var(--paper); --ln: var(--line); --ln2: var(--line2);
+      --g1: var(--muted); --g2: var(--muted2);
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --btn: #ffd54a; --btn-fg: #061a37; --req: #b3c8ea; --req-fg: #061a37;
+        --bg: #0c1320; --paper: #111a2a; --paper2: #172236; --line: #2c3850; --line2: #1f2a3f;
+        --ink: #eef2f7; --muted: #b8c1ce; --muted2: #a9b3c1; --ac-t: #b3c8ea;
+        --card: #142035; --field: #0f1828; --field-ln: #3d4c68; --chip: #1a2740;
+        --hold: #ffd58a; --hold-l: #3a2c0c; --acm: #5d7299;
+        color-scheme: dark;
+      }
+    }
+    :root[data-theme="dark"] {
+      --btn: #ffd54a; --btn-fg: #061a37; --req: #b3c8ea; --req-fg: #061a37;
+        --bg: #0c1320; --paper: #111a2a; --paper2: #172236; --line: #2c3850; --line2: #1f2a3f;
+      --ink: #eef2f7; --muted: #b8c1ce; --muted2: #a9b3c1; --ac-t: #b3c8ea;
+      --card: #142035; --field: #0f1828; --field-ln: #3d4c68; --chip: #1a2740;
+      --hold: #ffd58a; --hold-l: #3a2c0c; --acm: #5d7299;
+      color-scheme: dark;
+    }
+
+    /* ── 骨格 ── */
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--ff); font-size: 16px; line-height: 1.8; }
+    .s-container { width: min(100% - 48px, var(--lp-max)); margin: 0 auto; }
+    /* :where で詳細度を0に落とし、個別クラスの margin-top を必ず効かせる（pitfalls.md） */
+    :where(.s-page) :is(h1, h2, h3, p) { margin-top: 0; }
+    .s-page h1, .s-page h2, .s-page h3 { font-family: var(--ff-head); font-weight: 900; letter-spacing: -.02em; }
+    .s-page :is(h1, h2, h3) { word-break: auto-phrase; line-break: strict; overflow-wrap: anywhere; }
+    @supports not (word-break: auto-phrase) { .s-page :is(h1, h2, h3) { word-break: normal; } }
+    .s-page :is(section, main) > * { min-width: 0; }
+    .s-page :is(p, li, dd, dt, td, th, label, .s-hero__sub span) { word-break: auto-phrase; text-wrap: pretty; }
+
+    .s-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; color: var(--ac-t); font-family: var(--ff-en); font-size: 13px; font-weight: 800; letter-spacing: .16em; }
+    .s-kicker::before { width: 22px; height: 2px; background: var(--y-s); content: ""; }
+    .is-dark .s-kicker { color: rgba(255, 255, 255, .72); }
+    .is-dark .s-kicker::before { background: var(--y); }
+
+    .s-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 59px; padding: 17px 38px; border: 0; border-radius: 999px; background: var(--nv); color: #fff; cursor: pointer; font: inherit; font-size: 16px; font-weight: 800; line-height: 1.35; text-align: center; text-decoration: none; font-feature-settings: "palt"; transition: transform .18s ease, background .18s ease, color .18s ease; }
+    .s-btn:hover { transform: translateY(-2px); background: var(--nv3); }
+    .s-page :is(a, button, input, select, textarea, [tabindex]):focus-visible { outline: 3px solid rgba(255, 213, 74, .95); outline-offset: 3px; }
+    .nobr { white-space: nowrap; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .tbd { display: inline-block; padding: 1px 10px; border-radius: 999px; background: var(--hold-l); color: var(--hold); font-size: 13px; font-weight: 700; line-height: 1.7; white-space: nowrap; }
+
+    /* ── ヒーロー：厨房の写真＋紺のベール。961px以上は左にコピー、右に受電ログの画面 ── */
+    .s-hero { position: relative; overflow: hidden; padding: clamp(72px, 8vw, 104px) 0 clamp(40px, 5vw, 64px); background: var(--nv3); color: #fff; isolation: isolate; }
+    .sp-hero-photo { position: absolute; inset: 0; z-index: 0; background: url("images/store-kitchen-chef.webp") 62% 38% / cover no-repeat; animation: spDrift 30s ease-in-out infinite alternate; }
+    @keyframes spDrift { from { background-position: 58% 40%; } to { background-position: 68% 34%; } }
+    .s-hero::before {
+      position: absolute; inset: 0; z-index: 1; content: ""; pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(6, 26, 55, .5) 0%, rgba(6, 26, 55, .2) 30%, rgba(6, 26, 55, .55) 70%, rgba(6, 26, 55, .94) 100%),
+        linear-gradient(90deg, rgba(6, 20, 44, .88) 0%, rgba(6, 26, 55, .74) 45%, rgba(8, 35, 73, .5) 72%, rgba(6, 26, 55, .66) 100%),
+        radial-gradient(circle at 84% 70%, rgba(255, 213, 74, .12), transparent 42%);
+    }
+    .sp-frame { position: absolute; z-index: 2; inset: clamp(20px, 3.4vw, 44px); pointer-events: none; }
+    .sp-frame i { position: absolute; width: 30px; height: 30px; border: 0 solid rgba(255, 255, 255, .45); }
+    .sp-frame i:nth-child(1) { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; }
+    .sp-frame i:nth-child(2) { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; }
+    .sp-frame i:nth-child(3) { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; }
+    .sp-frame i:nth-child(4) { right: 0; bottom: 0; border-right-width: 2px; border-bottom-width: 2px; }
+    @keyframes sblink { 50% { opacity: 0; } }
+
+    .s-hero__grid { position: relative; z-index: 3; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "fact" "fig"; gap: 40px; width: min(100% - 48px, var(--lp-max)); margin: 0 auto; }
+    .s-hero__content { grid-area: copy; min-width: 0; text-align: center; }
+    .s-hero__eyebrow { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 14px; margin: 0 0 30px; padding: 9px 22px; border: 1px solid rgba(255, 255, 255, .3); border-radius: 999px; background: rgba(255, 255, 255, .08); color: rgba(255, 255, 255, .94); font-size: 14px; font-weight: 700; line-height: 1.5; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+    .s-hero__eyebrow .en { color: var(--y); font-family: var(--ff-en); font-size: 12px; font-weight: 800; letter-spacing: .16em; }
+    .hc { position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 12px; }
+    .s-hero__title { margin: 0; color: #fff; font-size: clamp(28px, 7.4vw, 66px); line-height: 1.3; text-shadow: 0 2px 30px rgba(3, 12, 30, .6); }
+    .s-hero__title::after { display: inline-block; width: 4px; height: .88em; margin-left: 6px; background: var(--y); content: ""; vertical-align: -.08em; animation: sblink 1s steps(1) infinite; }
+    .rot { display: flex; justify-content: center; margin: 12px 0 0; }
+    .dots { display: flex; gap: 4px; }
+    .dots button { position: relative; width: 44px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; }
+    .dots button::before { position: absolute; top: 20px; right: 10px; left: 10px; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, .32); content: ""; transition: background .2s; }
+    .dots button[aria-current="true"]::before { background: var(--y); }
+    .s-hero__sub { max-width: 960px; margin: 16px auto 0; color: rgba(255, 255, 255, .92); font-size: clamp(15.5px, 1.6vw, 17.5px); line-height: 1.95; text-shadow: 0 1px 14px rgba(3, 12, 30, .6); }
+    .s-hero__sub span { display: block; }
+    .s-hero__cta { margin: 32px 0 0; }
+    .s-hero__cta .s-btn { min-height: 63px; padding: 18px 44px; background: var(--y); color: var(--nv3); box-shadow: 0 14px 36px rgba(0, 0, 0, .3), 0 0 0 6px rgba(255, 213, 74, .18); }
+    .s-hero__cta .s-btn:hover { background: #fff; color: var(--nv); }
+    .s-hero__note { margin: 16px 0 0; color: rgba(255, 255, 255, .86); font-size: 14px; }
+
+    /* 受電ログの画面イメージ（ヒーローの右。スマホでは数字の帯の直後） */
+    .s-hero__figure { grid-area: fig; width: 100%; max-width: 640px; margin: 0 auto; }
+    .s-product__screen { overflow: hidden; border: 1px solid rgba(255, 255, 255, .24); border-radius: 12px; background: #f3f6fa; color: #111; box-shadow: 0 0 0 8px rgba(255, 255, 255, .06), 0 40px 80px rgba(0, 0, 0, .38); }
+    .s-product__caption { margin: 14px 0 0; color: rgba(255, 255, 255, .82); font-size: 13px; text-align: center; }
+    .s-ui__top { display: flex; min-height: 52px; align-items: center; justify-content: space-between; gap: 10px; padding: 0 18px; border-bottom: 1px solid #d9d9d9; background: #fff; }
+    .s-ui__brand { display: flex; align-items: center; gap: 10px; min-width: 0; color: #0b2c5c; font-size: 13px; font-weight: 700; white-space: nowrap; }
+    .s-ui__logo { padding: 2px 8px; border: 1.5px dashed #b9c6da; border-radius: 5px; color: #0b2c5c; font-family: var(--ff-en); font-size: 12px; font-weight: 800; letter-spacing: .1em; }
+    .s-ui__name { display: inline-block; min-width: 8.5em; }
+    .s-ui__name.is-typing::after { display: inline-block; width: 2px; height: 1em; margin-left: 2px; background: #0b2c5c; content: ""; vertical-align: -.12em; animation: sblink .8s steps(1) infinite; }
+    .s-ui__badge { padding: 4px 10px; border-radius: 999px; background: #e9eef2; color: #0b2c5c; font-size: 12px; font-weight: 700; line-height: 1.5; white-space: nowrap; }
+    .s-ui__body { display: grid; grid-template-columns: 112px minmax(0, 1fr); }
+    .s-ui__nav { display: grid; align-content: start; gap: 6px; padding: 18px 10px; border-right: 1px solid #d9d9d9; background: #f7f7f7; }
+    .s-ui__nav span { padding: 8px 10px; border-radius: 6px; color: #4f5357; font-size: 12px; line-height: 1.4; }
+    .s-ui__nav .is-active { background: #e9eef2; color: #0b2c5c; font-weight: 700; }
+    .s-ui__main { padding: 18px 16px 20px; text-align: left; }
+    .s-ui__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; margin-bottom: 14px; }
+    .s-ui__title { margin: 0; color: #111; font-family: var(--ff-head); font-size: 17px; font-weight: 900; line-height: 1.35; }
+    .s-ui__live { display: inline-flex; align-items: center; gap: 7px; color: #0b2c5c; font-size: 12px; font-weight: 700; }
+    .s-ui__live::before { width: 7px; height: 7px; border-radius: 50%; background: #2e9d5b; content: ""; }
+    .s-ui__rows { margin: 0; padding: 0; border: 1px solid #d9d9d9; border-radius: 8px; background: #fff; list-style: none; }
+    .s-ui__row { display: grid; grid-template-columns: 42px minmax(0, 1.1fr) 38px minmax(0, 1.3fr); gap: 8px; align-items: center; padding: 10px 12px; border-top: 1px solid #efefef; font-size: 12px; line-height: 1.5; opacity: 0; transform: translateY(8px); transition: opacity .4s ease, transform .5s ease; }
+    .s-ui__rows.is-in .s-ui__row { opacity: 1; transform: none; }
+    .s-ui__row:first-child { border-top: 0; }
+    .s-ui__row:nth-child(2) { transition-delay: .35s; } .s-ui__row:nth-child(3) { transition-delay: .7s; } .s-ui__row:nth-child(4) { transition-delay: 1.05s; } .s-ui__row:nth-child(5) { transition-delay: 1.4s; }
+    .s-ui__time { color: #666a6f; font-family: var(--ff-en); font-weight: 700; }
+    .s-ui__what { color: #111; font-weight: 700; }
+    .s-ui__who { display: inline-flex; justify-content: center; min-width: 34px; padding: 2px 8px; border-radius: 999px; font-family: var(--ff-en); font-size: 12px; font-weight: 800; }
+    .s-ui__who--ai { background: var(--y); color: var(--nv3); }
+    .s-ui__who--hu { background: var(--nv); color: #fff; }
+    .s-ui__next { color: #4f5357; }
+
+    /* ── 数字の帯（4つ）：ヒーローの下端 ── */
+    .s-factbar { grid-area: fact; min-width: 0; }
+    .s-factbar__grid { display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; border: 1px solid rgba(255, 255, 255, .18); border-radius: 16px; background: rgba(6, 26, 55, .78); color: #fff; -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); box-shadow: 0 30px 60px rgba(6, 20, 44, .3); }
+    .s-factbar__item { padding: clamp(22px, 2.6vw, 30px) 18px; border-left: 1px solid rgba(255, 255, 255, .14); text-align: center; }
+    .s-factbar__item:first-child { border-left: 0; }
+    .s-factbar__num { margin: 0; font-family: var(--ff-en); font-size: clamp(30px, 3.4vw, 40px); font-weight: 900; letter-spacing: -.03em; line-height: 1.05; white-space: nowrap; }
+    .s-factbar__num--ja { font-family: var(--ff-head); font-size: clamp(26px, 3vw, 36px); letter-spacing: 0; }
+    .s-factbar__unit { margin-left: .16em; color: var(--y); font-family: var(--ff-head); font-size: .46em; font-weight: 700; letter-spacing: 0; }
+    .s-factbar__num--ja .s-factbar__unit { font-size: .52em; }
+    .s-factbar__label { margin: 10px 0 0; color: rgba(255, 255, 255, .86); font-size: 13.5px; line-height: 1.6; text-wrap: balance; }
+
+    /* ── 向いている会社：場面の写真タイル3枚＋向き不向き ── */
+    .s-fit { padding: clamp(76px, 9vw, 116px) 0; background: var(--bg); }
+    .s-fit__head { max-width: 800px; margin: 0 auto clamp(32px, 4.4vw, 48px); text-align: center; }
+    .s-fit__head .s-kicker { justify-content: center; }
+    .s-fit h2 { margin-bottom: 16px; line-height: 1.38; }
+    .s-fit__text { margin: 0; color: var(--muted); font-size: 16px; }
+    .s-scenes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 1080px; margin: 0 auto clamp(36px, 5vw, 56px); padding: 0; list-style: none; }
+    .s-scene { overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--card); box-shadow: 0 18px 40px rgba(6, 26, 55, .08); }
+    .s-scene__ph { position: relative; margin: 0; aspect-ratio: 4 / 3; overflow: hidden; background: var(--nv3); }
+    .s-scene__ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .s-scene__ph::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(6, 26, 55, .82) 100%); content: ""; }
+    .s-scene__tag { position: absolute; left: 16px; bottom: 12px; z-index: 1; margin: 0; color: #fff; font-family: var(--ff-head); font-size: 22px; font-weight: 900; line-height: 1.3; }
+    .s-scene__body { padding: 16px 18px 18px; }
+    .s-scene__body p { margin: 0; color: var(--muted); font-size: 15.5px; line-height: 1.8; }
+    .s-scene__gen { display: block; margin-top: 6px; color: var(--muted2); font-size: 13px; }
+    .s-fit__grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .9fr); gap: 22px; max-width: 1080px; margin: 0 auto; }
+    .s-fit__card { padding: clamp(26px, 3.4vw, 38px) clamp(22px, 3vw, 36px); border: 1px solid var(--line); border-radius: 16px; background: var(--card); box-shadow: 0 18px 44px rgba(6, 26, 55, .08); }
+    .s-fit__card--yes { border-top: 4px solid var(--y-s); }
+    .s-fit__card--no { border-top: 4px solid var(--acm); }
+    .s-fit__tag { display: inline-block; margin: 0 0 10px; padding: 3px 12px; border-radius: 999px; background: var(--nv); color: var(--y); font-family: var(--ff-en); font-size: 12px; font-weight: 800; letter-spacing: .12em; }
+    .s-fit__card--no .s-fit__tag { background: var(--paper2); color: var(--muted); }
+    .s-fit__card h3 { margin: 0 0 14px; color: var(--ink); font-size: clamp(19px, 2vw, 22px); line-height: 1.45; }
+    .s-fit__list { margin: 0; padding: 0; list-style: none; }
+    .s-fit__list li { position: relative; padding: 13px 0 13px 34px; border-top: 1px solid var(--line); color: var(--ink); font-size: 16px; font-weight: 700; line-height: 1.6; }
+    .s-fit__list li::before { position: absolute; top: 15px; left: 0; display: flex; width: 22px; height: 22px; align-items: center; justify-content: center; border-radius: 50%; font-family: var(--ff-en); font-size: 12px; font-weight: 800; line-height: 1; }
+    .s-fit__card--yes li::before { background: var(--nv); color: var(--y); content: "✓"; }
+    .s-fit__card--no li::before { background: var(--paper2); color: var(--muted); content: "－"; }
+    .s-fit__list small { display: block; margin-top: 3px; color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.7; }
+
+    /* ── CONTENTS：見出しと、4項目の目次 ── */
+    .s-flow { padding: clamp(72px, 8vw, 104px) 0; background: linear-gradient(rgba(11, 44, 92, .045) 1px, transparent 1px) 0 0 / 32px 32px, linear-gradient(90deg, rgba(11, 44, 92, .045) 1px, transparent 1px) 0 0 / 32px 32px, var(--paper); }
+    .s-flow__layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 7vw, 96px); align-items: center; }
+    .s-flow h2 { margin-bottom: 18px; line-height: 1.38; }
+    .s-flow__text-lead { max-width: 460px; margin-bottom: 0; color: var(--muted); font-size: 16px; }
+    .s-toc { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+    .s-toc li { border-bottom: 1px solid var(--line); }
+    .s-toc a { display: grid; grid-template-columns: 44px minmax(0, 1fr) 20px; gap: 12px; align-items: center; min-height: 64px; padding: 10px 4px; color: var(--ink); font-size: 17px; font-weight: 700; line-height: 1.5; text-decoration: none; transition: background .15s, color .15s; }
+    .s-toc a:hover { background: var(--card); color: var(--ac-t); }
+    .s-toc__n { display: flex; width: 40px; height: 40px; align-items: center; justify-content: center; border-radius: 50%; background: var(--nv); color: var(--y); font-family: var(--ff-en); font-size: 14px; font-weight: 800; }
+    .s-toc__go { color: var(--ac-t); font-family: var(--ff-en); font-size: 18px; }
+
+    /* ── PRODUCT：明るい地。見出しと4つの要点 ── */
+    .s-product { padding: clamp(76px, 9vw, 116px) 0; background: var(--bg); }
+    .s-product__layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(40px, 7vw, 96px); align-items: start; }
+    .s-product__copy h2 { margin-bottom: 19px; line-height: 1.34; }
+    .s-product__text { margin-bottom: 0; color: var(--muted); font-size: 16px; line-height: 1.95; }
+    .s-product__list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+    .s-product__item { display: grid; grid-template-columns: 48px 1fr; gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .s-product__num { color: var(--ac-t); font-family: var(--ff-en); font-size: 15px; font-weight: 800; letter-spacing: .06em; }
+    .s-product__item h3 { margin: 0 0 5px; color: var(--ink); font-size: 18px; line-height: 1.45; }
+    .s-product__item p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.8; }
+
+    /* ── 切り替えの帯（ここから後半＝条件の話） ── */
+    .s-band { background: var(--nv); color: #fff; }
+    .s-band .s-container { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 16px; padding: 22px 0; text-align: center; }
+    .s-band__en { color: var(--y); font-family: var(--ff-en); font-size: 13px; font-weight: 800; letter-spacing: .16em; }
+    .s-band p { margin: 0; font-size: 17px; font-weight: 700; line-height: 1.6; }
+
+    /* ── 分担：明るい地。弊社・貴社・店舗の3つの箱 ── */
+    .s-roles { padding: clamp(80px, 9vw, 120px) 0; background: linear-gradient(rgba(11, 44, 92, .04) 1px, transparent 1px) 0 0 / 32px 32px, linear-gradient(90deg, rgba(11, 44, 92, .04) 1px, transparent 1px) 0 0 / 32px 32px, var(--bg); }
+    .s-roles__head { max-width: 760px; margin: 0 auto clamp(36px, 5vw, 52px); text-align: center; }
+    .s-roles__head .s-kicker { justify-content: center; }
+    .s-roles h2 { margin-bottom: 16px; line-height: 1.38; }
+    .s-roles__text { margin: 0; color: var(--muted); font-size: 16px; text-wrap: balance; }
+    .s-rel { display: grid; grid-template-columns: minmax(0, 1.1fr) 104px minmax(0, 1fr) 104px minmax(0, .8fr); align-items: stretch; max-width: 1080px; margin: 0 auto; padding: 0; list-style: none; }
+    .s-node { padding: 24px 22px 22px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); box-shadow: 0 18px 40px rgba(6, 26, 55, .07); }
+    .s-node--you { border: 2px solid var(--nv); background: var(--nv); color: #fff; box-shadow: 0 24px 50px rgba(6, 26, 55, .22); }
+    .s-node__en { display: block; margin: 0 0 4px; color: var(--muted2); font-family: var(--ff-en); font-size: 12px; font-weight: 800; letter-spacing: .14em; }
+    .s-node--you .s-node__en { color: var(--y); }
+    .s-node h3 { margin: 0 0 12px; font-size: 22px; line-height: 1.3; }
+    .s-node ul { margin: 0; padding: 0; list-style: none; }
+    .s-node li { position: relative; padding: 7px 0 7px 18px; border-top: 1px solid var(--line2); font-size: 15.5px; line-height: 1.6; }
+    .s-node--you li { border-top-color: rgba(255, 255, 255, .16); }
+    .s-node li::before { position: absolute; top: 17px; left: 2px; width: 7px; height: 7px; border-radius: 50%; background: var(--y-s); content: ""; }
+    .s-edge { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 0 6px; color: var(--ac-t); font-size: 13px; font-weight: 700; text-align: center; }
+    .s-edge::after { width: 100%; height: 2px; background: linear-gradient(90deg, var(--acm), var(--nv)); content: ""; }
+    .s-edge__arrow { color: var(--nv); font-family: var(--ff-en); font-size: 18px; line-height: 1; }
+    .s-rel-note { margin: 20px 0 0; color: var(--ac-t); font-size: 16px; font-weight: 700; text-align: center; }
+    .s-undecided { max-width: 1080px; margin: clamp(36px, 5vw, 52px) auto 0; padding: clamp(24px, 3vw, 34px); border: 1px solid var(--line); border-radius: 14px; background: var(--card); scroll-margin-top: 24px; }
+    .s-undecided__head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 0 0 16px; }
+    .s-undecided__head h3 { margin: 0; font-size: 19px; line-height: 1.45; }
+    .s-undecided dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; }
+    .s-undecided dl > div { padding: 14px 14px 12px; border-radius: 10px; background: var(--paper); }
+    .s-undecided dt { margin: 0 0 8px; color: var(--ink); font-size: 15px; font-weight: 700; line-height: 1.5; }
+    .s-undecided dd { margin: 0; }
+    .s-undecided__note { margin: 16px 0 0; color: var(--muted); font-size: 15px; }
+
+    /* ── 品質と違い：明るい地、白い表のカード ── */
+    .s-diff { padding: clamp(76px, 9vw, 120px) 0; background: var(--paper); }
+    .s-diff__copy { max-width: 780px; margin: 0 auto clamp(32px, 4vw, 44px); }
+    .s-diff__copy .s-kicker { justify-content: center; }
+    .s-diff h2 { margin-bottom: 22px; line-height: 1.38; text-align: center; }
+    .s-diff__copy p { margin: 0 0 14px; color: var(--muted); font-size: 16px; line-height: 1.95; }
+    .s-diff__card { max-width: 900px; margin: 0 auto; padding: clamp(22px, 3vw, 32px); border: 1px solid var(--line); border-top: 5px solid var(--y-s); border-radius: 16px; background: var(--card); color: var(--ink); box-shadow: 0 24px 50px rgba(6, 26, 55, .1); }
+    .s-diff__fc { margin: 26px 0 0; text-align: center; }
+    .s-cmp { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.6; }
+    .s-cmp th, .s-cmp td { padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .s-cmp thead th { color: var(--muted2); font-size: 13.5px; font-weight: 700; }
+    .s-cmp thead th.ours { color: var(--ac-t); }
+    .s-cmp tbody th { color: var(--ink); font-weight: 700; white-space: nowrap; }
+    .s-cmp td { color: var(--muted); }
+    .s-cmp td.ours { color: var(--ink); font-weight: 700; background: var(--paper); }
+    .s-cmp tr.con td.ours { font-weight: 400; background: none; }
+    .s-cmp tr.con th::after { display: inline-block; margin-left: 6px; padding: 0 7px; border-radius: 4px; background: var(--paper2); color: var(--muted); content: "不利"; font-size: 12px; font-weight: 700; line-height: 1.8; vertical-align: 1px; }
+    .s-cmp tr.same td { color: var(--muted2); font-weight: 400; background: none; }
+    .s-diff__note { margin: 16px 0 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .fc-btn { display: inline-flex; align-items: center; gap: .6em; min-height: 44px; padding: 8px 18px; border: 1px solid currentColor; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; font: inherit; font-size: 13px; font-weight: 700; }
+    .fc-btn:hover { background: var(--card); color: var(--ink); }
+    .fc-sub { font-size: 12px; font-weight: 400; opacity: .8; }
+
+    /* ── 事前登録：握手の写真を紺で沈め、白いフォームカード ── */
+    .s-form-section { position: relative; overflow: hidden; padding: clamp(76px, 10vw, 128px) 0; color: #fff; background: radial-gradient(circle at 10% 20%, rgba(255, 213, 74, .12), transparent 26%), linear-gradient(90deg, rgba(6, 26, 55, .93) 0%, rgba(8, 35, 73, .78) 52%, rgba(6, 26, 55, .9) 100%), var(--nv3) url("images/partner-handshake.webp") center 45% / cover no-repeat; }
+    .s-form-section::before { position: absolute; inset: 24px; border: 1px solid rgba(255, 255, 255, .13); content: ""; pointer-events: none; }
+    .s-form-layout { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 7vw, 96px); align-items: start; }
+    .s-form-intro h2 { margin-bottom: 20px; line-height: 1.34; }
+    .s-form-intro > p { margin-bottom: 0; color: rgba(255, 255, 255, .86); font-size: 16px; }
+    .s-form-points { display: grid; gap: 14px; margin: 30px 0 0; padding: 0; list-style: none; }
+    .s-form-points li { display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: baseline; color: rgba(255, 255, 255, .92); font-size: 16px; line-height: 1.75; }
+    .s-form-points span { color: var(--y); font-family: var(--ff-en); font-size: 13px; font-weight: 800; letter-spacing: .06em; }
+    .s-form-card { padding: clamp(28px, 4.2vw, 46px) clamp(20px, 3.6vw, 42px); border-top: 5px solid var(--y); border-radius: 16px; background: var(--card); color: var(--ink); box-shadow: 0 40px 80px rgba(0, 0, 0, .42), 0 14px 30px rgba(0, 0, 0, .26); }
+    .s-form-head { margin-bottom: 20px; }
+    .s-form-head h3 { margin: 0 0 8px; color: var(--ink); font-size: clamp(20px, 2.3vw, 25px); line-height: 1.4; }
+    .s-form-head p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+    /* 登録の流れ（4段） */
+    .s-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 0 0 26px; padding: 0; list-style: none; counter-reset: st; }
+    .s-steps li { position: relative; counter-increment: st; padding: 10px 4px 0 0; border-top: 3px solid var(--line); color: var(--muted2); font-size: 13px; font-weight: 700; line-height: 1.5; }
+    .s-steps li::before { display: block; margin-bottom: 2px; font-family: var(--ff-en); font-size: 13px; content: "0" counter(st); }
+    .s-steps small { display: block; margin-top: 3px; color: var(--ac-t); font-size: 12px; font-weight: 700; line-height: 1.5; }
+    .s-steps li.is-key { border-top-color: var(--acm); }
+    .s-steps li.is-active { border-top-color: var(--btn); color: var(--ac-t); }
+    .s-steps li.is-done { border-top-color: var(--acm); color: var(--muted); }
+    .s-field { margin: 0 0 18px; border: 0; padding: 0; }
+    .s-field > label, .s-field > legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin: 0 0 8px; padding: 0; color: var(--ink); font-size: 15px; font-weight: 700; }
+    .s-req, .s-opt { display: inline-block; padding: 0 8px; border-radius: 4px; font-size: 12px; font-weight: 700; line-height: 1.8; }
+    .s-req { background: var(--req); color: var(--req-fg); }
+    .s-opt { background: var(--paper2); color: var(--muted); }
+    .s-field input[type="text"], .s-field select, .s-field textarea { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid var(--field-ln); border-radius: 8px; background: var(--field); color: var(--ink); font: inherit; font-size: 16px; }
+    .s-field textarea { min-height: 96px; resize: vertical; }
+    .s-field input::placeholder, .s-field textarea::placeholder { color: var(--muted2); opacity: .8; }
+    .s-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .s-chip { position: relative; }
+    .s-chip input { position: absolute; opacity: 0; pointer-events: none; }
+    .s-chip span { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 14px; border: 1px solid var(--field-ln); border-radius: 999px; background: var(--chip); color: var(--ink); cursor: pointer; font-size: 15px; font-weight: 700; line-height: 1.4; }
+    .s-chip input:checked + span { border-color: var(--btn); background: var(--btn); color: var(--btn-fg); }
+    .s-chip input:focus-visible + span { outline: 3px solid rgba(255, 213, 74, .95); outline-offset: 2px; }
+    .s-form-nav { display: flex; gap: 12px; margin-top: 26px; }
+    .s-form-nav .s-btn { flex: 1; min-height: 56px; padding: 14px 18px; }
+    .s-form-card .s-btn { background: var(--btn); color: var(--btn-fg); }
+    .s-form-card .s-btn:hover { background: var(--nv3); color: #fff; }
+    .s-err { margin: 10px 0 0; color: #c8102e; font-size: 14px; font-weight: 700; }
+    .s-done h3 { margin: 0 0 10px; color: var(--ink); font-size: clamp(20px, 2.3vw, 24px); line-height: 1.45; }
+    .s-done__text { margin: 0 0 18px; color: var(--muted); font-size: 15px; line-height: 1.85; }
+    .s-go { width: 100%; min-height: 60px; flex-direction: column; gap: 2px; padding: 14px 18px; }
+    .s-btn__sub { font-size: 12px; font-weight: 500; opacity: .85; }
+    .s-copied { min-height: 1.6em; margin: 10px 0 0; color: var(--ac-t); font-size: 14px; font-weight: 700; }
+    .s-done__label { margin: 14px 0 6px; color: var(--ink); font-size: 14px; font-weight: 700; }
+    .s-done textarea { display: block; width: 100%; min-height: 140px; padding: 12px 14px; border: 1px solid var(--field-ln); border-radius: 8px; background: var(--paper); color: var(--ink); font: inherit; font-size: 15px; line-height: 1.7; resize: vertical; }
+    .s-done__acts { display: flex; flex-wrap: wrap; gap: 0 20px; margin: 6px 0 0; }
+    .s-back { display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: none; color: var(--ac-t); cursor: pointer; font: inherit; font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+    .s-form-note { margin: 18px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .s-form-priv { margin: 4px 0 0; }
+    .s-form-priv a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ac-t); font-size: 14px; font-weight: 700; text-underline-offset: 3px; }
+
+    .s-footer { padding: 40px 24px 52px; border-top: 1px solid var(--line); background: var(--bg); color: var(--muted); text-align: center; }
+    .s-footer p { margin: 4px 0; font-size: 14px; }
+    .s-footer__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 18px; margin: 12px 0 0; padding: 0; list-style: none; }
+    .s-footer__links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; color: var(--muted); font-size: 14px; text-underline-offset: 3px; }
+    .s-footer__links a:hover { color: var(--ac-t); }
+
+    /* ── ポップアップ（hero-rotation.md の仕様） ── */
+    dialog.pop { width: min(880px, calc(100% - 32px)); max-height: calc(100dvh - 48px); padding: 0; border: 0; border-radius: 16px; background: var(--card); box-shadow: 0 40px 80px -20px rgba(0, 0, 0, .4); color: var(--bk); font-family: var(--ff); }
+    dialog.pop::backdrop { background: rgba(6, 20, 44, .6); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+    .pop-h { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 18px 14px 28px; border-bottom: 1px solid var(--ln2); background: var(--card); }
+    .pop-h p { margin: 0; font-family: var(--ff-head); font-size: 16px; font-weight: 900; word-break: auto-phrase; line-break: strict; }
+    .pop-x { flex: none; width: 44px; height: 44px; border: 1px solid var(--ln); border-radius: 50%; background: var(--card); color: var(--g1); cursor: pointer; font-size: 20px; line-height: 1; }
+    .pop-b { padding: 26px 28px 32px; }
+    .pop-lbl { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin: 0 0 12px; color: var(--g2); font-size: 15px; font-weight: 700; word-break: auto-phrase; line-break: strict; }
+    .pop-lbl .en { color: var(--ac); font-family: var(--ff-en); font-size: 13px; font-weight: 800; letter-spacing: .08em; }
+    .copies { margin: 0; padding: 0; border-top: 1px solid var(--ln); list-style: none; }
+    .copies li { display: grid; grid-template-columns: 2.6em 1fr; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--ln); }
+    .copies .n { padding-top: 6px; color: var(--ac); font-family: var(--ff-en); font-size: 15px; font-weight: 800; }
+    .copies .c { margin: 0; font-family: var(--ff-head); font-size: clamp(1.25rem, 2.6vw, 1.6rem); font-weight: 900; line-height: 1.5; word-break: auto-phrase; line-break: strict; }
+    .copies .c .ln { display: inline-block; }
+    .copies .s { margin: 6px 0 0; color: var(--g2); font-size: 15px; line-height: 1.8; word-break: auto-phrase; text-wrap: pretty; }
+    .story { margin: 30px 0 0; }
+    .story ol { margin: 0; padding: 0; list-style: none; counter-reset: h; }
+    .story li { counter-increment: h; }
+    .story a { display: grid; grid-template-columns: 2.2em 1fr; gap: 10px; padding: 9px 6px; border-radius: 6px; color: var(--bk); font-size: 17px; line-height: 1.75; text-decoration: none; word-break: auto-phrase; line-break: strict; transition: background .15s; }
+    .story a::before { padding-top: 3px; color: var(--acm); content: counter(h, decimal-leading-zero); font-family: var(--ff-en); font-size: 14px; font-weight: 800; }
+    .story a:hover { background: var(--acl); }
+    .pop-f { margin: 22px 0 0; color: var(--g2); font-size: 14px; }
+
+    /* ── レスポンシブ ── */
+    @media (min-width: 821px) {
+      .s-flow h2, .s-product__copy h2 { font-size: clamp(24px, 2.9vw, 36px); }
+      .s-roles h2, .s-fit h2, .s-diff h2 { font-size: clamp(28px, 3.4vw, 42px); }
+    }
+    @media (min-width: 821px) and (max-width: 960px) {
+      .s-hero__sub span { white-space: nowrap; }
+    }
+    @media (min-width: 961px) {
+      .s-hero__grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); grid-template-areas: "copy fig" "fact fact"; column-gap: clamp(36px, 4.4vw, 64px); row-gap: clamp(48px, 5vw, 68px); align-items: center; }
+      .s-hero__content { text-align: left; }
+      .hc, .rot, .s-hero__eyebrow { justify-content: flex-start; }
+      .s-hero__title { font-size: clamp(34px, 4.2vw, 56px); }
+      .s-hero__sub { margin-left: 0; }
+      .s-hero__figure { max-width: none; }
+      .s-product__copy { position: sticky; top: 32px; }
+      .s-product__screen { transform: perspective(1600px) rotateY(-5deg); }
+      .s-form-intro h2 { font-size: clamp(24px, 2.5vw, 32px); }
+    }
+    @media (min-width: 961px) and (max-width: 1100px) {
+      .s-ui__body { grid-template-columns: 1fr; }
+      .s-ui__nav { display: none; }
+    }
+    @media (max-width: 1080px) {
+      .s-rel { grid-template-columns: minmax(0, 1.1fr) 92px minmax(0, 1fr) 92px minmax(0, .8fr); }
+    }
+    @media (max-width: 960px) {
+      .s-factbar__grid { grid-template-columns: repeat(2, 1fr); }
+      .s-factbar__item:nth-child(3) { border-left: 0; }
+      .s-factbar__item:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, .14); }
+      .s-rel { grid-template-columns: 1fr; max-width: 560px; }
+      .s-edge { flex-direction: row; padding: 12px 0; }
+      .s-edge::after { display: none; }
+      .s-edge__arrow { transform: rotate(90deg); }
+      .s-form-layout { grid-template-columns: 1fr; gap: 36px; max-width: 660px; }
+      .s-form-intro { text-align: center; }
+      .s-form-intro .s-kicker { justify-content: center; }
+      .s-form-points { max-width: 520px; margin-right: auto; margin-left: auto; text-align: left; }
+      .s-form-intro h2 { font-size: clamp(20px, 5.8vw, 36px); }
+      .s-fit__grid { grid-template-columns: 1fr; max-width: 680px; }
+      .s-scenes { gap: 14px; }
+      .s-scene__tag { font-size: 19px; }
+    }
+    @media (max-width: 820px) {
+      .s-flow__layout, .s-product__layout { grid-template-columns: 1fr; gap: 32px; }
+      .s-flow h2, .s-product__copy h2, .s-diff h2, .s-roles h2, .s-fit h2 { font-size: clamp(20px, 5.8vw, 36px); }
+      .s-flow__head, .s-product__copy { text-align: center; }
+      .s-flow__head .s-kicker, .s-product__copy .s-kicker { justify-content: center; }
+      .s-flow__text-lead { margin-right: auto; margin-left: auto; }
+      .s-toc, .s-product__list { max-width: 620px; width: 100%; margin-right: auto; margin-left: auto; }
+      .s-product__copy { max-width: 620px; margin-right: auto; margin-left: auto; }
+      .s-scenes { grid-template-columns: 1fr; max-width: 560px; }
+      .s-scene { display: grid; grid-template-columns: minmax(0, 42%) minmax(0, 1fr); }
+      .s-scene__ph { aspect-ratio: auto; min-height: 150px; }
+      .s-scene__body { display: flex; align-items: center; padding: 14px 16px; }
+      .s-undecided dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 600px) {
+      .s-container { width: min(100% - 32px, var(--lp-max)); }
+      .s-hero { padding: 64px 0 40px; }
+      .s-hero__grid { width: min(100% - 32px, var(--lp-max)); gap: 32px; }
+      .sp-hero-photo { animation: none; background-position: 70% 40%; }
+      .sp-frame { inset: 14px; }
+      .sp-frame i { width: 20px; height: 20px; }
+      .s-hero__eyebrow { flex-direction: column; gap: 2px; margin-bottom: 24px; padding: 10px 18px; border-radius: 16px; font-size: 13px; }
+      .s-hero__sub { font-size: 15.5px; line-height: 1.95; }
+      .s-hero__cta { margin-top: 28px; }
+      .s-hero__cta .s-btn { width: 100%; padding-right: 16px; padding-left: 16px; }
+      .s-factbar__grid { grid-template-columns: 1fr; border-radius: 12px; }
+      .s-factbar__item { display: grid; grid-template-columns: 7.4em 1fr; gap: 12px; align-items: center; padding: 16px 18px; border-top: 1px solid rgba(255, 255, 255, .14); border-left: 0; text-align: left; }
+      .s-factbar__item:first-child { border-top: 0; }
+      .s-factbar__num { font-size: 28px; }
+      .s-factbar__num--ja { font-size: 24px; }
+      .s-factbar__label { margin: 0; text-wrap: pretty; }
+      .s-ui__top { padding: 0 12px; }
+      .s-ui__body { grid-template-columns: 1fr; }
+      .s-ui__nav { display: none; }
+      .s-ui__main { padding: 14px 12px 16px; }
+      .s-ui__row { grid-template-columns: 40px minmax(0, 1fr) 38px; gap: 4px 8px; }
+      .s-ui__next { grid-column: 2 / -1; }
+      .s-scene { grid-template-columns: minmax(0, 38%) minmax(0, 1fr); }
+      .s-scene__ph { min-height: 132px; }
+      .s-scene__tag { left: 12px; bottom: 10px; font-size: 17px; }
+      .s-scene__body p { font-size: 15px; }
+      .s-toc a { font-size: 16px; }
+      .s-undecided dl { grid-template-columns: 1fr 1fr; }
+      .s-cmp { font-size: 14px; }
+      .s-cmp th, .s-cmp td { padding: 10px 6px; }
+      .s-cmp tbody th { white-space: normal; }
+      .s-form-section::before { inset: 12px; }
+      .s-form-section { padding: 72px 0; }
+      .s-form-card { padding: 28px 18px; }
+      .s-steps { grid-template-columns: 1fr; gap: 0; }
+      .s-steps li { padding: 8px 0 8px 46px; border-top: 0; border-left: 3px solid var(--line); }
+      .s-steps li::before { position: absolute; top: 8px; left: 12px; margin: 0; }
+      .s-steps small { margin-top: 0; }
+      .s-steps li.is-active { border-left-color: var(--btn); }
+      .s-steps li.is-key, .s-steps li.is-done { border-left-color: var(--acm); }
+      .pop-b { padding: 20px 18px 26px; }
+      .pop-h { padding-left: 18px; }
+      .copies li { grid-template-columns: 1fr; gap: 4px; }
+      .copies .n { padding-top: 0; }
+      .story a { font-size: 16px; }
+    }
+    @media (max-width: 374px) {
+      .s-fit h2, .s-form-intro h2 { font-size: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sp-hero-photo, .s-hero__title::after, .s-ui__name.is-typing::after { animation: none; }
+      .s-ui__row { opacity: 1; transform: none !important; transition: none; }
+      .s-btn:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="s-page">
+    <!-- ヒーロー：3本のコピーを打ち替え。H1を押すとポップアップ（hero-rotation.md）。右に受電ログの画面、下に数字の帯 -->
+    <section class="s-hero is-dark" id="s-hero" aria-labelledby="tw">
+      <div class="sp-hero-photo" aria-hidden="true"></div>
+      <div class="sp-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="s-hero__grid">
+        <div class="s-hero__content">
+          <p class="s-hero__eyebrow"><span class="en">OEM PARTNER BRIEFING</span><span class="ja"><span class="nobr">おまかせ受電AI</span> <span class="nobr">OEMパートナー説明会</span><span class="nobr">（事前登録受付中）</span></span></p>
+          <div class="hc" id="hc" title="押すと、3つのコピーと見出しを並べて読めます">
+            <h1 class="s-hero__title" id="tw" data-keep-phrase>貴社の名前とロゴで、<br>AI電話を1本足せます。</h1>
+          </div>
+          <div class="rot">
+            <div class="dots" role="group" aria-label="コピーの切り替え">
+              <button type="button" aria-label="コピー1" aria-current="true"></button>
+              <button type="button" aria-label="コピー2" aria-current="false"></button>
+              <button type="button" aria-label="コピー3" aria-current="false"></button>
+            </div>
+          </div>
+          <p class="s-hero__sub"><span>貴社のサービス名で販売するのは、店舗の電話を用件ごとにAIと人へ振り分ける受電AIです。</span><span>仕入値などの条件は、貴社の売り方を伺ってから決めます。</span></p>
+          <p class="s-hero__cta"><a class="s-btn" href="#s-form">説明会の案内を受け取る<span class="nobr">（事前登録）</span></a></p>
+          <p class="s-hero__note">日時・形式・定員は調整中です。<span class="nobr">決まり次第ご案内します。</span></p>
+        </div>
+
+        <figure class="s-hero__figure">
+          <div class="s-product__screen" role="img" aria-label="貴社のサービス名で表示する、店舗の受電ログの画面イメージ。予約の電話はスタッフへ転送、営業電話はAIが用件を聞いて完結、道順の問い合わせはAIが案内、お困りごとの電話はLINEに通知してスタッフが折り返し、営業時間外の予約の希望はAIが仮受付">
+            <div class="s-ui__top"><span class="s-ui__brand"><span class="s-ui__logo">LOGO</span><span class="s-ui__name" id="s-ui-name">貴社のサービス名</span></span><span class="s-ui__badge">画面イメージ</span></div>
+            <div class="s-ui__body">
+              <div class="s-ui__nav" aria-hidden="true"><span class="is-active">受電ログ</span><span>受電ルール</span><span>店舗の情報</span><span>通知先</span></div>
+              <div class="s-ui__main">
+                <div class="s-ui__head"><p class="s-ui__title">店舗の受電ログ</p><span class="s-ui__live">受付中</span></div>
+                <ul class="s-ui__rows" id="s-ui-rows">
+                  <li class="s-ui__row"><span class="s-ui__time">11:52</span><span class="s-ui__what">予約の電話</span><span class="s-ui__who s-ui__who--hu">人</span><span class="s-ui__next">スタッフへ転送</span></li>
+                  <li class="s-ui__row"><span class="s-ui__time">12:10</span><span class="s-ui__what">営業電話</span><span class="s-ui__who s-ui__who--ai">AI</span><span class="s-ui__next">AIが用件を聞いて完結</span></li>
+                  <li class="s-ui__row"><span class="s-ui__time">14:31</span><span class="s-ui__what">道順の問い合わせ</span><span class="s-ui__who s-ui__who--ai">AI</span><span class="s-ui__next">AIが案内</span></li>
+                  <li class="s-ui__row"><span class="s-ui__time">15:05</span><span class="s-ui__what">お困りごとの電話</span><span class="s-ui__who s-ui__who--hu">人</span><span class="s-ui__next">LINEに通知・スタッフが折り返し</span></li>
+                  <li class="s-ui__row"><span class="s-ui__time">21:40</span><span class="s-ui__what">予約の希望（営業時間外）</span><span class="s-ui__who s-ui__who--ai">AI</span><span class="s-ui__next">AIが仮受付</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <figcaption class="s-product__caption">※ 画面イメージです。<span class="nobr">名称・ロゴ・項目は</span><span class="nobr">貴社向けに作ります。</span></figcaption>
+        </figure>
+
+        <!-- 数字の帯（4つ）：B-01に出典のある事実だけ -->
+        <div class="s-factbar" role="group" aria-label="説明会で扱う受電AIの要点"><div class="s-factbar__grid">
+          <div class="s-factbar__item"><p class="s-factbar__num">3<span class="s-factbar__unit">ステップ</span></p><p class="s-factbar__label">店舗の設定。業種・受け手・次の処理を選ぶ</p></div>
+          <div class="s-factbar__item"><p class="s-factbar__num">LINE<span class="s-factbar__unit">に通知</span></p><p class="s-factbar__label">出られなかった電話はLINEに通知。スタッフが折り返し</p></div>
+          <div class="s-factbar__item"><p class="s-factbar__num s-factbar__num--ja">貴社<span class="s-factbar__unit">が決める</span></p><p class="s-factbar__label">店舗への売価。店舗の窓口も貴社が持ちます</p></div>
+          <div class="s-factbar__item"><p class="s-factbar__num s-factbar__num--ja">数十万<span class="s-factbar__unit">円程度</span></p><p class="s-factbar__label">1社のための開発で多い金額。内容によります</p></div>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- 向いている会社（B-01どおり）：場面の写真タイル3枚 -->
+    <section class="s-fit" id="s-fit" aria-labelledby="s-fit-title"><div class="s-container">
+      <div class="s-fit__head">
+        <p class="s-kicker">FIT CHECK</p>
+        <h2 id="s-fit-title">予約・POS・回線を売る会社なら、<br>電話の話を切り出せます。</h2>
+        <p class="s-fit__text">電話は、どの店舗にもある困りごとです。調理中や施術中は手が離せず、店を閉めたあとにも電話は鳴ります。すでに店舗と取引がある会社なら、既存のお客様への、もう1本の提案になります。</p>
+      </div>
+      <ul class="s-scenes" aria-label="店舗の電話が取れない場面">
+        <li class="s-scene"><figure class="s-scene__ph"><img src="images/store-kitchen-chef.webp" alt="厨房で鍋を扱う料理人" width="1280" height="853" loading="lazy" decoding="async"><figcaption class="s-scene__tag">調理中</figcaption></figure><div class="s-scene__body"><p>鍋の前を離れられず、予約の電話にも出られません。</p></div></li>
+        <li class="s-scene"><figure class="s-scene__ph"><img src="images/store-salon.webp" alt="美容室の店内と施術用の椅子" width="1280" height="854" loading="lazy" decoding="async"><figcaption class="s-scene__tag">施術中</figcaption></figure><div class="s-scene__body"><p>お客様の髪を切る手は、受話器まで伸ばせません。</p></div></li>
+        <li class="s-scene"><figure class="s-scene__ph"><img src="images/store-dusk.webp" alt="夕暮れに明かりのついた店先" width="1600" height="900" loading="lazy" decoding="async"><figcaption class="s-scene__tag">営業時間外</figcaption></figure><div class="s-scene__body"><p>店を閉めたあとにも、予約の希望は届きます。<small class="s-scene__gen">この写真は生成イメージです（実在の店舗ではありません）</small></p></div></li>
+      </ul>
+      <div class="s-fit__grid">
+        <div class="s-fit__card s-fit__card--yes">
+          <p class="s-fit__tag">FIT</p>
+          <h3>向いている会社</h3>
+          <ul class="s-fit__list">
+            <li>店舗向けにAIやITを売っている会社<small>既存のお客様に、もう1本提案できる商材が増えます</small></li>
+            <li>通信・OA・POSの販売会社<small>電話回線や店舗の機器と一緒に話ができます</small></li>
+            <li>予約システムの販売会社<small>予約の電話という、隣の困りごとまで拾えます</small></li>
+            <li>店舗の運営を支援している会社<small>人手不足の相談の中で、電話の負担を減らす打ち手になります</small></li>
+          </ul>
+        </div>
+        <div class="s-fit__card s-fit__card--no">
+          <p class="s-fit__tag">NOT FIT</p>
+          <h3>向いていない会社</h3>
+          <ul class="s-fit__list">
+            <li>店舗からの問い合わせを受ける窓口を持てない会社<small>店舗の一次窓口は貴社にお願いしています</small></li>
+            <li>通話品質の高さを一番の売りにしたい会社<small>品質は他社と同等です</small></li>
+          </ul>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- CONTENTS：説明会で分かること4つ（目次） -->
+    <section class="s-flow" id="s-contents" aria-labelledby="s-flow-title"><div class="s-container s-flow__layout">
+      <div class="s-flow__head">
+        <p class="s-kicker">CONTENTS</p>
+        <h2 id="s-flow-title">説明会では、売る前に<br>確かめたい4つを話します。</h2>
+        <p class="s-flow__text-lead">製品の紹介だけでは終わりません。貴社が店舗へ売るときに決めること、引き受けること、まだ決まっていないことまでお話しします。</p>
+      </div>
+      <ol class="s-toc">
+        <li><a href="#s-product"><span class="s-toc__n">01</span><span>用件ごとに振り分ける仕組み</span><span class="s-toc__go" aria-hidden="true">→</span></a></li>
+        <li><a href="#s-roles"><span class="s-toc__n">02</span><span>貴社と弊社の分担</span><span class="s-toc__go" aria-hidden="true">→</span></a></li>
+        <li><a href="#s-diff"><span class="s-toc__n">03</span><span>通話品質と、違いが出るところ</span><span class="s-toc__go" aria-hidden="true">→</span></a></li>
+        <li><a href="#s-undecided"><span class="s-toc__n">04</span><span>まだ決まっていない条件</span><span class="s-toc__go" aria-hidden="true">→</span></a></li>
+      </ol>
+    </div></section>
+
+    <!-- PRODUCT：明るい地。画面はヒーローへ移した -->
+    <section class="s-product" id="s-product" aria-labelledby="s-product-title"><div class="s-container s-product__layout">
+      <div class="s-product__copy">
+        <p class="s-kicker">PRODUCT</p>
+        <h2 id="s-product-title">売るのは、店舗の電話を<br>用件ごとに分けるAIです。</h2>
+        <p class="s-product__text">全部の電話をAIに任せるサービスではありません。用件ごとに「最初に受けるのはAIか人か」と「そのあとどうするか」を店舗が決めます。任せる範囲は、あとから変えられます。</p>
+      </div>
+      <ol class="s-product__list">
+        <li class="s-product__item"><span class="s-product__num">01</span><div><h3>用件ごとに、AIか人か</h3><p>予約や大切な用件は人へ、定型の質問や営業電話はAIへ。どの電話を人に残すかは、店舗が決めます。</p></div></li>
+        <li class="s-product__item"><span class="s-product__num">02</span><div><h3>お店の情報で案内</h3><p>道順や営業時間は、スプレッドシートに登録した店舗情報を見て、AIが案内する仕組みです。</p></div></li>
+        <li class="s-product__item"><span class="s-product__num">03</span><div><h3>出られないときはLINEへ</h3><p>出られなかった電話はLINEに通知し、スタッフが折り返します。営業時間外の予約の希望はAIが仮受付し、確定はスタッフが行います。</p></div></li>
+        <li class="s-product__item"><span class="s-product__num">04</span><div><h3>今の番号から転送</h3><p>店舗の今の電話番号から転送して使う想定です。回線の種類や転送の条件で変わるため、導入前に確認します。</p></div></li>
+      </ol>
+    </div></section>
+
+    <!-- 切り替えの帯：ここから後半（条件の話） -->
+    <div class="s-band" role="presentation"><div class="s-container"><span class="s-band__en">TERMS</span><p>ここからは、分担と条件の話です。</p></div></div>
+
+    <!-- 分担（B-01の責任分界と同じ文言） -->
+    <section class="s-roles" id="s-roles" aria-labelledby="s-roles-title"><div class="s-container">
+      <div class="s-roles__head">
+        <p class="s-kicker">ROLES</p>
+        <h2 id="s-roles-title">売価は貴社が決め、<br>店舗の窓口も貴社が持ちます。</h2>
+        <p class="s-roles__text">店舗から見れば、貴社のサービスです。問い合わせもクレームも、まず貴社に届きます。弊社は表に出ず、仕組みの開発と提供を引き受けます。</p>
+      </div>
+      <ul class="s-rel" aria-label="弊社・貴社・店舗の関係">
+        <li class="s-node s-node--us"><span class="s-node__en">DEVELOPER</span><h3>弊社</h3><ul><li>受電AIの開発と提供</li><li>貴社専用の管理画面を作る</li><li>SMS・メール送信・予約台帳・本人の声（応対の一部）まで、業種に合わせて作り替え</li></ul></li>
+        <li class="s-edge" aria-hidden="true"><span>開発・提供</span><span class="s-edge__arrow">→</span></li>
+        <li class="s-node s-node--you"><span class="s-node__en">OEM PARTNER</span><h3>貴社</h3><ul><li>売価を決める</li><li>店舗への提案・販売</li><li>問い合わせ・クレームの一次受け</li></ul></li>
+        <li class="s-edge" aria-hidden="true"><span>販売・一次受け</span><span class="s-edge__arrow">→</span></li>
+        <li class="s-node s-node--st"><span class="s-node__en">STORE</span><h3>店舗</h3><ul><li>貴社のサービスとして使う</li></ul></li>
+      </ul>
+      <p class="s-rel-note">店舗から見えるのは、貴社のサービスだけです。</p>
+      <div class="s-undecided" id="s-undecided">
+        <div class="s-undecided__head"><h3>まだ決めていない条件</h3><span class="tbd">調整中・検討中</span></div>
+        <dl>
+          <div><dt>仕入値・初期費用</dt><dd><span class="tbd">調整中</span></dd></div>
+          <div><dt>最低契約・解約</dt><dd><span class="tbd">調整中</span></dd></div>
+          <div><dt>申込の受付と請求</dt><dd><span class="tbd">調整中</span></dd></div>
+          <div><dt>障害時の対応</dt><dd><span class="tbd">調整中</span></dd></div>
+          <div><dt>併売・地域の扱い</dt><dd><span class="tbd">調整中</span></dd></div>
+          <div><dt>冒頭でのAIの告知</dt><dd><span class="tbd">検討中</span></dd></div>
+        </dl>
+        <p class="s-undecided__note">仕入値から地域の扱いまでの5つは、貴社の販売のしかたを伺ったうえで決めます。AIが出ていることを冒頭で伝えるかは、検討中です。</p>
+      </div>
+    </div></section>
+
+    <!-- 品質と違い（B-01の比較表と同じ文言に、不利な2行を足した。ファクトチェックはここだけ） -->
+    <section class="s-diff" id="s-diff" aria-labelledby="s-diff-title"><div class="s-container">
+      <div class="s-diff__copy">
+        <p class="s-kicker">QUALITY &amp; DIFFERENCE</p>
+        <h2 id="s-diff-title">通話品質は、他社と同等。<br>違いは、原価と作り替えの幅。</h2>
+        <p>通話品質は他社と同等です。飛び抜けて良いわけではないので、品質を売り文句にはしません。</p>
+        <p>違いの1つ目は原価です。受電AIは、弊社1社だけで自社開発しています。そのぶん、原価は他社より少し抑えられると見ています。ただ、比べた数字はまだお出しできません。</p>
+        <p>2つ目の違いは、作り替えの幅に出ます。完成品のサービスを取り次ぐ場合と比べると、次の表のとおりです。1社のための開発は都度お見積りで、内容によりますが、数十万円程度で収まることが多いです。</p>
+      </div>
+      <div class="s-diff__card">
+        <table class="s-cmp">
+          <caption class="sr-only">完成品を取り次いで売る場合と、おまかせ受電AIのOEMの比較</caption>
+          <thead><tr><th scope="col">項目</th><th scope="col">完成品を取り次いで売る</th><th scope="col" class="ours">おまかせ受電AIのOEM</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">売るときの名前</th><td>提供元のサービス名</td><td class="ours">貴社のサービス名</td></tr>
+            <tr><th scope="row">管理画面</th><td>提供元の画面を使う</td><td class="ours">貴社専用に作る</td></tr>
+            <tr><th scope="row">業種向けの機能</th><td>用意された機能から選ぶ</td><td class="ours">SMS・予約台帳・本人の声まで作り替え</td></tr>
+            <tr><th scope="row">1社のための開発</th><td>提供元の標準機能の範囲で使う</td><td class="ours">都度お見積りで対応</td></tr>
+            <tr class="con"><th scope="row">売り始めるまで</th><td>提供元の画面ですぐ</td><td class="ours">貴社専用の画面を作ってから</td></tr>
+            <tr class="con"><th scope="row">取扱条件</th><td>提供元が決めた条件</td><td class="ours">調整中（貴社の売り方を伺って決める）</td></tr>
+            <tr class="same"><th scope="row">通話品質</th><td>同等</td><td>同等</td></tr>
+          </tbody>
+        </table>
+        <p class="s-diff__note">左の列は、完成品のサービスを販売代理として取り次ぐ場合によくある形で、特定の会社を指すものではありません。他社にも、OEMや自社ブランドでの提供に対応するサービスはあります。比べるときは、管理画面の作り替えと、1社のための開発を受けるかどうかを確かめてください。</p>
+      </div>
+      <div class="s-diff__fc">
+        <button class="fc-btn" type="button"
+          data-fc-section="通話品質は、他社と同等。違いは、原価と作り替えの幅。"
+          data-fc-claim="完成品のAI電話サービスを販売代理として取り次ぐ場合、提供元のサービス名と提供元の管理画面をそのまま使い、機能は用意されたものから選ぶ形が多い／完成品を取り次ぐ場合、1社のための開発は受けず、提供元の標準機能の範囲で使う形が多い／完成品を取り次ぐ場合は、提供元の画面ですぐ売り始められ、取扱条件は提供元が決める形が多い／他社にも、OEMや自社ブランドでの提供に対応するAI電話サービスはある">ChatGPTでファクトチェック<span class="fc-sub">別タブで開きます</span></button>
+      </div>
+    </div></section>
+
+    <!-- 事前登録：このページでは売り方だけをまとめ、会社名などは会社のお問い合わせフォームで入れてもらう -->
+    <section class="s-form-section is-dark" id="s-form" aria-labelledby="s-form-title"><div class="s-container s-form-layout">
+      <div class="s-form-intro">
+        <p class="s-kicker">PRE-REGISTRATION</p>
+        <h2 id="s-form-title">仕入値が決まる前に、<br>貴社の売り方を伝えてください。</h2>
+        <p>日時・形式・定員は調整中です。事前登録いただいた会社に、<span class="nobr">決まり次第</span>ご案内をお送りします。</p>
+        <ul class="s-form-points">
+          <li><span>01</span>販売先の業種と想定の店舗数が分かれば、作り替える機能の候補を具体的にお話しできます</li>
+          <li><span>02</span>仕入値・最低契約・地域の扱いは、貴社の販売のしかたを伺ってから決めます</li>
+        </ul>
+      </div>
+      <div class="s-form-card">
+        <div class="s-form-head">
+          <h3>説明会の事前登録</h3>
+          <p>このページでまとめるのは、貴社の売り方だけです。会社名・ご担当者名・メールは、次のお問い合わせフォームで伺います。</p>
+        </div>
+        <ol class="s-steps" aria-label="登録の流れ">
+          <li class="is-active" id="st-1" aria-current="step"><span class="nobr">このページで</span><span class="nobr">まとめる</span></li>
+          <li class="is-key" id="st-2"><span class="nobr">お問い合わせ</span><span class="nobr">フォームで送る</span><small>ここで登録完了</small></li>
+          <li><span class="nobr">日時が決まり次第</span><span class="nobr">ご案内</span></li>
+          <li>説明会</li>
+        </ol>
+        <form id="s-entry-form" novalidate>
+          <div class="s-field"><label for="f-products">取扱商材<span class="s-req">必須</span></label><input type="text" id="f-products" name="products" required placeholder="例：POSレジ、予約システム、店舗向けの通信回線"></div>
+          <fieldset class="s-field"><legend>販売先の業種<span class="s-opt">任意・複数可</span></legend>
+            <div class="s-chips">
+              <label class="s-chip"><input type="checkbox" name="industry" value="飲食店"><span>飲食店</span></label>
+              <label class="s-chip"><input type="checkbox" name="industry" value="美容室・サロン"><span>美容室・サロン</span></label>
+              <label class="s-chip"><input type="checkbox" name="industry" value="カフェ"><span>カフェ</span></label>
+              <label class="s-chip"><input type="checkbox" name="industry" value="クリニック"><span>クリニック</span></label>
+              <label class="s-chip"><input type="checkbox" name="industry" value="小売"><span>小売</span></label>
+              <label class="s-chip"><input type="checkbox" name="industry" value="士業事務所"><span>士業事務所</span></label>
+              <label class="s-chip"><input type="checkbox" name="industry" value="その他"><span>その他</span></label>
+            </div>
+          </fieldset>
+          <div class="s-field"><label for="f-stores">想定の店舗数<span class="s-opt">任意</span></label>
+            <select id="f-stores" name="stores">
+              <option value="">選択してください</option>
+              <option>10店舗未満</option>
+              <option>10〜49店舗</option>
+              <option>50〜99店舗</option>
+              <option>100店舗以上</option>
+              <option>まだ分からない</option>
+            </select>
+          </div>
+          <div class="s-field"><label for="f-message">説明会で確かめたいこと<span class="s-opt">任意</span></label><textarea id="f-message" name="message" placeholder="例：仕入の条件、作り替えたい機能、店舗の窓口の持ち方"></textarea></div>
+          <p class="s-err" id="s-err" role="alert" hidden></p>
+          <div class="s-form-nav"><button class="s-btn" type="submit">入力内容をまとめる</button></div>
+        </form>
+        <div class="s-done" id="s-done" hidden>
+          <h3 id="s-done-title" tabindex="-1">まだ登録は終わっていません。<br>フォームで送ってください。</h3>
+          <p class="s-done__text">フォームでは、ご用件に「業務提携」を選び、会社名・ご担当者名・メールアドレス・電話番号を入れて、「お問い合わせ内容」欄に貼り付けて送ってください。送った時点で登録が終わります。</p>
+          <a class="s-btn s-go" id="s-go" href="https://www.writeup.jp/contact/" target="_blank" rel="noopener">内容をコピーして、フォームを開く<span class="s-btn__sub">新しいタブで開きます</span></a>
+          <p class="s-copied" id="s-copied" role="status" aria-live="polite"></p>
+          <p class="s-done__label"><label for="s-summary">貼り付ける内容</label></p>
+          <textarea id="s-summary" readonly></textarea>
+          <div class="s-done__acts">
+            <button class="s-back" type="button" id="s-copy">もう一度コピーする</button>
+            <button class="s-back" type="button" id="s-edit">入力に戻って直す</button>
+          </div>
+        </div>
+        <p class="s-form-note">入力内容は、このページからは送信・保存されません。お問い合わせフォームで送られた内容は、株式会社ライトアップの個人情報保護方針に沿って扱います。掲載内容は2026年9月25日時点のものです。</p>
+        <p class="s-form-priv"><a href="https://www.writeup.jp/privacy/" target="_blank" rel="noopener">個人情報保護方針を読む（新しいタブ）</a></p>
+      </div>
+    </div></section>
+  </main>
+
+  <footer class="s-footer">
+    <p>株式会社ライトアップ（東証グロース 証券コード6580）</p>
+    <ul class="s-footer__links">
+      <li><a href="https://writeup-inc.github.io/saas/omakase-juden-oem/" target="_blank" rel="noopener">OEMパートナーのご案内</a></li>
+      <li><a href="https://writeup-inc.github.io/saas/omakase-juden-pack/" target="_blank" rel="noopener">おまかせ受電AI 資料インデックス</a></li>
+      <li><a href="https://www.writeup.jp/company/" target="_blank" rel="noopener">運営会社</a></li>
+      <li><a href="https://www.writeup.jp/privacy/" target="_blank" rel="noopener">個人情報保護方針</a></li>
+    </ul>
+  </footer>
+
+  <dialog class="pop" id="pop" aria-labelledby="popT">
+    <div class="pop-h"><p id="popT">このページを、見出しだけで読む</p><button type="button" class="pop-x" id="popX" aria-label="閉じる">×</button></div>
+    <div class="pop-b">
+      <p class="pop-lbl"><span class="en">HERO COPY</span>いちばん上で切り替わっている3つのコピー</p>
+      <ol class="copies" id="copies"></ol>
+      <div class="story">
+        <p class="pop-lbl"><span class="en">HEADLINES</span>見出しをつなげると、こういう話です</p>
+        <ol id="story"></ol>
+      </div>
+      <p class="pop-f">見出しを押すと、そのセクションへ移ります。</p>
+    </div>
+  </dialog>
+
+  <script>
+  (function(){
+    /* ===== ヒーロー：3つのコピーのローテーション（c＝コピー、\nで改行／s＝補足の1文） ===== */
+    var COPIES=[
+      {c:'貴社の名前とロゴで、\nAI電話を1本足せます。',s:'何を売るのか。店舗の電話を用件ごとにAIと人へ振り分ける受電AIを、貴社のサービス名で販売できます。売価も貴社が決めます。'},
+      {c:'調理中に鳴る電話を、\n貴社の次の提案に。',s:'誰に売るのか。電話は、どの店舗にもある困りごとです。すでに店舗と取引がある会社なら、既存のお客様への、もう1本の提案になります。'},
+      {c:'品質は他社と同等。\n予約台帳まで作り替え。',s:'何が違うのか。通話品質は他社と同等です。違いは原価と、SMS・予約台帳・本人の声まで貴社向けに作り替えられることです。'}
+    ];
+    var TYPE_MS=55, HOLD_MS=5200, ERASE_MS=22;
+    var h1=document.getElementById('tw'), hc=document.getElementById('hc');
+    var dots=[].slice.call(document.querySelectorAll('.dots button'));
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var idx=0, timer=null, paused=false;
+
+    function put(t){ h1.textContent=''; t.split('\n').forEach(function(line,k){ if(k) h1.appendChild(document.createElement('br')); h1.appendChild(document.createTextNode(line)); }); }
+    function reserve(){ /* 一番長いコピーの高さを確保して、切り替えで下が動かないようにする */
+      var cur=h1.innerHTML, max=0;
+      hc.style.minHeight='';
+      COPIES.forEach(function(o){ put(o.c); max=Math.max(max,h1.offsetHeight); });
+      h1.innerHTML=cur; hc.style.minHeight=max+'px';
+    }
+    function mark(i){ dots.forEach(function(d,k){ d.setAttribute('aria-current',k===i?'true':'false'); }); }
+    function clear(){ if(timer){ clearTimeout(timer); timer=null; } }
+    function show(i,typing){
+      clear(); idx=i; mark(i);
+      var t=COPIES[i].c;
+      if(reduce||!typing){ put(t); schedule(); return; }
+      var n=0;
+      (function step(){ put(t.slice(0,++n)); if(n<t.length){ timer=setTimeout(step,TYPE_MS); } else { schedule(); } })();
+    }
+    function erase(next){
+      var t=COPIES[idx].c;
+      (function step(){ if(t.length){ t=t.slice(0,-1); put(t); timer=setTimeout(step,ERASE_MS); } else { show(next,true); } })();
+    }
+    function schedule(){
+      clear(); if(paused) return;
+      timer=setTimeout(function(){
+        var next=(idx+1)%COPIES.length;
+        if(reduce){ show(next,false); } else { erase(next); }
+      },HOLD_MS);
+    }
+    dots.forEach(function(d,k){ d.addEventListener('click',function(){ show(k,false); }); });
+    window.addEventListener('resize',function(){ reserve(); });
+    if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(reserve); }
+    reserve(); schedule();
+
+    /* ===== ポップアップ（H1を押すと開く。キーボードはH1の入れ物にフォーカスしてEnter） ===== */
+    var pop=document.getElementById('pop');
+    var copiesEl=document.getElementById('copies'), storyEl=document.getElementById('story');
+    COPIES.forEach(function(o,k){
+      var li=document.createElement('li');
+      li.innerHTML='<span class="n">0'+(k+1)+'</span><div><p class="c"></p><p class="s"></p></div>';
+      var c=li.querySelector('.c');
+      o.c.split('\n').forEach(function(line){ var sp=document.createElement('span'); sp.className='ln'; sp.textContent=line; c.appendChild(sp); }); /* 行ごとに塊にして、語の途中で折れないようにする */
+      li.querySelector('.s').textContent=o.s;
+      copiesEl.appendChild(li);
+    });
+    document.querySelectorAll('main section h2[id]').forEach(function(h){
+      var li=document.createElement('li'), a=document.createElement('a');
+      a.href='#'+h.closest('section').id; a.textContent=h.textContent; a.dataset.h=h.id;
+      li.appendChild(a); storyEl.appendChild(li);
+    });
+    var opener=null;
+    function openPop(e){ opener=e&&e.currentTarget; paused=true; clear(); put(COPIES[idx].c);
+      if(pop.showModal){ pop.showModal(); } else { pop.setAttribute('open',''); } }
+    function closePop(){ if(pop.close){ pop.close(); } else { pop.removeAttribute('open'); } }
+    pop.addEventListener('close',function(){ paused=false; schedule(); if(opener&&!pop.dataset.jump){ opener.focus(); } delete pop.dataset.jump; });
+    hc.setAttribute('tabindex','0');
+    hc.addEventListener('click',openPop);
+    hc.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPop(e); } });
+    document.getElementById('popX').addEventListener('click',closePop);
+    pop.addEventListener('click',function(e){ if(e.target===pop) closePop(); });
+    storyEl.addEventListener('click',function(e){
+      var a=e.target.closest('a'); if(!a) return;
+      e.preventDefault(); pop.dataset.jump='1'; closePop();
+      var h=document.getElementById(a.dataset.h), sec=h.closest('section');
+      sec.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+      h.setAttribute('tabindex','-1'); setTimeout(function(){ h.focus({preventScroll:true}); },reduce?0:450);
+      history.replaceState(null,'',a.getAttribute('href'));
+    });
+
+    /* ===== 受電ログ：見えたら行を順に出し、ロゴ欄の名前を「貴社のサービス名」へ打ち替える ===== */
+    var rows=document.getElementById('s-ui-rows'), nm=document.getElementById('s-ui-name');
+    var NAME_FROM='おまかせ受電AI', NAME_TO='貴社のサービス名';
+    function swapName(){
+      if(reduce||!nm) return;
+      var t=NAME_FROM;
+      nm.classList.add('is-typing');
+      setTimeout(function del(){
+        if(t.length){ t=t.slice(0,-1); nm.textContent=t||' '; setTimeout(del,70); return; }
+        var n=0;
+        (function type(){ nm.textContent=NAME_TO.slice(0,++n); if(n<NAME_TO.length){ setTimeout(type,110); } else { setTimeout(function(){ nm.classList.remove('is-typing'); },1200); } })();
+      },1800);
+    }
+    if(!reduce&&nm){ nm.textContent=NAME_FROM; }
+    function onView(el,th,fn){
+      if(!el) return;
+      if('IntersectionObserver' in window){ new IntersectionObserver(function(entries,ob){ if(entries[0].isIntersecting){ fn(); ob.disconnect(); } },{threshold:th}).observe(el); }
+      else { fn(); }
+    }
+    onView(rows,.3,function(){ rows.classList.add('is-in'); swapName(); });
+
+    /* ===== 事前登録：売り方をまとめる → コピーしてお問い合わせフォームを開く ===== */
+    var form=document.getElementById('s-entry-form'), done=document.getElementById('s-done');
+    var marks=[document.getElementById('st-1'),document.getElementById('st-2')];
+    var err=document.getElementById('s-err'), summary=document.getElementById('s-summary'), copied=document.getElementById('s-copied');
+    var products=document.getElementById('f-products');
+    function stage(i){
+      marks.forEach(function(m,k){ m.classList.toggle('is-active',k===i); m.classList.toggle('is-done',k<i); m.classList.toggle('is-key',k===1&&i<1); if(k===i){ m.setAttribute('aria-current','step'); } else { m.removeAttribute('aria-current'); } });
+    }
+    function v(n){ var el=form.elements[n]; return el&&el.value?el.value.trim():''; }
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(!products.value.trim()){ err.textContent='取扱商材を入力してください。'; err.hidden=false; products.focus(); return; }
+      err.hidden=true;
+      var ind=[].slice.call(form.querySelectorAll('input[name="industry"]:checked')).map(function(c){ return c.value; });
+      summary.value=[
+        'おまかせ受電AI OEM説明会の事前登録',
+        '',
+        '取扱商材：'+v('products'),
+        '販売先の業種：'+(ind.length?ind.join('、'):'（未入力）'),
+        '想定の店舗数：'+(v('stores')||'（未入力）'),
+        '説明会で確かめたいこと：'+(v('message')||'（未入力）')
+      ].join('\n');
+      copied.textContent='';
+      form.hidden=true; done.hidden=false;
+      summary.style.height='auto'; summary.style.height=(summary.scrollHeight+4)+'px';
+      stage(1);
+      document.getElementById('s-done-title').focus();
+    });
+    var MSG_OK='コピーしました。開いたフォームの「お問い合わせ内容」欄に貼り付けてください。';
+    var MSG_NG='自動でコピーできませんでした。下の内容を選んでコピーし、フォームに貼り付けてください。';
+    function copySync(){ /* クリックの中で同期にコピーする（新しいタブへ移る前に済ませる） */
+      var ok=false;
+      try{ summary.focus({preventScroll:true}); summary.select(); summary.setSelectionRange(0,summary.value.length); ok=document.execCommand('copy'); }catch(x){ ok=false; }
+      return ok;
+    }
+    function copyAll(after){
+      if(copySync()){ copied.textContent=MSG_OK; if(after) after(); return; }
+      if(navigator.clipboard&&window.isSecureContext){
+        navigator.clipboard.writeText(summary.value).then(function(){ copied.textContent=MSG_OK; },function(){ copied.textContent=MSG_NG; summary.select(); });
+      } else { copied.textContent=MSG_NG; summary.select(); }
+      if(after) after();
+    }
+    document.getElementById('s-go').addEventListener('click',function(){ var go=this; copyAll(function(){ go.focus({preventScroll:true}); }); });
+    document.getElementById('s-copy').addEventListener('click',function(){ copyAll(); });
+    document.getElementById('s-edit').addEventListener('click',function(){ done.hidden=true; form.hidden=false; stage(0); products.focus(); });
+
+    /* ===== ChatGPTファクトチェック（chatgpt-factcheck.md） ===== */
+    document.addEventListener('click',function(e){
+      var b=e.target.closest('.fc-btn'); if(!b) return;
+      var c=document.querySelector('link[rel=canonical]'); var url=(c&&c.href)||location.href;
+      var p='次のLPの記載が事実として正しいか、第三者の立場で確認してください。\n\n'+
+        '【対象ページ】'+url+'\n'+
+        '【セクション】'+b.dataset.fcSection+'\n'+
+        '【記載内容】\n'+b.dataset.fcClaim.split('／').join('\n')+'\n\n'+
+        '【確認してほしいこと】\n'+
+        '- 記載は一般的な事実・相場・公的情報と照らして正しいか\n'+
+        '- 誤り・誇張・古い情報があれば指摘する\n'+
+        '- 反対の見方や、読み手が注意すべき点\n'+
+        '- 確認できないことは「確認できない」と書き、推測で補わない';
+      window.open('https://chatgpt.com/?q='+encodeURIComponent(p),'_blank','noopener,noreferrer');
+      if(navigator.clipboard){ navigator.clipboard.writeText(p).catch(function(){}); }
+    });
+  })();
+  </script>
+</body>
+</html>
