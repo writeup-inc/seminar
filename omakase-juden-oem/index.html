@@ -160,7 +160,7 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
       position: absolute; inset: 0; z-index: 1; content: ""; pointer-events: none;
       background:
         linear-gradient(180deg, rgba(6, 26, 55, .5) 0%, rgba(6, 26, 55, .2) 30%, rgba(6, 26, 55, .55) 70%, rgba(6, 26, 55, .94) 100%),
-        linear-gradient(90deg, rgba(6, 20, 44, .88) 0%, rgba(6, 26, 55, .74) 45%, rgba(8, 35, 73, .5) 72%, rgba(6, 26, 55, .66) 100%),
+        linear-gradient(90deg, rgba(6, 20, 44, .9) 0%, rgba(6, 26, 55, .76) 42%, rgba(8, 35, 73, .3) 70%, rgba(6, 26, 55, .12) 100%),
         radial-gradient(circle at 84% 70%, rgba(255, 213, 74, .12), transparent 42%);
     }
     .sp-frame { position: absolute; z-index: 2; inset: clamp(20px, 3.4vw, 44px); pointer-events: none; }
@@ -176,7 +176,7 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
     .s-hero__eyebrow { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 14px; margin: 0 0 30px; padding: 9px 22px; border: 1px solid rgba(255, 255, 255, .3); border-radius: 999px; background: rgba(255, 255, 255, .08); color: rgba(255, 255, 255, .94); font-size: 14px; font-weight: 700; line-height: 1.5; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
     .s-hero__eyebrow .en { color: var(--y); font-family: var(--ff-en); font-size: 12px; font-weight: 800; letter-spacing: .16em; }
     .hc { position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 12px; }
-    .s-hero__title { margin: 0; color: #fff; font-size: clamp(28px, 7.4vw, 66px); line-height: 1.3; text-shadow: 0 2px 30px rgba(3, 12, 30, .6); }
+    .s-hero__title { margin: 0; color: #fff; font-size: clamp(20px, 6.6vw, 66px); line-height: 1.3; text-shadow: 0 2px 30px rgba(3, 12, 30, .6); }
     .s-hero__title::after { display: inline-block; width: 4px; height: .88em; margin-left: 6px; background: var(--y); content: ""; vertical-align: -.08em; animation: sblink 1s steps(1) infinite; }
     .rot { display: flex; justify-content: center; margin: 12px 0 0; }
     .dots { display: flex; gap: 4px; }
@@ -230,6 +230,13 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
     .s-factbar__num--ja { font-family: var(--ff-head); font-size: clamp(26px, 3vw, 36px); letter-spacing: 0; }
     .s-factbar__unit { margin-left: .16em; color: var(--y); font-family: var(--ff-head); font-size: .46em; font-weight: 700; letter-spacing: 0; }
     .s-factbar__num--ja .s-factbar__unit { font-size: .52em; }
+    .s-factbar__item--big .s-factbar__num { font-size: clamp(44px, 5.6vw, 72px); color: #fff; }
+    .s-factbar__pre { margin-right: .08em; color: var(--y); font-family: var(--ff-head); font-size: .42em; font-weight: 700; vertical-align: .5em; }
+    .s-factbar__src { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin: 14px 0 0; }
+    .s-hero .fc-btn { color: rgba(255, 255, 255, .88); }
+    .s-hero .fc-btn:hover { background: rgba(255, 255, 255, .1); color: #fff; }
+    .s-form-one { margin: 26px 0 0; color: rgba(255, 255, 255, .92); font-size: 16px; line-height: 1.9; }
+    .s-factbar__src a { display: inline-flex; align-items: center; min-height: 44px; color: rgba(255, 255, 255, .8); font-size: 13px; text-underline-offset: 4px; }
     .s-factbar__label { margin: 10px 0 0; color: rgba(255, 255, 255, .86); font-size: 13.5px; line-height: 1.6; text-wrap: balance; }
 
     /* ── 向いている会社：場面の写真タイル3枚＋向き不向き ── */
@@ -433,10 +440,11 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
       .s-hero__sub span { white-space: nowrap; }
     }
     @media (min-width: 961px) {
-      .s-hero__grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); grid-template-areas: "copy fig" "fact fact"; column-gap: clamp(36px, 4.4vw, 64px); row-gap: clamp(48px, 5vw, 68px); align-items: center; }
+      .s-hero__grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "fact"; column-gap: clamp(36px, 4.4vw, 64px); row-gap: clamp(48px, 5vw, 68px); align-items: center; }
       .s-hero__content { text-align: left; }
       .hc, .rot, .s-hero__eyebrow { justify-content: flex-start; }
-      .s-hero__title { font-size: clamp(34px, 4.2vw, 56px); }
+      .s-hero__title { font-size: clamp(40px, 4.8vw, 62px); }
+      .s-hero__content { max-width: 900px; }
       .s-hero__sub { margin-left: 0; }
       .s-hero__figure { max-width: none; }
       .s-product__copy { position: sticky; top: 32px; }
@@ -536,25 +544,68 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
       .s-ui__row { opacity: 1; transform: none !important; transition: none; }
       .s-btn:hover { transform: none; }
     }
+
+    /* 市場データ（フッター直前・market-data-strip.md） */
+    .s-mkt { padding: 96px 0; border-top: 1px solid var(--line); background: var(--paper); color: var(--ink); }
+    .s-mkt__in { width: min(100% - 48px, var(--lp-max)); margin: 0 auto; }
+    .s-mkt__eb { margin: 0 0 10px; color: var(--ac-t); font-family: var(--ff-en); font-size: 13px; font-weight: 800; letter-spacing: .2em; }
+    .s-mkt__h { margin: 0 0 40px; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.5; }
+    .s-mkt__grid { display: grid; grid-template-columns: repeat(5, 1fr); margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+    .s-mkt__c { display: flex; flex-direction: column; padding: 28px 20px 4px; border-left: 1px solid var(--line); }
+    .s-mkt__c:first-child { padding-left: 0; border-left: none; }
+    .s-mkt__no { margin-bottom: 12px; color: var(--muted2); font-family: var(--ff-en); font-size: 13px; font-weight: 700; letter-spacing: .12em; }
+    .s-mkt__n { display: block; color: var(--ac-t); font-family: var(--ff-en); font-size: clamp(32px, 4vw, 54px); font-weight: 900; line-height: 1; letter-spacing: -.03em; white-space: nowrap; }
+    .s-mkt__n i { margin-left: 2px; font-family: var(--ff-head); font-size: .44em; font-style: normal; letter-spacing: 0; }
+    .s-mkt__d { margin: 14px 0 12px; font-size: 14px; line-height: 1.8; word-break: auto-phrase; }
+    .s-mkt__src { display: block; min-height: 44px; margin-top: auto; padding: 6px 0; color: var(--muted2); font-size: 12px; line-height: 1.6; text-decoration: none; }
+    .s-mkt__src::after { margin-left: .25em; content: "↗"; white-space: nowrap; }
+    .s-mkt__src:hover, .s-mkt__src:focus-visible { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+    .s-mkt__bridge { margin: 36px 0 18px; font-size: 16px; font-weight: 700; line-height: 1.8; }
+    @media (max-width: 900px) {
+      .s-mkt { padding: 72px 0; }
+      .s-mkt__in { width: min(100% - 32px, var(--lp-max)); }
+      .s-mkt__grid { grid-template-columns: 1fr; }
+      .s-mkt__c { padding: 24px 0; border-left: none; border-bottom: 1px solid var(--line); }
+      .s-mkt__n { font-size: 44px; }
+    }
+
+    /* 製品の区画：1本の電話が流れる道筋（B-01と同じ図） */
+    .s-route { margin-top: clamp(40px, 5vw, 64px); padding: 26px 24px 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+    .s-route__t { margin: 0 0 14px; font-family: var(--ff-head); font-size: 18px; font-weight: 900; }
+    .s-route svg { display: block; width: 100%; height: auto; }
+    .s-route .s-route__sp { display: none; max-width: 420px; margin: 0 auto; }
+    .s-route .n rect { fill: #fff; stroke: #b8c0cb; stroke-width: 1.5; }
+    .s-route .n text { font-family: var(--ff-head); font-size: 16px; font-weight: 700; fill: #1c232c; text-anchor: middle; }
+    .s-route .n.ac rect { fill: #0b2c5c; stroke: #0b2c5c; }
+    .s-route .n.ac text { fill: #fff; }
+    .s-route .e path { fill: none; stroke: #9aa6b8; stroke-width: 2; }
+    .s-route .lb text { font-family: var(--ff); font-size: 14px; font-weight: 700; fill: #5a6472; paint-order: stroke; stroke: #fff; stroke-width: 6px; stroke-linejoin: round; }
+    .s-route__c { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line2); color: var(--ac-t); font-family: var(--ff-head); font-size: 16px; font-weight: 900; }
+    @media (max-width: 760px) { .s-route { padding: 20px 14px 16px; } .s-route .s-route__pc { display: none; } .s-route .s-route__sp { display: block; } }
+    .s-fit__text { text-align: left; max-width: 38em; margin-inline: auto; }
+    .s-fit__head .fc-btn { margin-top: 16px; }
+    @media (max-width: 600px) { .s-factbar__num { font-size: 32px; } .s-factbar__item--big .s-factbar__num { font-size: 40px; } }
   </style>
 </head>
 <body>
   <main class="s-page">
-    <!-- ヒーロー：3本のコピーを打ち替え。H1を押すとポップアップ（hero-rotation.md）。右に受電ログの画面、下に数字の帯 -->
+    <!-- ヒーロー：5本のコピーを打ち替え。H1を押すとポップアップ（hero-rotation.md）。写真を見せ、下に数字の帯 -->
     <section class="s-hero is-dark" id="s-hero" aria-labelledby="tw">
       <div class="sp-hero-photo" aria-hidden="true"></div>
       <div class="sp-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div class="s-hero__grid">
         <div class="s-hero__content">
           <p class="s-hero__eyebrow"><span class="en">OEM PARTNER BRIEFING</span><span class="ja"><span class="nobr">おまかせ受電AI</span> <span class="nobr">OEMパートナー説明会</span><span class="nobr">（事前登録受付中）</span></span></p>
-          <div class="hc" id="hc" title="押すと、3つのコピーと見出しを並べて読めます">
-            <h1 class="s-hero__title" id="tw" data-keep-phrase>貴社の名前とロゴで、<br>AI電話を1本足せます。</h1>
+          <div class="hc" id="hc" title="押すと、5つのコピーと見出しを並べて読めます">
+            <h1 class="s-hero__title" id="tw" data-keep-phrase>名前とロゴを替えて、<br>そのまま売れるAI電話。</h1>
           </div>
           <div class="rot">
             <div class="dots" role="group" aria-label="コピーの切り替え">
               <button type="button" aria-label="コピー1" aria-current="true"></button>
               <button type="button" aria-label="コピー2" aria-current="false"></button>
               <button type="button" aria-label="コピー3" aria-current="false"></button>
+              <button type="button" aria-label="コピー4" aria-current="false"></button>
+              <button type="button" aria-label="コピー5" aria-current="false"></button>
             </div>
           </div>
           <p class="s-hero__sub"><span>貴社のサービス名で販売するのは、店舗の電話を用件ごとにAIと人へ振り分ける受電AIです。</span><span>仕入値などの条件は、貴社の売り方を伺ってから決めます。</span></p>
@@ -562,33 +613,14 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
           <p class="s-hero__note">日時・形式・定員は調整中です。<span class="nobr">決まり次第ご案内します。</span></p>
         </div>
 
-        <figure class="s-hero__figure">
-          <div class="s-product__screen" role="img" aria-label="貴社のサービス名で表示する、店舗の受電ログの画面イメージ。予約の電話はスタッフへ転送、営業電話はAIが用件を聞いて完結、道順の問い合わせはAIが案内、お困りごとの電話はLINEに通知してスタッフが折り返し、営業時間外の予約の希望はAIが仮受付">
-            <div class="s-ui__top"><span class="s-ui__brand"><span class="s-ui__logo">LOGO</span><span class="s-ui__name" id="s-ui-name">貴社のサービス名</span></span><span class="s-ui__badge">画面イメージ</span></div>
-            <div class="s-ui__body">
-              <div class="s-ui__nav" aria-hidden="true"><span class="is-active">受電ログ</span><span>受電ルール</span><span>店舗の情報</span><span>通知先</span></div>
-              <div class="s-ui__main">
-                <div class="s-ui__head"><p class="s-ui__title">店舗の受電ログ</p><span class="s-ui__live">受付中</span></div>
-                <ul class="s-ui__rows" id="s-ui-rows">
-                  <li class="s-ui__row"><span class="s-ui__time">11:52</span><span class="s-ui__what">予約の電話</span><span class="s-ui__who s-ui__who--hu">人</span><span class="s-ui__next">スタッフへ転送</span></li>
-                  <li class="s-ui__row"><span class="s-ui__time">12:10</span><span class="s-ui__what">営業電話</span><span class="s-ui__who s-ui__who--ai">AI</span><span class="s-ui__next">AIが用件を聞いて完結</span></li>
-                  <li class="s-ui__row"><span class="s-ui__time">14:31</span><span class="s-ui__what">道順の問い合わせ</span><span class="s-ui__who s-ui__who--ai">AI</span><span class="s-ui__next">AIが案内</span></li>
-                  <li class="s-ui__row"><span class="s-ui__time">15:05</span><span class="s-ui__what">お困りごとの電話</span><span class="s-ui__who s-ui__who--hu">人</span><span class="s-ui__next">LINEに通知・スタッフが折り返し</span></li>
-                  <li class="s-ui__row"><span class="s-ui__time">21:40</span><span class="s-ui__what">予約の希望（営業時間外）</span><span class="s-ui__who s-ui__who--ai">AI</span><span class="s-ui__next">AIが仮受付</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <figcaption class="s-product__caption">※ 画面イメージです。<span class="nobr">名称・ロゴ・項目は</span><span class="nobr">貴社向けに作ります。</span></figcaption>
-        </figure>
 
-        <!-- 数字の帯（4つ）：B-01に出典のある事実だけ -->
-        <div class="s-factbar" role="group" aria-label="説明会で扱う受電AIの要点"><div class="s-factbar__grid">
-          <div class="s-factbar__item"><p class="s-factbar__num">3<span class="s-factbar__unit">ステップ</span></p><p class="s-factbar__label">店舗の設定。業種・受け手・次の処理を選ぶ</p></div>
-          <div class="s-factbar__item"><p class="s-factbar__num">LINE<span class="s-factbar__unit">に通知</span></p><p class="s-factbar__label">出られなかった電話はLINEに通知。スタッフが折り返し</p></div>
-          <div class="s-factbar__item"><p class="s-factbar__num s-factbar__num--ja">貴社<span class="s-factbar__unit">が決める</span></p><p class="s-factbar__label">店舗への売価。店舗の窓口も貴社が持ちます</p></div>
-          <div class="s-factbar__item"><p class="s-factbar__num s-factbar__num--ja">数十万<span class="s-factbar__unit">円程度</span></p><p class="s-factbar__label">1社のための開発で多い金額。内容によります</p></div>
-        </div></div>
+        <!-- 数字の帯（4つ）：出典ページで数字を確認済み（2026-09-26）。詳細はページ下の市場データ -->
+        <div class="s-factbar" role="group" aria-label="電話AIの市場と、店舗の人手の数字"><div class="s-factbar__grid">
+          <div class="s-factbar__item s-factbar__item--big"><p class="s-factbar__num">88<span class="s-factbar__unit">億円</span></p><p class="s-factbar__label">電話の自動応答AIの国内市場。2027年度の予測（ITR、2023年発表）</p></div>
+          <div class="s-factbar__item s-factbar__item--big"><p class="s-factbar__num"><span class="s-factbar__pre">約</span>4.6<span class="s-factbar__unit">倍</span></p><p class="s-factbar__label">同じ予測で、2022年度の19億円から5年での伸び</p></div>
+          <div class="s-factbar__item"><p class="s-factbar__num">57.7<span class="s-factbar__unit">%</span></p><p class="s-factbar__label">非正社員が足りないと答えた飲食店。全業種で最も高い（帝国データバンク、2026年7月）</p></div>
+          <div class="s-factbar__item"><p class="s-factbar__num">56<span class="s-factbar__unit">円</span></p><p class="s-factbar__label">2026年度の最低賃金の引き上げ額。全国加重平均は1,177円に（厚生労働省）</p></div>
+        </div><div class="s-factbar__src"><button class="fc-btn" type="button" data-fc-section="数字の帯（電話AIの市場と、店舗の人手）" data-fc-claim="国内のボイスボット（電話の自動応答AI）市場は2027年度に88億円の予測（アイ・ティ・アール、2023年8月発表）／同じ予測で、2022年度の19億円から5年で約4.6倍／非正社員が不足していると答えた飲食店は57.7%で全業種で最も高い（帝国データバンク、2026年7月）／2026年度の最低賃金は全国加重平均で56円引き上げ、1,177円（厚生労働省、2026年9月）">ChatGPTでファクトチェック<span class="fc-sub">別タブで開きます</span></button><a href="#mkt">出典と調査時期は、ページ下の市場データへ ↓</a></div></div>
       </div>
     </section>
 
@@ -597,12 +629,13 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
       <div class="s-fit__head">
         <p class="s-kicker">FIT CHECK</p>
         <h2 id="s-fit-title">予約・POS・回線を売る会社なら、<br>電話の話を切り出せます。</h2>
-        <p class="s-fit__text">電話は、どの店舗にもある困りごとです。調理中や施術中は手が離せず、店を閉めたあとにも電話は鳴ります。すでに店舗と取引がある会社なら、既存のお客様への、もう1本の提案になります。</p>
+        <p class="s-fit__text">飲食店の57.7%が「非正社員が足りない」と答えています。全業種で最も高い割合です（帝国データバンク、2026年7月）。少ない人数で回す店に、調理や接客の手を止めてまで営業電話に出る余裕はありません。店舗と取引のある会社なら、いまのお客様に、電話の困りごとから切り出せます。</p>
+        <button class="fc-btn" type="button" data-fc-section="予約・POS・回線を売る会社なら、電話の話を切り出せます。" data-fc-claim="非正社員が足りないと答えた飲食店は57.7%で、全業種で最も高い（帝国データバンク、人手不足に対する企業の動向調査、2026年7月）／少ない人数で回す飲食店では、調理や接客の手を止めて営業電話に出る余裕がない">ChatGPTでファクトチェック<span class="fc-sub">別タブで開きます</span></button>
       </div>
       <ul class="s-scenes" aria-label="店舗の電話が取れない場面">
         <li class="s-scene"><figure class="s-scene__ph"><img src="images/store-kitchen-chef.webp" alt="厨房で鍋を扱う料理人" width="1280" height="853" loading="lazy" decoding="async"><figcaption class="s-scene__tag">調理中</figcaption></figure><div class="s-scene__body"><p>鍋の前を離れられず、予約の電話にも出られません。</p></div></li>
         <li class="s-scene"><figure class="s-scene__ph"><img src="images/store-salon.webp" alt="美容室の店内と施術用の椅子" width="1280" height="854" loading="lazy" decoding="async"><figcaption class="s-scene__tag">施術中</figcaption></figure><div class="s-scene__body"><p>お客様の髪を切る手は、受話器まで伸ばせません。</p></div></li>
-        <li class="s-scene"><figure class="s-scene__ph"><img src="images/store-dusk.webp" alt="夕暮れに明かりのついた店先" width="1600" height="900" loading="lazy" decoding="async"><figcaption class="s-scene__tag">営業時間外</figcaption></figure><div class="s-scene__body"><p>店を閉めたあとにも、予約の希望は届きます。<small class="s-scene__gen">この写真は生成イメージです（実在の店舗ではありません）</small></p></div></li>
+        <li class="s-scene"><figure class="s-scene__ph"><img src="images/store-cafe-hands.webp" alt="コーヒーを淹れるカフェの店員の手元" width="1280" height="854" loading="lazy" decoding="async"><figcaption class="s-scene__tag">注文が重なる時間</figcaption></figure><div class="s-scene__body"><p>注文が重なる時間にも、閉店後にも、電話は鳴ります。</p></div></li>
       </ul>
       <div class="s-fit__grid">
         <div class="s-fit__card s-fit__card--yes">
@@ -636,12 +669,12 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
       <ol class="s-toc">
         <li><a href="#s-product"><span class="s-toc__n">01</span><span>用件ごとに振り分ける仕組み</span><span class="s-toc__go" aria-hidden="true">→</span></a></li>
         <li><a href="#s-roles"><span class="s-toc__n">02</span><span>貴社と弊社の分担</span><span class="s-toc__go" aria-hidden="true">→</span></a></li>
-        <li><a href="#s-diff"><span class="s-toc__n">03</span><span>通話品質と、違いが出るところ</span><span class="s-toc__go" aria-hidden="true">→</span></a></li>
-        <li><a href="#s-undecided"><span class="s-toc__n">04</span><span>まだ決まっていない条件</span><span class="s-toc__go" aria-hidden="true">→</span></a></li>
+        <li><a href="#s-undecided"><span class="s-toc__n">03</span><span>まだ決まっていない条件</span><span class="s-toc__go" aria-hidden="true">→</span></a></li>
+        <li><a href="#s-diff"><span class="s-toc__n">04</span><span>通話品質と、違いが出るところ</span><span class="s-toc__go" aria-hidden="true">→</span></a></li>
       </ol>
     </div></section>
 
-    <!-- PRODUCT：明るい地。画面はヒーローへ移した -->
+    <!-- PRODUCT：明るい地。1本の電話が流れる道筋の図（B-01と同じ） -->
     <section class="s-product" id="s-product" aria-labelledby="s-product-title"><div class="s-container s-product__layout">
       <div class="s-product__copy">
         <p class="s-kicker">PRODUCT</p>
@@ -654,6 +687,60 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
         <li class="s-product__item"><span class="s-product__num">03</span><div><h3>出られないときはLINEへ</h3><p>出られなかった電話はLINEに通知し、スタッフが折り返します。営業時間外の予約の希望はAIが仮受付し、確定はスタッフが行います。</p></div></li>
         <li class="s-product__item"><span class="s-product__num">04</span><div><h3>今の番号から転送</h3><p>店舗の今の電話番号から転送して使う想定です。回線の種類や転送の条件で変わるため、導入前に確認します。</p></div></li>
       </ol>
+    </div>
+    <div class="s-container">
+      <div class="s-route">
+        <p class="s-route__t">1本の電話が流れる道筋</p>
+        <svg class="s-route__pc" viewBox="0 0 1040 330" role="img" aria-labelledby="rtA">
+          <title id="rtA">着信するとAIが用件を聞き、予約や大切な用件は人へ、定型の質問や営業電話は、AIの案内で完結。人が出られないときはLINEに通知し、スタッフが折り返します。</title>
+          <defs><marker id="rah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9aa6b8"/></marker></defs>
+          <g class="e">
+            <path d="M130 165H172" marker-end="url(#rah)"/>
+            <path d="M345 150C390 150 385 68 427 68" marker-end="url(#rah)"/>
+            <path d="M345 180C390 180 385 268 427 268" marker-end="url(#rah)"/>
+            <path d="M580 68H647" marker-end="url(#rah)"/>
+            <path d="M540 96C540 150 600 163 647 163" marker-end="url(#rah)"/>
+            <path d="M810 163H857" marker-end="url(#rah)"/>
+          </g>
+          <g class="lb">
+            <text x="296" y="62">予約・大切な用件</text>
+            <text x="276" y="304">定型の質問・営業電話</text>
+            <text x="572" y="126">出られないとき</text>
+          </g>
+          <g class="n"><rect x="20" y="137" width="110" height="56" rx="10"/><text x="75" y="171">着信</text></g>
+          <g class="n ac"><rect x="175" y="137" width="170" height="56" rx="10"/><text x="260" y="171">AIが用件を聞く</text></g>
+          <g class="n"><rect x="430" y="40" width="150" height="56" rx="10"/><text x="505" y="74">人へつなぐ</text></g>
+          <g class="n"><rect x="650" y="40" width="160" height="56" rx="10"/><text x="730" y="74">スタッフが対応</text></g>
+          <g class="n"><rect x="650" y="135" width="160" height="56" rx="10"/><text x="730" y="169">LINEに通知</text></g>
+          <g class="n"><rect x="860" y="135" width="170" height="56" rx="10"/><text x="945" y="169">スタッフが折り返す</text></g>
+          <g class="n ac"><rect x="430" y="240" width="200" height="56" rx="10"/><text x="530" y="274">AIが案内して完結</text></g>
+        </svg>
+        <svg class="s-route__sp" viewBox="0 0 360 460" role="img" aria-labelledby="rtB">
+          <title id="rtB">着信するとAIが用件を聞き、予約や大切な用件は人へ、定型の質問や営業電話は、AIの案内で完結。人が出られないときはLINEに通知し、スタッフが折り返します。</title>
+          <defs><marker id="rah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9aa6b8"/></marker></defs>
+          <g class="e">
+            <path d="M180 58V86" marker-end="url(#rah2)"/>
+            <path d="M140 142C140 170 92 160 92 196" marker-end="url(#rah2)"/>
+            <path d="M220 142C220 170 267 160 267 196" marker-end="url(#rah2)"/>
+            <path d="M60 250V296" marker-end="url(#rah2)"/>
+            <path d="M130 250V272H267V296" marker-end="url(#rah2)"/>
+            <path d="M267 350V396" marker-end="url(#rah2)"/>
+          </g>
+          <g class="lb">
+            <text x="14" y="176">予約・大切な用件</text>
+            <text x="214" y="176">定型の質問・営業</text>
+            <text x="140" y="292">出られないとき</text>
+          </g>
+          <g class="n"><rect x="115" y="8" width="130" height="50" rx="10"/><text x="180" y="39">着信</text></g>
+          <g class="n ac"><rect x="85" y="90" width="190" height="52" rx="10"/><text x="180" y="122">AIが用件を聞く</text></g>
+          <g class="n"><rect x="10" y="200" width="165" height="50" rx="10"/><text x="92" y="231">人へつなぐ</text></g>
+          <g class="n ac"><rect x="185" y="200" width="165" height="50" rx="10"/><text x="267" y="231">AIが案内して完結</text></g>
+          <g class="n"><rect x="10" y="300" width="165" height="50" rx="10"/><text x="92" y="331">スタッフが対応</text></g>
+          <g class="n"><rect x="185" y="300" width="165" height="50" rx="10"/><text x="267" y="331">LINEに通知</text></g>
+          <g class="n"><rect x="185" y="400" width="165" height="50" rx="10"/><text x="267" y="431">スタッフが折り返す</text></g>
+        </svg>
+        <p class="s-route__c">どの用件を人に残すかは、店舗が決めます。今の番号から転送して使う想定です。</p>
+      </div>
     </div></section>
 
     <!-- 切り替えの帯：ここから後半（条件の話） -->
@@ -707,7 +794,7 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
             <tr><th scope="row">業種向けの機能</th><td>用意された機能から選ぶ</td><td class="ours">SMS・予約台帳・本人の声まで作り替え</td></tr>
             <tr><th scope="row">1社のための開発</th><td>提供元の標準機能の範囲で使う</td><td class="ours">都度お見積りで対応</td></tr>
             <tr class="con"><th scope="row">売り始めるまで</th><td>提供元の画面ですぐ</td><td class="ours">貴社専用の画面を作ってから</td></tr>
-            <tr class="con"><th scope="row">取扱条件</th><td>提供元が決めた条件</td><td class="ours">調整中（貴社の売り方を伺って決める）</td></tr>
+            <tr class="con"><th scope="row">取扱条件</th><td>提供元が決めた条件</td><td class="ours">調整中</td></tr>
             <tr class="same"><th scope="row">通話品質</th><td>同等</td><td>同等</td></tr>
           </tbody>
         </table>
@@ -726,10 +813,7 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
         <p class="s-kicker">PRE-REGISTRATION</p>
         <h2 id="s-form-title">仕入値が決まる前に、<br>貴社の売り方を伝えてください。</h2>
         <p>日時・形式・定員は調整中です。事前登録いただいた会社に、<span class="nobr">決まり次第</span>ご案内をお送りします。</p>
-        <ul class="s-form-points">
-          <li><span>01</span>販売先の業種と想定の店舗数が分かれば、作り替える機能の候補を具体的にお話しできます</li>
-          <li><span>02</span>仕入値・最低契約・地域の扱いは、貴社の販売のしかたを伺ってから決めます</li>
-        </ul>
+        <p class="s-form-one">販売先の業種と想定の店舗数が分かれば、作り替える機能の候補を具体的にお話しできます。</p>
       </div>
       <div class="s-form-card">
         <div class="s-form-head">
@@ -781,11 +865,28 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
             <button class="s-back" type="button" id="s-edit">入力に戻って直す</button>
           </div>
         </div>
-        <p class="s-form-note">入力内容は、このページからは送信・保存されません。お問い合わせフォームで送られた内容は、株式会社ライトアップの個人情報保護方針に沿って扱います。掲載内容は2026年9月25日時点のものです。</p>
+        <p class="s-form-note">入力内容は、このページからは送信・保存されません。お問い合わせフォームで送られた内容は、株式会社ライトアップの個人情報保護方針に沿って扱います。掲載内容は2026年9月26日時点のものです。</p>
         <p class="s-form-priv"><a href="https://www.writeup.jp/privacy/" target="_blank" rel="noopener">個人情報保護方針を読む（新しいタブ）</a></p>
       </div>
     </div></section>
   </main>
+
+  <!-- 市場データ（フッター直前）：5つとも出典ページで数字を確認（2026-09-26） -->
+  <section class="s-mkt" id="mkt" aria-labelledby="mkt-h"><div class="s-mkt__in">
+    <p class="s-mkt__eb">MARKET DATA</p>
+    <h2 class="s-mkt__h" id="mkt-h">電話AIの市場は伸び、<br>店舗は人手が足りず、<br>人件費も上がっています。</h2>
+    <ol class="s-mkt__grid">
+      <li class="s-mkt__c"><span class="s-mkt__no">01</span><b class="s-mkt__n">88<i>億円</i></b><p class="s-mkt__d">国内のボイスボット（電話の自動応答AI）市場の、2027年度の予測。2022年度の19億円から5年で<span class="nobr">約4.6倍</span>。</p><a class="s-mkt__src" href="https://www.itr.co.jp/topics/pr-20230822-1" target="_blank" rel="noopener">アイ・ティ・アール「ボイスボット市場規模推移および予測」2023年8月</a></li>
+      <li class="s-mkt__c"><span class="s-mkt__no">02</span><b class="s-mkt__n">57.7<i>%</i></b><p class="s-mkt__d">非正社員が足りないと答えた飲食店の割合。全業種の中で最も高い値です。</p><a class="s-mkt__src" href="https://www.tdb.co.jp/report/economic/20260817-laborshortage202607/" target="_blank" rel="noopener">帝国データバンク「人手不足に対する企業の動向調査（2026年7月）」n=10,518</a></li>
+      <li class="s-mkt__c"><span class="s-mkt__no">03</span><b class="s-mkt__n">56<i>円</i></b><p class="s-mkt__d">2026年度の最低賃金（全国加重平均）の引き上げ額。改定後は1,177円です。</p><a class="s-mkt__src" href="https://www.mhlw.go.jp/stf/newpage_75950.html" target="_blank" rel="noopener">厚生労働省「地域別最低賃金の改定額の答申」2026年9月</a></li>
+      <li class="s-mkt__c"><span class="s-mkt__no">04</span><b class="s-mkt__n">61.6<i>%</i></b><p class="s-mkt__d">生成AIがもたらす影響として「業務の効率化」を挙げた日本企業の割合。回答の中で最も多い項目です。</p><a class="s-mkt__src" href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r08/html/nd121150.html" target="_blank" rel="noopener">総務省「令和8年版 情報通信白書」図表Ⅰ-2-1-10（2026年1〜2月調査）</a></li>
+      <li class="s-mkt__c"><span class="s-mkt__no">05</span><b class="s-mkt__n">58.1<i>%</i></b><p class="s-mkt__d">生成AIを活用する方針と答えた中小企業の割合（調査した中小企業のうち）。大企業は74.0%。</p><a class="s-mkt__src" href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r08/html/nd121110.html" target="_blank" rel="noopener">総務省「令和8年版 情報通信白書」図表Ⅰ-2-1-2（2026年1〜2月調査）</a></li>
+    </ol>
+    <p class="s-mkt__bridge">だから、店舗の電話をAIと人へ振り分ける仕組みを、貴社のサービス名で売れる形にしました。</p>
+    <button class="fc-btn" type="button"
+      data-fc-section="市場データ"
+      data-fc-claim="国内のボイスボット市場は2027年度に88億円の予測、2022年度は19億円で5年で約4.6倍（アイ・ティ・アール 2023年8月）／非正社員が不足していると答えた飲食店は57.7%で全業種で最も高い（帝国データバンク 人手不足に対する企業の動向調査 2026年7月）／2026年度の最低賃金の全国加重平均は56円引き上げの1,177円（厚生労働省 2026年9月）／生成AIの影響として業務の効率化を挙げた日本企業は61.6%（総務省 令和8年版情報通信白書）／生成AIを活用する方針の中小企業は58.1%、大企業は74.0%（総務省 令和8年版情報通信白書）">ChatGPTでファクトチェック<span class="fc-sub">別タブで開きます</span></button>
+  </div></section>
 
   <footer class="s-footer">
     <p>株式会社ライトアップ（東証グロース 証券コード6580）</p>
@@ -800,7 +901,7 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
   <dialog class="pop" id="pop" aria-labelledby="popT">
     <div class="pop-h"><p id="popT">このページを、見出しだけで読む</p><button type="button" class="pop-x" id="popX" aria-label="閉じる">×</button></div>
     <div class="pop-b">
-      <p class="pop-lbl"><span class="en">HERO COPY</span>いちばん上で切り替わっている3つのコピー</p>
+      <p class="pop-lbl"><span class="en">HERO COPY</span>いちばん上で切り替わっている5つのコピー</p>
       <ol class="copies" id="copies"></ol>
       <div class="story">
         <p class="pop-lbl"><span class="en">HEADLINES</span>見出しをつなげると、こういう話です</p>
@@ -812,11 +913,13 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
 
   <script>
   (function(){
-    /* ===== ヒーロー：3つのコピーのローテーション（c＝コピー、\nで改行／s＝補足の1文） ===== */
+    /* ===== ヒーロー：5つのコピーのローテーション（c＝コピー、\nで改行／s＝補足の1文） ===== */
     var COPIES=[
-      {c:'貴社の名前とロゴで、\nAI電話を1本足せます。',s:'何を売るのか。店舗の電話を用件ごとにAIと人へ振り分ける受電AIを、貴社のサービス名で販売できます。売価も貴社が決めます。'},
-      {c:'調理中に鳴る電話を、\n貴社の次の提案に。',s:'誰に売るのか。電話は、どの店舗にもある困りごとです。すでに店舗と取引がある会社なら、既存のお客様への、もう1本の提案になります。'},
-      {c:'品質は他社と同等。\n予約台帳まで作り替え。',s:'何が違うのか。通話品質は他社と同等です。違いは原価と、SMS・予約台帳・本人の声まで貴社向けに作り替えられることです。'}
+      {c:'名前とロゴを替えて、\nそのまま売れるAI電話。',s:'何を売るのか。店舗の電話を用件ごとにAIと人へ振り分ける受電AIです。名前とロゴを貴社のものにして、貴社のサービスとして売れます。'},
+      {c:'電話AIの市場は、\n5年で約4.6倍の予測。',s:'どれだけ伸びるのか。電話の自動応答AI（ボイスボット）の国内市場は、2022年度の19億円から2027年度に88億円へ伸びると予測されています（ITR、2023年8月）。'},
+      {c:'ランチどきの営業電話に、\nもう手を止めさせない。',s:'何を解決するのか。一番忙しい時間にかかってくる営業電話は、AIが用件と連絡先を聞いてその場で終えます。予約の電話は、スタッフへつなぎます。'},
+      {c:'訪問先の店舗で、\n電話の話をしてみませんか。',s:'どこで売るのか。予約の電話や営業電話の困りごとは、業種を問わず店舗にあります。いまお付き合いのある店舗への、話の入口になります。'},
+      {c:'今のお客様に、\nもう1つ売れる物を。',s:'誰に売るのか。新しい売り先を探す前に、いま取引のある店舗へ提案できる商材です。売価は貴社が決めます。'}
     ];
     var TYPE_MS=55, HOLD_MS=5200, ERASE_MS=22;
     var h1=document.getElementById('tw'), hc=document.getElementById('hc');
