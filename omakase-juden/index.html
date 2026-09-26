@@ -94,7 +94,7 @@
 
     /* ── 骨格 ── */
     body { margin: 0; background: #fff; color: var(--ink); font-family: var(--ff); font-size: 16px; line-height: 1.8; }
-    .s-container { width: min(100% - 48px, 1120px); margin: 0 auto; }
+    .s-container { width: min(100% - 48px, 1200px); margin: 0 auto; }
     .s-page *, .s-footer * { box-sizing: border-box; }
     /* :where で詳細度を0に落とし、個別クラスの margin-top を必ず効かせる */
     :where(.s-page) :is(h1, h2, h3, p) { margin-top: 0; }
@@ -114,7 +114,7 @@
 
     /* ── ヒーロー：夕暮れの店先＋緑のベール＋「24H 仮受付」 ── */
     .s-hero { position: relative; display: flex; min-height: min(96svh, 840px); align-items: center; justify-content: center; overflow: hidden; padding: 88px 24px 168px; background: var(--gr3); color: #fff; text-align: center; isolation: isolate; }
-    .sp-hero-photo { position: absolute; inset: 0; z-index: 0; background: url("images/hero-store-dusk.webp") 72% 50% / cover no-repeat; animation: spDrift 30s ease-in-out infinite alternate; }
+    .sp-hero-photo { position: absolute; inset: 0; z-index: 0; background: url("images/hero-store-kitchen.webp") 68% 38% / cover no-repeat; animation: spDrift 30s ease-in-out infinite alternate; }
     @keyframes spDrift { from { background-position: 68% 52%; } to { background-position: 80% 44%; } }
     .s-hero::before {
       position: absolute; inset: 0; z-index: 1; content: ""; pointer-events: none;
@@ -154,7 +154,7 @@
 
     /* ── 数字の帯（3つ） ── */
     .s-factbar { position: relative; z-index: 3; margin-top: -92px; padding: 0 24px; }
-    .s-factbar__grid { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1120px; margin: 0 auto; overflow: hidden; border: 1px solid rgba(255, 255, 255, .16); border-radius: 16px; background: linear-gradient(180deg, rgba(10, 37, 34, .8) 0%, var(--gr3) 55%); color: #fff; -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); box-shadow: 0 30px 60px rgba(6, 26, 24, .3); }
+    .s-factbar__grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1200px; margin: 0 auto; overflow: hidden; border: 1px solid rgba(255, 255, 255, .16); border-radius: 16px; background: linear-gradient(180deg, rgba(10, 37, 34, .8) 0%, var(--gr3) 55%); color: #fff; -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); box-shadow: 0 30px 60px rgba(6, 26, 24, .3); }
     .s-factbar__item { padding: clamp(22px, 2.9vw, 34px) 18px; border-left: 1px solid rgba(255, 255, 255, .14); text-align: center; }
     .s-factbar__item:first-child { border-left: 0; }
     .s-factbar__num { margin: 0; font-family: var(--ff-en); font-size: clamp(30px, 3.6vw, 42px); font-weight: 900; letter-spacing: -.03em; line-height: 1.05; }
@@ -376,6 +376,32 @@
       .s-flow__item { opacity: 1; transform: none !important; transition: none; }
       .s-btn:hover { transform: none; }
     }
+
+    .s-factbar__src { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; max-width: 1200px; margin: 14px auto 0; }
+    .s-factbar__src a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); font-size: 13px; text-underline-offset: 4px; }
+    /* 市場データ（フッター直前・market-data-strip.md） */
+    .s-mkt { padding: 96px 0; border-top: 1px solid var(--line); background: var(--paper); color: var(--ink); }
+    .s-mkt__in { width: min(100% - 48px, 1200px); margin: 0 auto; }
+    .s-mkt__eb { margin: 0 0 10px; color: var(--gr1); font-family: var(--ff-en); font-size: 13px; font-weight: 800; letter-spacing: .2em; }
+    .s-mkt__h { margin: 0 0 40px; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.5; word-break: auto-phrase; }
+    .s-mkt__grid { display: grid; grid-template-columns: repeat(5, 1fr); margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+    .s-mkt__c { display: flex; flex-direction: column; padding: 28px 20px 4px; border-left: 1px solid var(--line); }
+    .s-mkt__c:first-child { padding-left: 0; border-left: none; }
+    .s-mkt__no { margin-bottom: 12px; color: var(--muted); font-family: var(--ff-en); font-size: 13px; font-weight: 700; letter-spacing: .12em; }
+    .s-mkt__n { display: block; color: var(--gr1); font-family: var(--ff-en); font-size: clamp(32px, 4vw, 54px); font-weight: 900; line-height: 1; letter-spacing: -.03em; white-space: nowrap; }
+    .s-mkt__n i { margin-left: 2px; font-size: .44em; font-style: normal; letter-spacing: 0; }
+    .s-mkt__d { margin: 14px 0 12px; font-size: 14px; line-height: 1.8; word-break: auto-phrase; }
+    .s-mkt__src { display: block; min-height: 44px; margin-top: auto; padding: 6px 0; color: var(--muted); font-size: 12px; line-height: 1.6; text-decoration: none; }
+    .s-mkt__src::after { margin-left: .25em; content: "↗"; white-space: nowrap; }
+    .s-mkt__src:hover, .s-mkt__src:focus-visible { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+    .s-mkt__bridge { margin: 36px 0 18px; font-size: 16px; font-weight: 700; line-height: 1.8; }
+    @media (max-width: 900px) {
+      .s-mkt { padding: 72px 0; }
+      .s-mkt__in { width: min(100% - 32px, 1200px); }
+      .s-mkt__grid { grid-template-columns: 1fr; }
+      .s-mkt__c { padding: 24px 0; border-left: none; border-bottom: 1px solid var(--line); }
+      .s-mkt__n { font-size: 44px; }
+    }
   </style>
 </head>
 <body>
@@ -384,10 +410,9 @@
     <section class="s-hero" id="s-hero" aria-labelledby="tw">
       <div class="sp-hero-photo" aria-hidden="true"></div>
       <div class="sp-frame" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="sp-live">24H&nbsp; 仮受付</span></div>
-      <p class="sp-gen">背景は生成イメージです</p>
       <div class="s-hero__content">
         <p class="s-hero__eyebrow"><span class="en">FREE CONSULTATION</span><span class="ja"><span class="nobr">おまかせ受電AI</span> <span class="nobr">無料相談会</span><span class="nobr">（事前登録受付中）</span></span></p>
-        <div class="hc" id="hc" title="押すと、3つのコピーと見出しを並べて読めます">
+        <div class="hc" id="hc" title="押すと、5つのコピーと見出しを並べて読めます">
           <h1 class="s-hero__title" id="tw" data-keep-phrase>手が離せない時間の<br>電話、どうしてますか。</h1>
         </div>
         <div class="rot">
@@ -395,6 +420,8 @@
             <button type="button" aria-label="コピー1" aria-current="true"></button>
             <button type="button" aria-label="コピー2" aria-current="false"></button>
             <button type="button" aria-label="コピー3" aria-current="false"></button>
+            <button type="button" aria-label="コピー4" aria-current="false"></button>
+            <button type="button" aria-label="コピー5" aria-current="false"></button>
           </div>
         </div>
         <p class="s-hero__sub"><span>電話の種類ごとに、AIが受けるか人につなぐかを選べる受電AIの相談会です。</span><span>自店の電話のどれを任せられるかを、一緒に整理します。</span></p>
@@ -404,11 +431,12 @@
     </section>
 
     <!-- 数字の帯（3つ） -->
-    <section class="s-factbar" aria-label="相談会で扱う受電AIの要点"><div class="s-factbar__grid">
+    <section class="s-factbar" aria-label="店舗の人手と、受電AIの要点"><div class="s-factbar__grid">
+      <div class="s-factbar__item"><p class="s-factbar__num">57.7<span class="s-factbar__unit">%</span></p><p class="s-factbar__label">非正社員が足りないと答えた飲食店。全業種で最も高い（帝国データバンク、2026年7月）</p></div>
       <div class="s-factbar__item"><p class="s-factbar__num">3<span class="s-factbar__unit">つの選択</span></p><p class="s-factbar__label">業種・受け手・次の処理を選んで設定</p></div>
       <div class="s-factbar__item"><p class="s-factbar__num">24<span class="s-factbar__unit">時間</span></p><p class="s-factbar__label">予約の希望を仮受付。確定はスタッフが行います</p></div>
       <div class="s-factbar__item"><p class="s-factbar__num">30<span class="s-factbar__unit">社ほど</span></p><p class="s-factbar__label">無料モニターの先着枠</p></div>
-    </div></section>
+    </div><div class="s-factbar__src"><button class="fc-btn" type="button" data-fc-section="数字の帯（店舗の人手）" data-fc-claim="非正社員が不足していると答えた飲食店は57.7%で、全業種で最も高い（帝国データバンク、人手不足に対する企業の動向調査、2026年7月）">ChatGPTでファクトチェック<span class="fc-sub">別タブで開きます</span></button><a href="#mkt">ほかの数字と出典は、ページ下の市場データへ ↓</a></div></section>
 
     <!-- CONTENTS：相談会でやること4つ -->
     <section class="s-flow" id="s-contents" aria-labelledby="s-flow-title"><div class="s-container s-flow__layout">
@@ -523,12 +551,27 @@
     </div></section>
   </main>
 
+  <!-- 市場データ（フッター直前）：5つとも出典ページで数字を確認（2026-09-26） -->
+  <section class="s-mkt" id="mkt" aria-labelledby="mkt-h"><div class="s-mkt__in">
+    <p class="s-mkt__eb">MARKET DATA</p>
+    <h2 class="s-mkt__h" id="mkt-h">人は足りず、<br>人件費は上がり、<br>電話AIの市場は拡大中。</h2>
+    <ol class="s-mkt__grid">
+      <li class="s-mkt__c"><span class="s-mkt__no">01</span><b class="s-mkt__n">57.7<i>%</i></b><p class="s-mkt__d">非正社員が足りないと答えた飲食店の割合。全業種の中で最も高い値です。</p><a class="s-mkt__src" href="https://www.tdb.co.jp/report/economic/20260817-laborshortage202607/" target="_blank" rel="noopener">帝国データバンク「人手不足に対する企業の動向調査（2026年7月）」有効回答10,518社（全業種）</a></li>
+      <li class="s-mkt__c"><span class="s-mkt__no">02</span><b class="s-mkt__n">56<i>円</i></b><p class="s-mkt__d">2026年度の最低賃金（全国加重平均）の引き上げ額（答申）。改定後は1,177円です。</p><a class="s-mkt__src" href="https://www.mhlw.go.jp/stf/newpage_75950.html" target="_blank" rel="noopener">厚生労働省「地域別最低賃金の改定額の答申」2026年9月</a></li>
+      <li class="s-mkt__c"><span class="s-mkt__no">03</span><b class="s-mkt__n">88<i>億円</i></b><p class="s-mkt__d">国内のボイスボット（電話の自動応答AI）市場の、2027年度の予測。2022年度の19億円から5年で<span class="nobr">約4.6倍</span>。</p><a class="s-mkt__src" href="https://www.itr.co.jp/topics/pr-20230822-1" target="_blank" rel="noopener">アイ・ティ・アール「ボイスボット市場規模推移および予測」2023年8月</a></li>
+      <li class="s-mkt__c"><span class="s-mkt__no">04</span><b class="s-mkt__n">61.6<i>%</i></b><p class="s-mkt__d">生成AIがもたらす影響として「業務の効率化」を挙げた日本企業の割合。回答の中で最も多い項目です。</p><a class="s-mkt__src" href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r08/html/nd121150.html" target="_blank" rel="noopener">総務省「令和8年版 情報通信白書」図表Ⅰ-2-1-10（2026年1〜2月調査）</a></li>
+      <li class="s-mkt__c"><span class="s-mkt__no">05</span><b class="s-mkt__n">58.1<i>%</i></b><p class="s-mkt__d">生成AIを活用する方針と答えた中小企業の割合（調査した中小企業のうち）。大企業は74.0%。</p><a class="s-mkt__src" href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r08/html/nd121110.html" target="_blank" rel="noopener">総務省「令和8年版 情報通信白書」図表Ⅰ-2-1-2（2026年1〜2月調査）</a></li>
+    </ol>
+    <p class="s-mkt__bridge">だから、電話を全部任せるのではなく、任せる電話を選べる形にしました。</p>
+    <button class="fc-btn" type="button" data-fc-section="市場データ" data-fc-claim="非正社員が不足していると答えた飲食店は57.7%で全業種で最も高い（帝国データバンク 2026年7月）／2026年度の最低賃金の全国加重平均は56円引き上げの1,177円（厚生労働省 2026年9月）／国内のボイスボット市場は2027年度に88億円の予測、2022年度は19億円で5年で約4.6倍（アイ・ティ・アール 2023年8月）／生成AIの影響として業務の効率化を挙げた日本企業は61.6%（総務省 令和8年版情報通信白書）／生成AIを活用する方針の中小企業は58.1%、大企業は74.0%（総務省 令和8年版情報通信白書）">ChatGPTでファクトチェック<span class="fc-sub">別タブで開きます</span></button>
+  </div></section>
+
   <footer class="s-footer"><p>株式会社ライトアップ（東証グロース 証券コード6580）</p><p class="sp-legal"><a href="https://www.writeup.jp/company/" target="_blank" rel="noopener">運営会社</a><a href="https://www.writeup.jp/privacy/" target="_blank" rel="noopener">個人情報保護方針</a></p></footer>
 
   <dialog class="pop" id="pop" aria-labelledby="popT">
     <div class="pop-h"><p id="popT">このページを、見出しだけで読む</p><button type="button" class="pop-x" id="popX" aria-label="閉じる">×</button></div>
     <div class="pop-b">
-      <p class="pop-lbl"><span class="en">HERO COPY</span>いちばん上で切り替わっている3つのコピー</p>
+      <p class="pop-lbl"><span class="en">HERO COPY</span>いちばん上で切り替わっている5つのコピー</p>
       <ol class="copies" id="copies"></ol>
       <div class="story">
         <p class="pop-lbl"><span class="en">HEADLINES</span>見出しをつなげると、こういう話です</p>
@@ -540,10 +583,12 @@
 
   <script>
   (function(){
-    /* ===== ヒーロー：3つのコピーのローテーション（c＝コピー、\nで改行／s＝補足の1文） ===== */
+    /* ===== ヒーロー：5つのコピーのローテーション（c＝コピー、\nで改行／s＝補足の1文） ===== */
     var COPIES=[
       {c:'手が離せない時間の\n電話、どうしてますか。',s:'何の相談会か。電話の種類ごとに、AIが受けるか人につなぐかを選べる受電AIについて、自店の電話で考える相談会です。'},
       {c:'予約は人へ。\n営業電話はAIへ。',s:'何ができるのか。大切な電話はスタッフへ、営業電話や定型の質問はAIへ。任せる範囲はお店が決めます。'},
+      {c:'ランチどきの営業電話に、\nもう手を止めない。',s:'何が変わるのか。一番忙しい時間にかかってくる営業電話は、AIが受けてその場で終えます。予約の電話は、スタッフへつなぎます。'},
+      {c:'人が足りない店こそ、\n電話はAIが先に受ける。',s:'なぜいまなのか。非正社員が足りないと答えた飲食店は57.7%で、全業種で最も高い割合です（帝国データバンク、2026年7月）。'},
       {c:'任せる電話を、\n一緒に決める相談会。',s:'何をするのか。自店にかかってくる電話を用件ごとに分け、どれをAIに任せられるかを一緒に整理します。'}
     ];
     var TYPE_MS=55, HOLD_MS=5200, ERASE_MS=22;
