@@ -585,6 +585,18 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
     .s-fit__text { text-align: left; max-width: 38em; margin-inline: auto; }
     .s-fit__head .fc-btn { margin-top: 16px; }
     @media (max-width: 600px) { .s-factbar__num { font-size: 32px; } .s-factbar__item--big .s-factbar__num { font-size: 40px; } }
+
+    .s-kiki { display: grid; grid-template-columns: 1fr 1fr; margin: 20px 0 0; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+    .s-kiki__c { display: flex; flex-direction: column; gap: 6px; padding: 18px; border-top: 1px solid var(--line2); border-left: 1px solid var(--line2); }
+    .s-kiki__c:nth-child(-n+2) { border-top: 0; }
+    .s-kiki__c:nth-child(odd) { border-left: 0; }
+    .s-kiki__l { color: var(--muted); font-size: 14px; font-weight: 700; line-height: 1.5; word-break: auto-phrase; }
+    .s-kiki__n { color: var(--ac-t); font-family: var(--ff-en); font-size: clamp(32px, 3.4vw, 44px); font-weight: 900; line-height: 1; white-space: nowrap; }
+    .s-kiki__n i { margin-left: 3px; font-family: var(--ff-head); font-size: .42em; font-style: normal; }
+    .s-kiki__ja { font-family: var(--ff-head); font-size: clamp(26px, 3vw, 36px); }
+    .s-kiki__o { color: var(--muted2); font-size: 13px; line-height: 1.6; word-break: auto-phrase; }
+    .s-kiki__note { margin: 12px 0 0; color: var(--muted2); font-size: 13px; line-height: 1.7; }
+    @media (max-width: 600px) { .s-kiki { grid-template-columns: 1fr; } .s-kiki__c { border-left: 0; border-top: 1px solid var(--line2); } .s-kiki__c:first-child { border-top: 0; } .s-kiki__c:nth-child(2) { border-top: 1px solid var(--line2); } }
   </style>
 </head>
 <body>
@@ -653,7 +665,7 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
           <h3>向いていない会社</h3>
           <ul class="s-fit__list">
             <li>店舗からの問い合わせを受ける窓口を持てない会社<small>店舗の一次窓口は貴社にお願いしています</small></li>
-            <li>通話品質の高さを一番の売りにしたい会社<small>品質は他社と同等です</small></li>
+            <li>通話品質の高さを一番の売りにしたい会社<small>品質は他社と遜色ない水準で、品質だけで差をつける商材ではありません</small></li>
           </ul>
         </div>
       </div>
@@ -779,8 +791,15 @@ pre, table, .scroll-x { overflow-x: auto; max-width: 100%; }
     <section class="s-diff" id="s-diff" aria-labelledby="s-diff-title"><div class="s-container">
       <div class="s-diff__copy">
         <p class="s-kicker">QUALITY &amp; DIFFERENCE</p>
-        <h2 id="s-diff-title">通話品質は、他社と同等。<br>違いは、原価と作り替えの幅。</h2>
-        <p>通話品質は他社と同等です。飛び抜けて良いわけではないので、品質を売り文句にはしません。</p>
+        <h2 id="s-diff-title">通話品質は、他社と遜色なし。<br>違いは、原価と作り替えの幅。</h2>
+        <p>通話品質は他社と遜色ありません。7つのAI電話を同じ質問で聞き比べたところ、応答のそろい方と、最初の案内の短さは、録音した6サービスの中でいちばんでした。</p>
+        <div class="s-kiki" role="group" aria-label="7つのAI電話の聞き比べ（受電AIの計測値）">
+          <div class="s-kiki__c"><span class="s-kiki__l">応答までの時間（中央値）</span><b class="s-kiki__n">2.3<i>秒</i></b><span class="s-kiki__o">他社 1.2〜3.7秒（6サービス中2番目）</span></div>
+          <div class="s-kiki__c"><span class="s-kiki__l">応答のばらつき</span><b class="s-kiki__n">0.3<i>秒</i></b><span class="s-kiki__o">他社 0.5〜5.3秒（いちばん小さい）</span></div>
+          <div class="s-kiki__c"><span class="s-kiki__l">最初の案内の長さ</span><b class="s-kiki__n">11.2<i>秒</i></b><span class="s-kiki__o">他社 12.4〜69.0秒（いちばん短い）</span></div>
+          <div class="s-kiki__c"><span class="s-kiki__l">話す番の合図音</span><b class="s-kiki__n s-kiki__ja">なし</b><span class="s-kiki__o">他社は5サービス中2つで鳴る</span></div>
+        </div>
+        <p class="s-kiki__note">弊社（株式会社ライトアップ）が2026年9月25日に、国内の7サービスへ同じ質問で電話をかけて比べた結果。計測値は各サービス1回の通話録音から得た目安で、設定やシナリオで変わります。受電AIの通話は3往復で、比べた応答の数は少なめです。1サービスは公式動画での確認のため、計測値は6サービスで比較。他社名は伏せて掲載。</p>
         <p>違いの1つ目は原価です。受電AIは、弊社1社だけで自社開発しています。そのぶん、原価は他社より少し抑えられると見ています。ただ、比べた数字はまだお出しできません。</p>
         <p>2つ目の違いは、作り替えの幅に出ます。完成品のサービスを取り次ぐ場合と比べると、次の表のとおりです。1社のための開発は都度お見積りで、内容によりますが、数十万円程度で収まることが多いです。</p>
       </div>
