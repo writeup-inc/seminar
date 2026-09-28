@@ -16,7 +16,7 @@ PAGES = {
         'code': 'A-02 / DIRECT BRIEFING',
         'h1': '社員のAI研修、<br>何から始めますか。',
         'hero': '受講をゴールにせず、実際の仕事から研修を組み立てる。御社の業務と受講者を聞きながら、最初の一歩を一緒に整理します。',
-        'hero_img': 'taimen.webp',
+        'hero_img': '../worklog-insight-oem/images/v3/hero.webp',
         'cta': '企業向けの個別説明を相談する',
         'facts': [('01', '対象業務を決める', 'まず仕事を一つ選ぶ'), ('02', '学ぶ人を決める', '職種と習熟度を確認'), ('03', '学び方を選ぶ', 'オンラインと対面'), ('04', '効果を確かめる', '現場での使い方を見る')],
         'contents_title': '説明を聞くと、<br>最初の一歩が見えてくる。',
@@ -32,6 +32,8 @@ PAGES = {
         'product_title': '学ぶだけで終わらせない、<br>仕事から逆算した研修。',
         'product_intro': 'eラーニングを基本に、必要に応じて講師の訪問も相談できます。研修内容や人数、開始時期は、対象業務を確認してから決めます。',
         'product_img': 'desk.webp',
+        'mock_title': '業務から考える研修設計',
+        'mock_steps': ['仕事を聞く', '学び方を組む', '現場で試す'],
         'flow': [
             ('01 / LISTEN', '仕事を聞く', '使いたい業務、社員の状況、社内ルールを確認します。'),
             ('02 / LEARN', '学び方を組む', 'オンラインで学ぶ範囲と、対面で深める内容を整理します。'),
@@ -44,9 +46,9 @@ PAGES = {
         'detail_url': CATALOG + 'a01/',
         'final_title': '御社の仕事から、<br>研修を考えましょう。',
         'final_intro': '何を教えるかを決める前に、どの仕事に使いたいかを聞かせてください。',
-        'final_img': 'factory.webp',
+        'final_img': '../worklog-insight-oem/images/v3/night-office.webp',
         'request': ['会社名・対象部署', 'AIを使いたい業務', 'いま困っていること'],
-        'photo_credit': 'Pixabayの素材（既存のAI活用研修ページと共用）。実際の研修・相談風景ではありません。',
+        'photo_credit': 'Pixabayの素材と同サイトのセミナーページの写真を共用。実際の研修・相談風景ではありません。',
     },
     'ai-kenshu-oem': {
         'title': 'AI活用研修OEMセミナー｜パートナー個別説明',
@@ -55,7 +57,7 @@ PAGES = {
         'code': 'B-02 / OEM PARTNER BRIEFING',
         'h1': '地域の顧客に、<br>AI研修を届ける。',
         'hero': '東京の情報だけでは動きにくい会社へ、顔の見える相手から研修を届ける。貴社の顧客との関係と、ライトアップの研修開発を組み合わせる構想です。',
-        'hero_img': 'hero-tanada.webp',
+        'hero_img': '../worklog-insight-oem/images/v3/hero.webp',
         'cta': 'OEMの個別説明を相談する',
         'facts': [('01', '顧客を知る', '地域と業種の課題'), ('02', '提案をつくる', '研修テーマを選ぶ'), ('03', '役割を分ける', '営業と開発・更新'), ('04', '条件を確かめる', '価格と地域の扱い')],
         'contents_title': '貴社の顧客に、<br>どう届けるかを話します。',
@@ -71,6 +73,8 @@ PAGES = {
         'product_title': '顧客との距離を、<br>研修の強みに変える。',
         'product_intro': '貴社が顧客の仕事を知り、ライトアップが研修を開発・更新する。共同企画から受講までの流れを、個別説明で具体化します。',
         'product_img': 'net.webp',
+        'mock_title': '地域の顧客へ届ける流れ',
+        'mock_steps': ['顧客の仕事を聞く', '研修を組み立てる', '地域へ届ける'],
         'flow': [
             ('01 / LISTEN', '顧客の仕事を聞く', '貴社が業種・職種ごとの困りごとを受け止めます。'),
             ('02 / DESIGN', '研修を組み立てる', '両社でテーマを整理し、ライトアップが教材を開発・更新します。'),
@@ -83,9 +87,9 @@ PAGES = {
         'detail_url': CATALOG + 'b01/',
         'final_title': 'まず、貴社の顧客を<br>教えてください。',
         'final_intro': '取り扱う商材と顧客の課題が分かれば、研修の届け方を一緒に考えられます。',
-        'final_img': 'taimen.webp',
+        'final_img': '../worklog-insight-oem/images/v3/night-office.webp',
         'request': ['会社名・現在の取扱商材', '主な営業地域', '顧客からよく聞く課題'],
-        'photo_credit': 'Pixabayの素材（既存のAI活用研修ページと共用）。実際のパートナー・研修風景ではありません。',
+        'photo_credit': 'Pixabayの素材と同サイトのセミナーページの写真を共用。実際のパートナー・研修風景ではありません。',
     },
 }
 
@@ -93,10 +97,11 @@ PAGES = {
 def render(slug, d):
     facts = ''.join(f'<div class="fact"><span class="fact-no mono">{n}</span><strong>{t}</strong><small>{s}</small></div>' for n,t,s in d['facts'])
     contents = ''.join(f'<li><span class="no mono">{i:02d}</span><div><h3>{t}</h3><p>{p}</p></div></li>' for i,(t,p) in enumerate(d['contents'],1))
-    flow = ''.join(f'<div class="flow-step"><span class="step-label mono">{n}</span><h3>{t}</h3><p>{p}</p></div>' for n,t,p in d['flow'])
+    flow = ''.join(f'<div class="flow-step"><span class="step-label mono">{n}</span><div><h3>{t}</h3><p>{p}</p></div></div>' for n,t,p in d['flow'])
+    mock_steps = ''.join(f'<li><span class="mock-step-no mono">{i:02d}</span><span>{escape(s)}</span></li>' for i,s in enumerate(d['mock_steps'],1))
     details = ''.join(f'<div><dt>{t}</dt><dd>{p}</dd></div>' for t,p in d['details'])
     request = ''.join(f'<li>{s}</li>' for s in d['request'])
-    photo = lambda name: ASSET + name
+    photo = lambda name: name if name.startswith('../') else ASSET + name
     return f'''<!doctype html>
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -107,12 +112,11 @@ def render(slug, d):
 <style>h1,h2,h3,h4,h5,.lead{{word-break:auto-phrase;line-break:strict;overflow-wrap:anywhere}}@supports not (word-break:auto-phrase){{h1,h2,h3,h4,h5,.lead{{word-break:normal}}}} img, svg, video, canvas, iframe {{ max-width: 100%; height: auto; }}</style>
 <link rel="stylesheet" href="../ai-kenshu-assets/seminar.css">
 </head><body>
-<header class="top" id="site-header"><div class="wrap top-inner"><a class="brand" href="{CATALOG}"><span class="brand-mark" aria-hidden="true"></span>AI活用研修</a><nav aria-label="サイト内ナビ"><a href="{CATALOG}">資料一覧</a><a href="{d['detail_url']}">サービス詳細</a><a href="#contact">個別説明</a></nav></div></header>
 <main>
-<section class="hero" aria-labelledby="hero-title"><div class="hero-photo" style="background-image:url('{photo(d['hero_img'])}')"></div><div class="hero-veil"></div><div class="wrap hero-content"><p class="kicker">{d['code']}</p><h1 id="hero-title">{d['h1']}</h1><p class="lead">{d['hero']}</p><div class="hero-actions"><a class="btn" href="#contact">{d['cta']} <span aria-hidden="true">↗</span></a><a class="text-link" href="#contents">説明の内容を見る ↓</a></div><p class="hero-status"><strong>開催日調整中</strong>　現在は個別説明を受け付けています。</p></div></section>
+<section class="hero" aria-labelledby="hero-title"><div class="hero-photo" style="background-image:url('{photo(d['hero_img'])}')"></div><div class="hero-veil"></div><div class="hero-frame" aria-hidden="true"><span class="frame-corner tl"></span><span class="frame-corner tr"></span><span class="frame-corner bl"></span><span class="frame-corner br"></span><span class="frame-mark mono"><i></i> AI TRAINING / WORK FIRST</span></div><div class="wrap hero-content"><p class="kicker">{d['code']}</p><h1 id="hero-title">{d['h1']}</h1><p class="lead">{d['hero']}</p><div class="hero-actions"><a class="btn" href="#contact">{d['cta']} <span aria-hidden="true">↗</span></a></div><p class="hero-status"><strong>開催日調整中</strong>　現在は個別説明を受け付けています。</p></div></section>
 <div class="facts" aria-label="個別説明で確認する4つのこと"><div class="wrap"><div class="facts-grid">{facts}</div></div></div>
 <section class="section contents" id="contents" aria-labelledby="contents-title"><div class="wrap contents-layout"><div><p class="kicker dark">CONTENTS</p><h2 id="contents-title">{d['contents_title']}</h2><p class="intro">{d['contents_intro']}</p><figure class="photo-card"><img src="{photo(d['contents_img'])}" alt="{escape('仕事の手元を写したイメージ写真' if slug=='ai-kenshu-direct' else '地域の仕事を考えるイメージ写真')}" loading="lazy"><figcaption class="mono">START WITH YOUR WORK</figcaption></figure></div><ol class="content-list">{contents}</ol></div></section>
-<section class="section product" aria-labelledby="product-title"><div class="photo-bg" style="background-image:url('{photo(d['product_img'])}')"></div><div class="photo-veil"></div><div class="wrap"><div class="product-head"><p class="kicker">{d['product_label']}</p><h2 id="product-title">{d['product_title']}</h2><p class="intro">{d['product_intro']}</p></div><div class="flow" aria-label="ご相談から研修までの流れのイメージ">{flow}</div><p class="flow-note">※ この図はご相談の流れを示すイメージです。提供内容・条件は個別に確認します。</p></div></section>
+<section class="section product" aria-labelledby="product-title"><div class="photo-bg" style="background-image:url('{photo(d['product_img'])}')"></div><div class="photo-veil"></div><div class="wrap product-layout"><div class="mock-panel" aria-label="研修設計のイメージ図"><div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="mono">DESIGN PREVIEW</span></div><div class="mock-body"><p class="mock-eyebrow mono">AI TRAINING / PLANNING</p><h3>{d['mock_title']}</h3><p class="mock-sub">個別説明で、貴社に合う進め方を整理します。</p><ol>{mock_steps}</ol><p class="mock-disclaimer">※ 画面は構成イメージです。実際の提供画面ではありません。</p></div></div><div class="product-copy"><p class="kicker">{d['product_label']}</p><h2 id="product-title">{d['product_title']}</h2><p class="intro">{d['product_intro']}</p><div class="flow" aria-label="ご相談から研修までの流れのイメージ">{flow}</div><p class="flow-note">※ 提供内容・条件は個別に確認します。</p></div></div></section>
 <section class="section detail" id="details" aria-labelledby="details-title"><div class="wrap detail-grid"><div><p class="kicker dark">INFORMATION</p><h2 id="details-title">{d['detail_title']}</h2><p class="intro">{d['detail_intro']}</p><a class="text-link" href="{d['detail_url']}">{d['detail_link']} ↗</a></div><div class="info-card"><dl>{details}</dl></div></div></section>
 <section class="section final" id="contact" aria-labelledby="contact-title"><div class="photo-bg" style="background-image:url('{photo(d['final_img'])}')"></div><div class="photo-veil"></div><div class="wrap final-grid"><div><p class="kicker">NEXT STEP</p><h2 id="contact-title">{d['final_title']}</h2><p class="intro">{d['final_intro']}</p></div><div class="action-card"><h3>個別説明のお問い合わせ</h3><p>ライトアップの公式フォームに、次の内容を添えてお知らせください。</p><ul>{request}</ul><a class="btn" href="{CONTACT}" target="_blank" rel="noopener">お問い合わせフォームへ <span aria-hidden="true">↗</span></a><p class="note">フォームは別タブで開きます。公開セミナーの日時・参加費・登壇者は調整中です。</p></div></div></section>
 </main>
