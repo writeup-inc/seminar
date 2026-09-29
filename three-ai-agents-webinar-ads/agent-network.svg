@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none" role="img" aria-label="3つの接点がつながる抽象ネットワーク">
+  <defs>
+    <linearGradient id="plane" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFFFFF" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset=".48" stop-color="#FFFFFF" stop-opacity=".62"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M-90 668 274 390l304 147 317-327 360 196 432-294" stroke="url(#line)" stroke-width="2"/>
+  <path d="m87 136 339 154 184-201 275 360 408-39 257 251" stroke="url(#line)" stroke-width="1.5"/>
+  <path d="M274 390 426 290l152 247 317-327 360 196" stroke="#FFFFFF" stroke-opacity=".24" stroke-width="1"/>
+  <path d="M274 390 578 537 426 290Z" fill="url(#plane)"/>
+  <path d="m578 537 317-327 360 196Z" fill="url(#plane)"/>
+  <path d="m895 210 360 196 38-320Z" fill="url(#plane)"/>
+  <circle cx="274" cy="390" r="8" fill="#FFFFFF" fill-opacity=".8"/>
+  <circle cx="578" cy="537" r="7" fill="#FFFFFF" fill-opacity=".72"/>
+  <circle cx="895" cy="210" r="10" fill="#FFFFFF" fill-opacity=".9"/>
+  <circle cx="1255" cy="406" r="7" fill="#FFFFFF" fill-opacity=".72"/>
+  <circle cx="426" cy="290" r="4" fill="#FFFFFF" fill-opacity=".6"/>
+  <circle cx="1293" cy="86" r="4" fill="#FFFFFF" fill-opacity=".6"/>
+  <circle cx="1387" cy="661" r="4" fill="#FFFFFF" fill-opacity=".6"/>
+</svg>

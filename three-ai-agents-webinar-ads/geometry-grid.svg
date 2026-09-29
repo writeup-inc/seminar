@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" fill="none" role="img" aria-label="抽象的な幾何学模様">
+  <path d="m-60 596 264-201 207 109 229-276 235 112 288-207" stroke="#17345F" stroke-opacity=".42" stroke-width="2"/>
+  <path d="M18 156 272 74l239 321 225-167 221 246 284-123" stroke="#17345F" stroke-opacity=".27" stroke-width="1.5"/>
+  <path d="m204 395 307 0-239-321Z" fill="#17345F" fill-opacity=".045"/>
+  <path d="m511 395 225-167 221 246Z" fill="#17345F" fill-opacity=".055"/>
+  <path d="m736 228 235 112-14 134Z" fill="#17345F" fill-opacity=".04"/>
+  <circle cx="204" cy="395" r="8" fill="#17345F" fill-opacity=".35"/>
+  <circle cx="511" cy="395" r="6" fill="#17345F" fill-opacity=".28"/>
+  <circle cx="736" cy="228" r="8" fill="#17345F" fill-opacity=".36"/>
+  <circle cx="971" cy="340" r="6" fill="#17345F" fill-opacity=".28"/>
+</svg>

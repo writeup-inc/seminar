@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>申込フォームへ移動しています｜3つのAIエージェント ウェビナー</title>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','__NISHIMURA_PIXEL_ID__');
+  fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=__NISHIMURA_PIXEL_ID__&ev=PageView&noscript=1"/></noscript>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "ylb2tajx5l");
+  </script>
+
+  <style>
+    :root{--navy:#17345f;--deep:#0f2547;--orange:#d86c3a}
+    *{box-sizing:border-box}
+    body{display:grid;min-height:100dvh;margin:0;padding:32px 24px;place-items:center;background:var(--navy);color:#fff;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.8;text-align:center}
+    .panel{width:min(100%,420px)}
+    .kicker{margin:0 0 22px;color:rgba(255,255,255,.62);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;font-weight:700;letter-spacing:.14em}
+    h1{margin:0 0 12px;font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.5}
+    .lead{margin:0 0 30px;color:rgba(255,255,255,.72);font-size:13.5px;line-height:1.75}
+    .bar{overflow:hidden;width:100%;height:3px;border-radius:999px;background:rgba(255,255,255,.18)}
+    .bar>i{display:block;width:0;height:100%;background:var(--orange);animation:fill 1.6s linear forwards}
+    @keyframes fill{to{width:100%}}
+    .manual{margin:30px 0 0;color:rgba(255,255,255,.55);font-size:12px}
+    .manual a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:2px}
+    .manual a:hover{border-bottom-color:#fff}
+    @media(prefers-reduced-motion:reduce){.bar>i{width:100%;animation:none}}
+  </style>
+
+  <noscript><meta http-equiv="refresh" content="2;url=https://forms.gle/NEA4sBP818fSEVQZ9"></noscript>
+</head>
+<body>
+  <main class="panel">
+    <p class="kicker">FORM ENTRY</p>
+    <h1>申込フォームへ移動しています</h1>
+    <p class="lead">Googleフォームが開きます。<br>必要事項をご登録ください。</p>
+    <div class="bar" aria-hidden="true"><i></i></div>
+    <p class="manual">画面が切り替わらない場合は<br><a id="manual-link" href="https://forms.gle/NEA4sBP818fSEVQZ9">こちらからフォームを開く</a></p>
+  </main>
+
+  <script>
+    const formUrl='https://forms.gle/NEA4sBP818fSEVQZ9';
+
+    /* コンバージョンイベント（フォーム経由の申込。line と区別できるよう content_name を付ける） */
+    if(typeof fbq==='function') fbq('track','Lead',{content_name:'form'});
+    if(typeof clarity==='function') clarity('event','lead_form');
+
+    /* 遷移まで1.6秒あける（計測タグが発火しきる時間を確保するため）。
+       replace() なので、フォームから戻ったときはこのページではなくLPに戻ります。 */
+    setTimeout(()=>{location.replace(formUrl);},1600);
+  </script>
+</body>
+</html>
